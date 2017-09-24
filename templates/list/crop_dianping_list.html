@@ -1,0 +1,24 @@
+{% for item in crop_dianping %}
+<div class="item_dianping_list_main">
+    <div class="item_dianping_list">
+        <div class="item_dianping_content">
+            <image class="useravatar" src="{{item.UserAvatar}}"></image>
+            <text class="text">{{item.UserName}}</text>
+        </div>
+        <div class="item_dianping_content_right">
+            <div class="sty_rate">{% include 'comm/rate.html' with {'data':item.CommentLevel} %}</div>
+            <text class="dianping_text">{{ item.CommentComment}}</text>
+            <div class="dianping_img">
+                {% for img_item in item.img%}
+                {% if img_item %}
+                <a href="{{url}}files/upload/{{img_item}}" target="_target"><image class="dianping_item_img" src="{{url}}files/upload/{{img_item}}"/></a>
+                {% endif %}
+                {% endfor %}
+            </div>
+            <text class="dianping_text">{{ item.CommentRecordCreateTime}}</text>
+        </div>
+
+    </div>
+    <div class="dianping_line"></div>
+</div>
+{% endfor %}

@@ -1,0 +1,7 @@
+{% for item in crop_brand %}
+<div class="item_brand_list">
+    <image class="brand_avatar" src="{{url}}files/brandImgs/{{item.BrandImg}}" mode="aspectFill"></image>
+    <text class="brand_name">{{ item.BrandName }}</text>
+    <text class="brand_text">{{ item.EnterpriseName}}</text>
+</div>   
+{% endfor %}

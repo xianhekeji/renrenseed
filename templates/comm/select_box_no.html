@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<label class="check_label">{{select_title}}</label> 
+<select class="select"  name="{{select_name}}" id="{{select_name}}">
+    {% for item in arrdata %}
+    <option value="{{item.value}}" >{{item.value}}</option>
+    {% endfor %}
+</select>

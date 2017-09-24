@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    {% include 'header.xhtml' %}
+    <link rel="stylesheet" href="{{url}}css/article.css" />
+    <body>
+        <div class="article_title_div"><text class="article_title">{{data.ArticleTitle}}</text></div>
+        <div class="article_title_text"><text class="">{{data.ArticleCreateTime}}</text></div>
+        <div class="article_conent_content">
+            {% autoescape false %}
+            {{data.ArticleContent}}
+            {% endautoescape %}</div>
+    </body>
+</html>

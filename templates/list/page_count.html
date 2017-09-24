@@ -1,0 +1,17 @@
+<div class="page_list">
+    {% if page != 1 %}
+    <a href="?page={{page-1}}{{param_data}}">上一页</a> <!--显示上一页-->  
+    {% endif %}
+    {% for item in pageBegin..pageEnd %}
+    {% if page==item%}
+    <a href="?page={{item}}{{param_data}}" style="color:#8968CD;margin-left:3px;"><strong>{{item}}</strong></a>  
+    {% elseif page==0 %}
+    {% else %}
+    <a href="?page={{item}}{{param_data}}" style="color:#ABABAB;margin-left:3px;">{{item}}</a>  
+    {%endif%}
+    {% endfor %}
+    {% if page < totalPage %}
+    <a href="?page={{page+1}}{{param_data}}">下一页</a>  
+    {% endif %}
+    共{{totalPage}}页
+</div>

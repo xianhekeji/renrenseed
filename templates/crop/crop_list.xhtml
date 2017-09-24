@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    {% include 'header.xhtml' %}
+    <link href="{{url}}css/cssreset.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url}}css/list_crop.css" />
+    <link rel="stylesheet" href="{{url}}css/croplist.css" />
+    <script type="text/javascript" src="{{url}}js/croplist.js"></script>
+    <link rel="stylesheet" href="{{url}}css/rate.css" type="text/css" />
+    <div class="left_div">
+        <div class="search">
+            <label for="search"></label>
+            <input class="input" type="text" name="search" id="search" value="{{key}}" /><input name="mainSearch" id="mainSearch" class="btn" type="button" value="搜索" />
+        </div>
+        <div class="main_class">
+            <div class="main_content_class">
+                <a href="javascript:gotoUrl('1')">热评</a>
+                <a href="javascript:gotoUrl('2')">推荐</a>
+                <a href="javascript:gotoUrl('3')">最新</a>
+            </div>
+        </div>
+        <div class="top_menu_line"></div>
+        <div class="crop_class">
+            <div class="crop_content_class" >
+                <nobr><text>品种主类</text></nobr>
+                <div class="left_menu_line"></div>
+                <div class="crop_content_item">
+                    {% for item in crop_category_1%}
+                    <a class="class_item"  onclick="resetClass({{item.varietyid}},'{{item.varietyname}}')" href="javascript:void(0)">{{item.varietyname}}</a>
+                    {% endfor %}
+                </div></div>
+        </div>
+        <div class="top_menu_line"></div>
+        <div class="crop_class">
+            <div class="crop_content_class" >
+                <nobr><text>品种种类</text></nobr>
+                <div class="left_menu_line"></div>
+                <div id="crop_class_2" class="crop_content_item">
+                    {% for item in select%}
+                    <a class="class_item"  onclick="setClass2id({{item.varietyid}},'{{item.varietyname}}')" href="javascript:void(0)">{{item.varietyname}}</a>
+                    {% endfor %}
+                </div></div>
+        </div>
+        <!-- 审定年份 -->
+        <div class="top_menu_line"></div>
+        <div class="crop_class">
+            <div class="crop_content_class" >
+                <nobr><text>审定年份</text></nobr>
+                <div class="left_menu_line"></div>
+                <div class="crop_content_item">
+                    <a class="class_item"  onclick="setYear('无')" href="javascript:void(0)">无</a>
+                    {% for item in year%}
+                    <a class="class_item"  onclick="setYear('{{item.AuthorizeYear}}')" href="javascript:void(0)">{{item.AuthorizeYear}}</a>
+                    {% endfor %}
+                </div></div>
+        </div>
+        <div class="top_menu_line"></div>
+        <div class="crop_class">
+            <div class="crop_content_class" >
+                <nobr><text>转基因&nbsp;&nbsp;</text></nobr>
+                <div class="left_menu_line"></div>
+                <div class="crop_content_item">
+                    <a class="class_item"  onclick="setIsGen('无')" href="javascript:void(0)">无</a>
+                    <a class="class_item"  onclick="setIsGen('是转基因')" href="javascript:void(0)">是转基因</a>
+                    <a class="class_item"  onclick="setIsGen('非转基因')" href="javascript:void(0)">非转基因</a>
+                </div></div>
+        </div>
+        <div class="top_menu_line"></div>
+        <!--        <div class="crop_class">
+                    <div class="crop_content_class" >
+                        <nobr><text>关键字</text></nobr>
+                        <div class="left_menu_line"></div>
+                        <div class="crop_content_item">
+                            <text name="text_condition" id="text_condition"></text>
+                        </div></div>
+                </div>-->
+        <div class="top_menu_line" style="margin-left: 50px;"></div>
+        <div class='crop_list'>
+
+            {% if isExceed %}
+            {{ include ('comm/exceed_div.html')}}
+            {% else %}
+            {{ include ('list/crop_list.html')}}
+            {% endif %}
+            {{ include ('list/page_count.html')}}
+        </div>
+    </div>
+    <div class="right_div">
+        <!--        <div class="right_ad"></div>-->
+        <div class="right_dianping">
+            {{ include ('list/dianping_list_crop.html')}}
+        </div>
+    </div>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<div class="div_condition">
+    <div class="div_condition_1">
+        {% include 'comm/select_2_linkage.html' with {'select_title_1':'作物大类','arrdata_1':category_1,'select_title_2':'作物种类','bigname':'bigname','smallname':'smallname'} %}
+    </div>
+    <div class="div_condition_1">
+        {% include 'comm/select_box_no.html' with {'select_name':'select_year','select_title':'审定年份','arrdata':arryear}%}
+        {% include 'comm/select_box_no.html' with {'select_name':'select_isgen','select_title':'转基因','arrdata':arrisgen}%}
+    </div>
+    <div class="div_condition_2">
+        <input name="searchBtn" id="searchBtn" type="button" value="搜索" class="searchBtn" />
+    </div>
+</div>
+<div id="list">
+
+</div>

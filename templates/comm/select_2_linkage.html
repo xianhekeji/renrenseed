@@ -1,0 +1,9 @@
+<label class="check_label">{{select_title_1}}</label> 
+<select class="select" name="{{bigname}}" id="{{bigname}}"> 
+    {% for item in arrdata_1 %}
+    <option value="{{item.id}}" >{{item.value}}</option>
+    {% endfor %}
+</select> 
+<label class="check_label">{{select_title_2}}</label> 
+<select class="select" name="{{smallname}}" id="{{smallname}}"> 
+</select> 

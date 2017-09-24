@@ -1,0 +1,9 @@
+{% for item in articlelist %}
+<div class="item_article_list">
+    <image src="{{comm_url}}{{  item.ArticleCover}}" class="item_article_img"></image>
+    <div class="article_content">
+        <a class="crop_name" href="{{url}}model/article/article.php?id={{item.ArticleId}}">{{item.ArticleTitle}}</a>
+        <text class="time">{{item.ArticleCreateTime}}</text>
+    </div>
+</div>
+{% endfor %}

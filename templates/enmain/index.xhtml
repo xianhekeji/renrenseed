@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    {% include 'header.xhtml' %}
+    <link rel="stylesheet" href="{{url}}css/enmain.css" />
+    <script type="text/javascript" src="{{url}}js/company.js"></script>
+    <div class="main_div">
+        <div class="condition_div">
+            <div class="province_div">
+                <nobr><text class="enmain_text">省份</text></nobr>
+                <div class="province_list">
+                    {% for item in provincelist %}
+                    <a class="province_a" href="javascript:void(0);"  onclick="setArea('{{item.areaname}}')">{{item.areaname}}</a>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="brand_div">
+                <div class="province_div">
+                    <nobr><text class="enmain_text" >品牌</text></nobr>
+                    <div class="brand_content_div">
+                        <div class="py_list">
+                            {% for item in pylist %}
+                            <a class="py_a" name="py_a" id="py_a"  onclick="setbrandlist('{{item}}')" href="javascript:void(0);">{{item}}</a>
+                            {% endfor %}
+                        </div>
+                        <div class="brand_list" id="brand_list">
+                            {{include('enmain/brandlist.html')}}
+                        </div></div>
+                </div>
+            </div>
+        </div>
+        <div class="company_list">
+            {{ include ('list/company_list.html')}}
+            {{ include ('list/page_count.html')}}
+        </div>
+    </div>
+</html>

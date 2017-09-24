@@ -1,0 +1,171 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-7-31, 11:00:41
+    Author     : whisper
+*/
+.left_div .search_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+}
+.left_div .search_div .search_input{
+    height: 40px;
+    width: 450px;
+    border:1px solid #e7e7e7;
+}
+.left_div .search_div .search_btn{
+    height: 45px;
+    width: 100px;
+    border:1px solid #e7e7e7;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    background: #35a1dd;
+}
+.ad_1{
+    width: 300px;
+    height: 200px;
+    border:1px solid #b61d1d;
+    display: none;
+}
+.crop_content_class{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80%;
+    margin-left: 10px;
+    min-height: 50px;
+    border:1px solid #e7e7e7;
+}
+.crop_content_item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+
+}
+.article_line{
+    height: 1px;
+    background: #e7e7e7;
+    margin-top: 10px;
+}
+.changyong{
+    margin-left: 20px;
+}
+.class_item{
+    min-width: 40px;
+    margin-left: 20px;
+    min-height: 40px;
+    line-height: 40px;
+}
+.article_list_content{
+    display: flex;
+    flex-direction: column;
+}
+.article_list .item_article_list{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.article_list .item_article_img{
+    width: 140px;
+    margin-left: 10px;
+    height: 100px;
+}
+.article_content{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.article_list .article_content_text{
+    margin-top: 5px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    max-width: 700px;
+    line-height: 25px;
+    text-decoration:none;
+    color:#000000;
+}
+.article_list{
+    margin-top:30px;
+}
+.time{
+    margin-top:10px;
+}
+.remen .item_article_list{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+}
+.remen .item_article_img{
+    width: 90px;
+    height: 70px;
+}
+.remen .article_content{
+    max-width: 220px;
+    margin-left: 10px;
+}
+.article_title_div{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+.article_title_text{
+    width: 100%;
+    text-align: center;
+    margin-top:20px;
+}
+.article_title{
+    font-size: 25px;
+}
+.article_conent_content{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.right_menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    align-content: center;
+    margin-top: 20px;
+    text-align: center;
+}
+.right_menu_text{
+    color:#1b97da;
+    font-weight: bold;
+}
+.right_menu_line{
+    height: 1px;
+    background: #e9e9e9;
+    min-width: 80px;
+    margin: 10px;
+}
+.search{
+    margin-top: 30px;
+    text-align:center;}
+.input{
+    width:540px;
+    border:1px solid #e7e7e7;
+    height:36px;}
+.btn{
+    border:0;
+    width:100px;
+    height:40px;
+    background:#36F;
+    font-size:15px;
+    color:#fff;}
+.article_title{
+    font-weight: bold;
+    font-size: 16px;
+}

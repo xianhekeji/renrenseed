@@ -1,0 +1,83 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-8-31, 15:43:59
+    Author     : whisper
+*/
+.info_div {
+  display: flex;
+  flex-direction: column;
+  line-height: 30px; }
+
+.comm_menu {
+  height: 35px;
+  line-height: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #b61d1d;
+  padding: 0 10px;
+  background: #f1f1f1;
+  font-size: 14px; }
+
+.info_content {
+  margin-top: 10px; }
+
+.info_item_div {
+  margin-top: 10px; }
+
+table {
+  border: 1px solid #000000; }
+
+table td {
+  border: 1px solid #000000; }
+
+.td_title {
+  width: 100px;
+  color: #0076b5; }
+
+.td_content {
+  min-height: 80px;
+  line-height: 20px; }
+
+.crop_name {
+  margin-left: 10px;
+  color: #b61d1d;
+  margin-top: 10px;
+  font-weight: bold; }
+
+.au_text {
+  margin-left: 10px;
+  color: #000000;
+  margin-top: 10px;
+  font-weight: bold; }
+
+span {
+  margin-left: 10px;
+  min-height: 30px;
+  line-height: 30px; }
+
+.top_line {
+  height: 2px;
+  background: red;
+  margin-top: 100px; }
+
+.auth_left_div {
+  position: absolute;
+  left: 200px;
+  right: 420px;
+  border: 1px solid #e7e7e7;
+  top: 10px; }
+
+.auth_middle_div {
+  position: absolute;
+  display: flex;
+  left: 520px;
+  right: 210px;
+  top: 10px;
+  flex-direction: column; }
+
+/*# sourceMappingURL=auth.css.map */

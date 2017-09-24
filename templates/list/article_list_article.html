@@ -1,0 +1,11 @@
+{% for item in articlelist_this %}
+<div class="article_list_content">
+    <div class="item_article_list">
+        <image src="{{comm_url}}{{  item.ArticleCover}}" class="item_article_img"></image>
+        <div class="article_content">
+            <a class="article_title" href="{{url}}model/article/article.php?id={{item.ArticleId}}">{{item.ArticleTitle}}</a>
+            <a class="article_content_text"  href="{{url}}model/article/article.php?id={{item.ArticleId}}">{{item.ArticleContentHtml}}</a>
+            <text class="time">{{item.ArticleCreateTime}}</text>
+        </div>
+    </div><div class="article_line"></div></div>
+{% endfor %}

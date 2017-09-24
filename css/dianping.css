@@ -1,0 +1,256 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-8-11, 15:11:07
+    Author     : whisper
+*/
+.crop_info {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px; }
+
+.crop_info .crop_img {
+  width: 200px;
+  margin-left: 20px;
+  height: 200px; }
+
+.crop_info .crop_info_content {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column; }
+
+.crop_info .crop_info_content .crop_info_text {
+  margin-top: 10px; }
+
+.crop_info .crop_info_content .crop_info_name {
+  margin-top: 10px;
+  color: #000000;
+  font-weight: bold; }
+
+.comm_menu {
+  height: 50px;
+  line-height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #f5f5ed;
+  padding: 0 10px;
+  background: #f1f1f1;
+  font-size: 18px; }
+
+.crop_dianping {
+  margin-top: 5px; }
+
+.crop_dianping .dianping_content {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  margin-top: 20px; }
+
+.crop_dianping .dianping_content .dafen_1 {
+  margin-left: 20px; }
+
+.crop_dianping .dianping_content .neirong_text {
+  margin-left: 20px; }
+
+.crop_dianping .crop_dianping_content {
+  margin-top: 5px; }
+
+.crop_dianping .crop_dianping_content .item_dianping_list_main {
+  display: flex;
+  flex-direction: column; }
+
+.crop_dianping .crop_dianping_content .item_dianping_list {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px; }
+
+.crop_dianping .crop_dianping_content .dianping_line {
+  width: 100%;
+  height: 1px;
+  margin-top: 20px;
+  background: #e9e9e9; }
+
+.crop_dianping .crop_dianping_content .item_dianping_list .item_dianping_content {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  width: 25%; }
+
+.crop_dianping .crop_dianping_content .item_dianping_list .item_dianping_content_right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  width: 75%; }
+
+.crop_dianping .crop_dianping_content .item_dianping_list .text {
+  margin-left: 20px; }
+
+.crop_dianping .crop_dianping_content .item_dianping_list .dianping_text {
+  margin-top: 20px;
+  margin-left: 10px; }
+
+.crop_dianping .crop_dianping_content .useravatar {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px; }
+
+.fb_dianping {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  height: 40px;
+  line-height: 40px; }
+
+.fb_dianping .dafen {
+  display: flex;
+  flex-direction: row; }
+
+.tianjia {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
+.div_add_img {
+  border: 1px solid #e7e7e7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  height: 200px;
+  margin-left: 10px; }
+
+.dianping_img {
+  display: flex;
+  flex-direction: row; }
+
+.dianping_item_img {
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 100px;
+  height: 100px; }
+
+.div_img {
+  margin-top: 10px; }
+
+.pre_img {
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #e7e7e7; }
+
+.tianjia_btn {
+  margin-left: 20px;
+  border: 0;
+  width: 150px;
+  height: 40px;
+  background: #36F;
+  font-size: 15px;
+  color: #fff; }
+
+.dianping_content_btn {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row-reverse; }
+
+.dianping_btn {
+  margin-right: 20px;
+  border: 0;
+  width: 150px;
+  height: 40px;
+  background: #36F;
+  font-size: 15px;
+  color: #fff; }
+
+.upload {
+  height: 20px;
+  line-height: 20px;
+  position: relative;
+  border: 1px solid #999;
+  text-decoration: none;
+  color: #666;
+  width: 80px;
+  text-align: center;
+  display: block; }
+
+.change {
+  position: absolute;
+  overflow: hidden;
+  width: 80px;
+  right: 0;
+  left: 0;
+  top: 0;
+  opacity: 0; }
+
+.dp_rate {
+  width: 600px;
+  margin: 0px auto;
+  color: #51555c;
+  font-size: 14px;
+  position: relative;
+  padding: 0px 0; }
+
+.dp_rate p {
+  margin: 0;
+  padding: 0;
+  display: inline;
+  height: 40px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 100px;
+  margin-left: 140px; }
+
+.dp_rate p span.s {
+  font-size: 16px;
+  line-height: 36px;
+  float: left;
+  font-weight: bold;
+  color: #DD5400; }
+
+.dp_rate p span.g {
+  font-size: 16px;
+  display: block;
+  float: left;
+  color: #DD5400; }
+
+.dp_big_rate {
+  width: 140px;
+  height: 28px;
+  text-align: left;
+  position: absolute;
+  display: inline-block;
+  background: url(star.gif) left bottom repeat-x; }
+
+.dp_big_rate span {
+  display: inline-block;
+  float: left;
+  width: 28px;
+  height: 28px;
+  position: relative;
+  z-index: 1000;
+  cursor: pointer;
+  overflow: hidden; }
+
+.dp_big_rate_up {
+  width: 140px;
+  height: 28px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(star.gif) left top; }
+
+#dp_my_rate {
+  position: absolute;
+  margin-top: 40px;
+  margin-left: 100px; }
+
+#dp_my_rate span {
+  color: #dd5400;
+  font-weight: bold; }
+
+/*# sourceMappingURL=dianping.css.map */

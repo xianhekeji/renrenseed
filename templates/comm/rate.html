@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<div class="rate">
+    <div class="big_rate">
+        {% for i in 0..4 %}  
+        {% if data<i*2 %}
+            <span rate="2" class="item_rate_2">&nbsp;</span>  
+            {% elseif data==i*2  %}    
+            <span rate="2" class="item_rate_2">&nbsp;</span> 
+            {% elseif data>i*2 and data<i*2+2 %}
+                <span rate="2" class="item_rate_3">&nbsp;</span>  
+                {% elseif data>i*2 and data>=i*2+2 %}
+                <span rate="2" class="item_rate_1">&nbsp;</span>  
+                {% endif %}
+                {% endfor %}  
+                </div>
+                <div id="my_rate"></div>
+                </div>

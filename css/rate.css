@@ -1,0 +1,31 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-7-18, 18:26:32
+    Author     : liguangming <JN XianHe>
+*/
+.rate {
+    margin-left: 10px; }
+
+.item_rate_1 {
+    display: inline-block;
+    width: 20px;
+    height: 19px;
+    background: url(../images/rate_1.png) no-repeat center 0%; }
+
+.item_rate_2 {
+    display: inline-block;
+    width: 20px;
+    height: 19px;
+    background: url(../images/rate_2.png) no-repeat center 0%; }
+
+.item_rate_3 {
+    display: inline-block;
+    width: 20px;
+    height: 19px;
+    background: url(../images/rate_3.png) no-repeat center 0%; }
+
+/*# sourceMappingURL=rate.css.map */

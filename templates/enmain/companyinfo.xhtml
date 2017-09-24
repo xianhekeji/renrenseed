@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+{% include 'header.xhtml' %}
+<link rel="stylesheet" href="{{url}}css/companyinfo.css" />
+<div class="left_div">
+    <div class="company_info">
+        <img class="en_avatar" src="{{url}}wxApi/getEnterpriseAvatar.php?id={{data.EnterpriseId}}"/>
+        <div class="company_info_content">
+            <span class="company_name">{{data.EnterpriseName}}</span>
+            <span class="company_text">{{data.EnterpriseProvince}}&nbsp;{{data.EnterpriseAddressDetail}}</span>
+        </div>
+        <div class="company_img_div">
+            <img class="en_company" src="{{url}}images/gh_gongzhonghao.jpg"/>
+            <text>关注公众号，获取联系电话</text>
+        </div>
+    </div>
+    <div class="company_jianjie">
+        <div class="comm_menu">
+            <text class="menu_text">简介</text>
+        </div>
+        <div class="jianjie_content">
+            {{data.EnterpriseIntroduce}}
+        </div>
+    </div>
+    <div class="company_crop">
+        <div class="comm_menu">
+            <text class="menu_text">经营品种</text>
+            <!--            <a class="menu_text" href="{{url}}model/enmain/allCrop.php?id={{data.EnterpriseId}}">显示全部</a>-->
+        </div>
+        <div class="jianjie_content">
+            <div class="crop_auth_content">
+                {{ include ('list/company_crop_list.html')}}
+                {{ include ('list/page_count.html')}}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="right_div"></div>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    {% include 'header.xhtml' %}
+    <link rel="stylesheet" href="{{url}}css/auth.css" />
+    <div style="width: 100%;text-align: center; margin-top: 50px;"><text class="au_text">审定信息</text></div>
+    <div style="width: 100%;text-align: center;"><text class="au_text">----------------------------------------------------<text></div>
+                <div class="auth_left_div" style="width: 400px;border: none;margin-top: 100px;">
+                    <div class="info_div">
+                        <text class="crop_name">{{audata.AuthorizeNumber}}</text>
+                        <span>品种：<text class="au_text">{{name}}</text></span>
+                        <span>审定年份： <text class="au_text">{{audata.AuthorizeYear}}</text></span>
+                        <span>育种单位：</br><text >{{audata.BreedOrganization}}</text></span>
+                    </div>
+                </div>
+                <div class="auth_middle_div" style="margin-top: 100px;min-height: 700px;">
+                    <table>
+                        <tr height="40">
+                            <td class="td_title" >特征特性</td>
+                            <td class="td_content">{{audata.Features}}</td>
+                        </tr>
+                        <tr height="40">
+                            <td class="td_title">抗性表现</td>
+                            <td class="td_content">{{audata.AuKangxing}}</td>
+                        </tr>
+                        <tr height="40">
+                            <td class="td_title">品质表现</td>
+                            <td class="td_content">{{audata.AuPinzhi}}</td>
+                        </tr>
+                        <tr height="40">
+                            <td class="td_title">实验产量</td>
+                            <td class="td_content">{{audata.Production}}</td>
+                        </tr>
+                        <tr height="40">
+                            <td class="td_title">栽培技术</td>
+                            <td class="td_content">{{audata.BreedSkill}}</td>
+                        </tr>
+                        <tr height="40">
+                            <td class="td_title">适宜地区</td>
+                            <td class="td_content">{{audata.BreedRegion}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <!--    <div class="right_div">
+                
+                    </div>-->
+
+
+
+
+
+
+                </html>

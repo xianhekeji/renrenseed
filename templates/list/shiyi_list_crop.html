@@ -1,0 +1,15 @@
+<div class="s-ctner_div"><a class="a_more" href="{{url}}model/crop/croplist.php?type=4">更多</a></div>
+{% for item in shiyi_select %}
+<div class="item_crop_list">
+    <image src="{{url}}files/cropImgs/{{  (item.img|split(';'))[0] }}" class="item_crop_img"></image>
+    <div class="crop_content">
+        <div class="crop_name_content">
+            <a class="crop_name"  href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}">{{ item.VarietyName }}</a>
+            {% include 'comm/rate.html' with {'data':item.CropLevel} %}</div>
+        <text class="crop_text">{{ item.category_1 }}  {{ item.category_2 }}</text>
+        <text class="crop_text">{{item.IsGen}}</text>
+        <text class="crop_text">育种：{{item.BreedOrganization}}</text>
+
+    </div>
+</div>
+{% endfor %}

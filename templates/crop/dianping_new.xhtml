@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+    {% include 'header.xhtml' %}
+    <link rel="stylesheet" type="text/css" href="{{url}}/css/dianping.css" />
+    <script type="text/javascript" src="{{url}}/js/dianping.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{url}}/css/rate.css" />
+    <div class="left_div">
+        <div class="crop_info">
+            <image class="crop_img" src="{{url}}files/cropImgs/{{cropinfo.img[0]}}"></image>
+            <div class="crop_info_content">
+                <text  name="cropname" class="crop_info_name">{{cropinfo.VarietyName}}</text>
+                <text class="crop_info_text">{{cropinfo.IsGen}}</text>
+                <text class="crop_info_text">育种：{{cropinfo.BreedOrganization}}</text>
+            </div>
+        </div>
+        <div class="crop_dianping">
+            <form id="form_dianping" method = "post" enctype="multipart/form-data" >
+                <div class="comm_menu">
+                    <text>发表评价</text>
+                </div>
+                <div class="fb_dianping">
+                    <div class="dafen"><text>总体评价：</text>    
+                        <div class="dp_rate">
+                            <div class="dp_big_rate">
+                                <span rate="2">&nbsp;</span>
+                                <span rate="4">&nbsp;</span>
+                                <span rate="6">&nbsp;</span>
+                                <span rate="8">&nbsp;</span>
+                                <span rate="10">&nbsp;</span>
+                                <div style="width:45px;" class="dp_big_rate_up"></div>
+                            </div>
+                            <p><span id="s" class="s"></span><input id="g" name="g"  type="hidden"class="g"></p>
+                            <!--                        <div id="dp_my_rate"></div>-->
+                        </div>  
+                    </div>
+                </div>
+                <div class="dianping_content">
+                    <text class="dafen_1">点评内容</text>
+                    <textarea class="neirong_text" name="comment" rows="2" cols="20" id="comment"
+                              style="height: 100px; width: 500px;"></textarea>
+                </div>
+                <div class="dianping_content">
+                    <input class="tianjia_btn" type="button" onclick="add_tupian()" href="javascript:void(0);" value="添加图片">
+                </div>
+                <div id="tianjia" class="tianjia">
+                </div>
+                <div class="dianping_content_btn">
+                    <input name="add" type="button" class="dianping_btn"onclick="submitDianping({{cropinfo.CropId}})" href="javascript:void(0);" value="我要点评" />
+                </div>
+                <div class="crop_dianping">
+                    <div class="comm_menu">
+                        <text>点评</text>
+                    </div>
+                    <div class="crop_dianping_content">
+                        {{ include ('list/crop_dianping_list.html')}}
+                        {{ include ('list/page_count.html')}}
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="right_div"></div>
+</html>

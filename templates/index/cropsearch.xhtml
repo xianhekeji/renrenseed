@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    {% include 'header.xhtml' %}
+    <link rel="stylesheet" href="{{url}}css/cropsearch.css" type="text/css">
+        <script type="text/javascript" src="{{url}}js/cropsearch.js" ></script>
+        <div class="search_left_div">
+            <div class="search_left">
+                <div class="search">
+                    <label for="search"></label>
+                    <input class="input" type="text" name="search" id="search" value="{{key}}" /><input name="mainSearch" id="mainSearch" class="btn" type="button" value="搜索" />
+                </div>
+                <div class="result"> 
+
+                    {% if isExceed %}
+                    {{ include ('comm/exceed_div.html')}}
+                    {% else %}
+                    {{ include ('list/search_result_list.html')}}
+                    {% endif %}
+                    {{ include ('list/page_count.html')}}
+                </div></div>
+        </div>
+
+</html>

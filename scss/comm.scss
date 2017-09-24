@@ -1,0 +1,76 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-7-18, 18:31:00
+    Author     : liguangming <JN XianHe>
+*/
+hr{ height:2px;
+    border:none;
+    border-top:2px double #185598;
+}
+.select{
+
+    min-width: 100px;
+    height: 35px;
+    line-height: 35px;
+}
+.right_ad{
+    width: 300px;
+    border:1px solid #b61d1d;
+    height: 200px;
+}
+.crop_content_dianping{
+    width: 200px;
+}
+.left_div{
+    position: absolute;
+    left: 100px;
+    right:420px;
+    border:1px solid #e7e7e7;
+    top:50px;
+}
+.middle_div {
+    position: absolute;
+    display: flex;
+    left: 320px;
+    right: 410px;
+    top: 50px;
+    flex-direction: column; }
+.right_div{
+    position:absolute;
+    display: flex;
+    right: 100px;
+    width: 300px;
+    top:50px;
+    flex-direction:column;
+}
+.comm_menu{
+    height: 50px;
+}
+.page_list{
+    margin: 20px;
+    text-align: center;
+}
+.exceed_div{
+    margin-top: 20px;
+    line-height: 25px;
+    width: 100%;
+    text-align: center;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.ewm_img{
+    margin-top: 10px;
+    width: 200px;
+    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
+}
+.exceed_text{
+    margin-left: 10px;
+    margin-right: 10px;
+}

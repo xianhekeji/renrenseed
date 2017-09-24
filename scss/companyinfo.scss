@@ -1,0 +1,87 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 2017-8-31, 17:25:08
+    Author     : whisper
+*/
+
+.comm_menu {
+    height: 35px;
+    line-height: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid #f1f1f1;
+    padding: 0 10px;
+    background: #f1f1f1;
+    font-size: 14px; }
+.menu_text{
+    color: #0076b5;
+}
+.company_info{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+}
+.company_info_content{
+    display: flex;
+    flex-direction: column;
+}
+.en_avatar{
+    margin-left: 100px;
+
+}
+.company_text{
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.company_name{
+    margin-left: 10px;
+    margin-top: 10px;
+    color: #0076b5;
+    font-weight: bold;
+}
+
+.company_jianjie{
+    margin-top: 30px;
+    margin-left: 100px;
+}
+.jianjie_content{
+    min-height: 40px;
+    line-height: 20px;
+}
+.company_crop{
+    margin-top: 30px;
+    margin-left: 100px;
+}
+.crop_img{
+    width: 60px;
+    height: 60px;
+    max-height:60px;
+    max-width: 60px;
+}
+.td{
+    min-width: 100px;
+    border-bottom:1px #9E9E9E solid;
+}
+.auth_text{
+    color: #000000;
+}
+.en_avatar{
+    width: 140px;
+    height: 140px;
+}
+.company_img_div{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    width: 160px;
+    align-items: center;
+}
+.en_company{
+    width: 120px;
+    height: 120px;
+}

@@ -1,0 +1,14 @@
+{% for item in result %}
+<div class="item_crop_list">
+    <div class="result_div">
+        <div class="crop_name_content">
+            <a class="result_title"  href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}">{{ item.VarietyName }}{%if item.Memo%}({{item.Memo}}){% endif %}        <text class="result_text">{{ item.category_1 }}  {{ item.category_2 }} {{ item.IsGen }}</text></a>
+            {% include 'comm/rate.html' with {'data':item.CropLevel} %}</div>
+        <div class="content_div">
+            <image src="{{url}}files/cropImgs/{{  (item.img|split(';'))[0] }}" class="item_crop_img"></image>
+            <div class="content">
+                <text class="crop_text">{{item.VarietySource}}</text>
+                <text class="crop_text">{{item.BreedRegion}}</text>
+            </div></div></div>
+</div>
+{% endfor %}

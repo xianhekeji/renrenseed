@@ -1,0 +1,12 @@
+<table class="item_auth_list">
+    {% for item in cropdata %}
+    <tr>
+        <td class="td"><a href="{{url}}/model/crop/cropinfo.php?cropid={{item.CropId}}" style="text-decoration:none"><img class="crop_img" src="{{url}}files/brandImgs/{{item.BrandImg}}"/></a></td>
+        <td class="td"><a href="{{url}}/model/crop/cropinfo.php?cropid={{item.CropId}}" style="text-decoration:none"><text class="auth_text">【{{item.BrandName}}】</text></a></td>
+        <td class="td"><a href="{{url}}/model/crop/cropinfo.php?cropid={{item.CropId}}" style="text-decoration:none"><text class="auth_text">{{ item.category_1 }}</text></a></td>
+        <td class="td"><a href="{{url}}/model/crop/cropinfo.php?cropid={{item.CropId}}" style="text-decoration:none"><text class="auth_text">{{ item.category_2 }}</text></a></td>
+        <td class="td"><a href="{{url}}/model/crop/cropinfo.php?cropid={{item.CropId}}" style="text-decoration:none"><text class="auth_text">{{ item.VarietyName }}</text></a></td>
+        <td class="td"><a href="{{url}}/model/crop/cropinfo.php?cropid={{item.CropId}}" style="text-decoration:none"><text  class="text_arrow">></text></a></td>
+    </tr>
+    {% endfor %}
+</table>
