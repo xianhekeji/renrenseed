@@ -50,11 +50,11 @@ if (!isset($_SESSION['user'])) {
                         $("#variety_icon").empty();
                         $("#variety_img").empty();
                         if (data["variety_icon"].length > 0) {
-                            var icon_url = '<td><a href="https://www.renrenseed.com/files/categoryImgs/' + data["variety_icon"] + '" target="_blank"><img src="https://www.renrenseed.com/files/categoryImgs/' + data["variety_icon"] + '" height="100" width="100" /></a></td>';
+                            var icon_url = '<td><a href="https://www.renrenseed.com/files/cropImgs/' + data["variety_icon"] + '" target="_blank"><img src="https://www.renrenseed.com/files/cropImgs/' + data["variety_icon"] + '" height="100" width="100" /></a></td>';
                             $("#variety_icon").append(icon_url);
                         }
                         if (data["variety_img"].length > 0) {
-                            var img_url = '<td><a href="https://www.renrenseed.com/files/categoryImgs/' + data["variety_img"] + '" target="_blank"><img src="https://www.renrenseed.com/files/categoryImgs/' + data["variety_img"] + '" height="100" width="100" /></a></td>';
+                            var img_url = '<td><a href="https://www.renrenseed.com/files/cropImgs/' + data["variety_img"] + '" target="_blank"><img src="https://www.renrenseed.com/files/cropImgs/' + data["variety_img"] + '" height="100" width="100" /></a></td>';
                             $("#variety_img").append(img_url);
                         }
                     }, 'json');
@@ -116,7 +116,7 @@ if (!isset($_SESSION['user'])) {
 <?php
 require '../../common.php';
 include '../../wxAction.php';
-$path = DT_ROOT . '/files/categoryImgs/';
+$path = DT_ROOT . '/files/cropImgs/';
 if (isset($_POST ["flag_zuofei"])) {
     if (empty($_POST ['variety_2'])) { // 点击提交按钮后才执行
         echo "<script>alert('编码不能为空')</script>";
