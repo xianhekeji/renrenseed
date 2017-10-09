@@ -14,7 +14,7 @@ $checkAddress = $_GET ['checkAddress'];
 $checkRegionPro = $_GET ['checkRegionPro'];
 if ($checkAddress != "全部" && $checkAddress != "") {
     $address_sql = "select * from AppArea WHERE areaname LIKE '%$checkAddress%' and parentid=0 limit 0,1";
-    $arr_address = mysql_fetch_array($address_sql);
+    $arr_address = $db->row($address_sql);
     $address_id = $arr_address ['areaid'];
     $conditionAddress = "and FIND_IN_SET($address_id,a.BreedRegionProvince)";
 }
