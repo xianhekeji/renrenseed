@@ -1,5 +1,7 @@
 <?php
 
+//git test
+echo 'git test';
 /**
  * @filename ceshi.php  
  * @encoding UTF-8  
