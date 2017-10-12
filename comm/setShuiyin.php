@@ -1,7 +1,6 @@
 <?php
 
 /* 给图片加文字水印的方法 */
-
 //echo $dst_path;
 $dst_path = '../files/dp/crop_1505385696_0.jpg';
 $dst = imagecreatefromstring(file_get_contents($dst_path));
@@ -12,11 +11,11 @@ $pic_width = $sizi[0];
 $pic_height = $sizi[1];
 $new_img = resizeImage($dst, 500, 500, '', $sizi[2]);
 $resizeheight_tag = false;
-$x = 120;
+$x = 80;
 $y = 100;
 $font = '../css/SIMYOU.TTF';
 $col = imagecolorallocatealpha($dst, 247, 240, 240, 50);
-$content = '人人种' . PHP_EOL . '品种大全';
+$content = ' 人人种' . PHP_EOL . '品种大全';
 //
 //
 //

@@ -13,15 +13,14 @@ function setShuiyin($dst_path, $save_path, $rename, $new_width, $new_height) {
     $sizi = getimagesize($dst_path);
     $pic_width = $sizi[0];
     $pic_height = $sizi[1];
-    //$new_img = resizeImage($dst, $new_width, $new_height, '', $sizi[2]);
-    $new_img = resizeImage($dst, 500, 500, '', $sizi[2]);
+    $new_img = resizeImage($dst, $new_width, $new_height, '', $sizi[2]);
     $resizeheight_tag = false;
-    $x = 80;
-    $y = 100;
-    $font = DT_ROOT . '/css/SIMYOU.TTF';
-    $col = imagecolorallocatealpha($dst, 247, 240, 240, 50);
-    $content = ' 人人种' . PHP_EOL . '品种大全';
-    imagefttext($new_img, 48, 0, $x, $y, $col, $font, $content);
+    $x = imagesx($new_img) - 100;
+    $y = imagesy($new_img) - 20;
+    $font = DT_ROOT . '/css/simsun.ttc';
+    $black = imagecolorallocate($dst, 0, 0, 255);
+    imagefttext($new_img, 10, 0, 10, 20, $black, $font, mb_convert_encoding('人人种品种大全', "html-entities", "utf-8"));
+    imagefttext($new_img, 10, 0, $x, $y, $black, $font, mb_convert_encoding('人人种品种大全', "html-entities", "utf-8"));
     switch ($sizi[2]) {
         case 1://GIF
             // header("content-type:image/gif");

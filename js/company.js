@@ -11,7 +11,7 @@ function setbrandlist(obj)
 }
 function setArea(obj)
 {
-    window.location.href = funcUrlDel_t("areaname","brand") + '&areaname=' + obj;
+    window.location.href = funcUrlDel_t("areaname", "brand") + '&areaname=' + obj;
 }
 function setBrand(obj)
 {

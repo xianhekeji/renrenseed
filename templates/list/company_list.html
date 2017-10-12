@@ -5,9 +5,9 @@
         <div class="company_content">
             <a class="company_name" href="{{url}}/model/enmain/companyinfo.php?id={{item.EnterpriseId}}">{{item.EnterpriseName}}</a>
             <text class="company_item_text">主营品牌：{% for item_brand in item.brands %}&nbsp;{{item_brand}}{% endfor %} 共{{item.crop_count}}个品种</text> 
-<!--            <text class="company_item_text">电话：{{item.EnterpriseTelephone}}</text>-->
+            <!--            <text class="company_item_text">电话：{{item.EnterpriseTelephone}}</text>-->
             <text class="company_item_text">地址：{{item.EnterpriseProvince}}{{item.EnterpriseAddressDetail}}</text>
-<!--            <text class="company_item_text">活动：</text>-->
+            <!--            <text class="company_item_text">活动：</text>-->
         </div>
     </div><div class="list_line"></div></div>
 {% endfor %}

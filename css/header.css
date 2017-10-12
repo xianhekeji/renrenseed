@@ -8,59 +8,59 @@ and open the template in the editor.
     Author     : liguangming <JN XianHe>
 */
 .top {
-  position: relative;
-  z-index: 99;
-  width: 100%;
-  height: 40px;
-  display: -ms-inline;
-  position: fixed;
-  top: 0;
-  background: #769ab9;
-  filter: alpha(Opacity=80);
-  -moz-opacity: 0.8;
-  opacity: 0.8; }
+    position: relative;
+    z-index: 99;
+    width: 100%;
+    height: 40px;
+    display: -ms-inline;
+    position: fixed;
+    top: 0;
+    background: #769ab9;
+    filter: alpha(Opacity=80);
+    -moz-opacity: 0.8;
+    opacity: 0.8; }
 
 .left {
-  display: -ms-inline;
-  float: left;
-  margin-left: 200px; }
+    display: -ms-inline;
+    float: left;
+    margin-left: 200px; }
 
 .right {
-  float: right;
-  margin-right: 200px; }
+    float: right;
+    margin-right: 200px; }
 
 .top > .title {
-  height: 40px; }
+    height: 40px; }
 
 .top > .title > span {
-  line-height: 40px;
-  float: right; }
+    line-height: 40px;
+    float: right; }
 
 .top > .title > span > a {
-  font-size: 16px;
-  font-family: msyh;
-  text-decoration: underline;
-  color: #ffffff; }
+    font-size: 16px;
+    font-family: msyh;
+    text-decoration: underline;
+    color: #ffffff; }
 
 .top > .title > span > .bold {
-  font-weight: bold; }
+    font-weight: bold; }
 
 .list {
-  border: 0;
-  height: 25px;
-  width: 60px;
-  background: #36F;
-  color: #ffffff; }
+    border: 0;
+    height: 25px;
+    width: 60px;
+    background: #36F;
+    color: #ffffff; }
 
 .loading_div {
-  width: 39px;
-  height: 39px;
-  background: url("../images/loading.gif") repeat 39px 39px;
-  margin: 0 auto;
-  margin-top: 20px; }
+    width: 39px;
+    height: 39px;
+    background: url("../images/loading.gif") repeat 39px 39px;
+    margin: 0 auto;
+    margin-top: 20px; }
 
 #body {
-  padding: 0;
-  margin: 0 auto; }
+    padding: 0;
+    margin: 0 auto; }
 
 /*# sourceMappingURL=header.css.map */

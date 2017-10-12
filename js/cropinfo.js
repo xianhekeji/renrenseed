@@ -6,7 +6,7 @@
 
 function checkLogin(obj)
 {
-    
+
     $.ajax({
         url: "../crop/checkLogin.php",
         type: "post",
@@ -15,7 +15,7 @@ function checkLogin(obj)
         contentType: false,
         success: function (data) {
             if (data > 0) {
-                window.location.href = "https://www.renrenseed.com/model/crop/addDianping.php?id="+obj;
+                window.location.href = "https://www.renrenseed.com/model/crop/addDianping.php?id=" + obj;
             } else
             {
                 alert("请登录后再点评！");

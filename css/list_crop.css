@@ -8,62 +8,62 @@ and open the template in the editor.
     Author     : liguangming <JN XianHe>
 */
 .item_crop_list {
-  display: flex;
-  flex-direction: row;
-  margin-top: 5px; }
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px; }
 
 .item_crop_list.content {
-  display: flex;
-  flex-direction: column; }
+    display: flex;
+    flex-direction: column; }
 
 .item_crop_img {
-  width: 100px;
-  height: 100px; }
+    width: 100px;
+    height: 100px; }
 
 .crop_name {
-  margin-left: 10px;
-  color: #000000;
-  font-weight: bold; }
+    margin-left: 10px;
+    color: #000000;
+    font-weight: bold; }
 
 .crop_name_content {
-  display: flex;
-  flex-direction: row; }
+    display: flex;
+    flex-direction: row; }
 
 .content_text {
-  margin-top: 10px;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 4;
-  overflow: hidden; }
+    margin-top: 10px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden; }
 
 .crop_content {
-  display: flex;
-  flex-direction: column; }
+    display: flex;
+    flex-direction: column; }
 
 .crop_text {
-  margin-top: 10px;
-  color: #7c7c7c;
-  margin-left: 10px;
-  font-size: 14px; }
+    margin-top: 10px;
+    color: #7c7c7c;
+    margin-left: 10px;
+    font-size: 14px; }
 
 .item_dianping_list {
-  background: #ffffff;
-  width: 160px;
-  border: 1px solid #e7e7e7; }
+    background: #ffffff;
+    width: 160px;
+    border: 1px solid #e7e7e7; }
 
 .item_dianping_list_content {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  align-items: center;
-  margin: 20px; }
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    margin: 20px; }
 
 .crop_content_dianping {
-  width: 160px; }
+    width: 160px; }
 
 .dianping_text {
-  margin-left: 10px;
-  margin-right: 10px;
-  color: #2d2d2d; }
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #2d2d2d; }
 
 /*# sourceMappingURL=list_crop.css.map */

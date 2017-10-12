@@ -22,7 +22,7 @@ $data = $db->row("select * from WXArticle where ArticleId=$id");
 //echo $data['ArticleTitle'];
 //DateTime::createFromFormat('m/d/Y H:i',$data['ArticleCreateTime']);
 $date = new DateTime($data['ArticleCreateTime']);
-$data['ArticleCreateTime']=$date->format('Y-m-d');
+$data['ArticleCreateTime'] = $date->format('Y-m-d');
 $data['ArticleContent'] = htmlspecialchars_decode($data['ArticleContent']);
 
 $articledata['data'] = $data;

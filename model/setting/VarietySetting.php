@@ -212,7 +212,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
         foreach ($name_2 as $k => $n) {
             if (!is_file($save_2 [$k]))
                 continue;
-            $rename_2 = 'vategory_img_' . time() ;
+            $rename_2 = 'vategory_img_' . time();
             $ext_2 = pathinfo($n, PATHINFO_EXTENSION);
 
             if (copy($save_2 [$k], $path . $rename_2 . '.' . $ext_2)) {
