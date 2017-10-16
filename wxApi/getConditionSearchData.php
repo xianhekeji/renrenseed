@@ -3,21 +3,25 @@
 require '../common.php';
 include '../wxAction.php';
 $province = $_GET ['province'];
-$pro_sql = "select ProSort,ProName from AppProvince WHERE ProName LIKE '%$province%' limit 0,1";
-$arr_province = $db->row($pro_sql);
-$province_id = $arr_province ['ProSort'];
-$province_name = $arr_province ['ProName'];
-//获取适宜种植地区id
-$conditionAddress = '';
-$conditionRegionPro = '';
 $checkAddress = $_GET ['checkAddress'];
-$checkRegionPro = $_GET ['checkRegionPro'];
+$conditionAddress = '';
 if ($checkAddress != "全部" && $checkAddress != "") {
+    $province = $checkAddress;
     $address_sql = "select * from AppArea WHERE areaname LIKE '%$checkAddress%' and parentid=0 limit 0,1";
     $arr_address = $db->row($address_sql);
     $address_id = $arr_address ['areaid'];
     $conditionAddress = "and FIND_IN_SET($address_id,a.BreedRegionProvince)";
 }
+$pro_sql = "select ProSort,ProName from AppProvince WHERE ProName LIKE '%$province%' limit 0,1";
+$arr_province = $db->row($pro_sql);
+$province_id = $arr_province ['ProSort'];
+$province_name = $arr_province ['ProName'];
+//获取适宜种植地区id
+
+$conditionRegionPro = '';
+
+$checkRegionPro = $_GET ['checkRegionPro'];
+
 //获取适宜种植地区id
 if ($checkRegionPro == "全部" || $checkRegionPro == "") {
     $conditionRegionPro = "";

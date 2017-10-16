@@ -10,6 +10,6 @@
  *  */
 require '../common.php';
 include '../wxAction.php';
-$sql = "select areaid,areaname from AppArea WHERE parentid=0 ;";
+$sql = "select areaid,areaname from AppArea WHERE parentid=0 and areaid not in (32,33,34,6570) ;";
 $result = $db->query($sql);
 echo app_wx_iconv_result_no('getAllProvince', true, 'success', 0, 0, 0, $result);
