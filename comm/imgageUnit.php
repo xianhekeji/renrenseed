@@ -15,7 +15,7 @@ function setShuiyin($dst_path, $save_path, $rename, $new_width, $new_height) {
     $pic_height = $sizi[1];
     //$new_img = resizeImage($dst, $new_width, $new_height, '', $sizi[2]);
     $new_img = resizeImage($dst, 500, 500, '', $sizi[2]);
-    $resizeheight_tag = false;
+
     $x = 80;
     $y = 100;
     $font = DT_ROOT . '/css/SIMYOU.TTF';
@@ -44,6 +44,7 @@ function setShuiyin($dst_path, $save_path, $rename, $new_width, $new_height) {
 }
 
 function resizeImage($im, $maxwidth, $maxheight, $name, $filetype) {
+    $resizeheight_tag = false;
     $pic_width = imagesx($im);
     $pic_height = imagesy($im);
     if (($maxwidth && $pic_width > $maxwidth) || ($maxheight && $pic_height > $maxheight)) {

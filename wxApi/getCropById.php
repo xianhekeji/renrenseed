@@ -45,6 +45,10 @@ if ($shending) {
 if ($dengji) {
     $statu = $statu . '已登记';
 }
+if(!$shending&&!$dengji)
+{
+     $statu = $statu . '未审定登记';
+}
 $row['statu'] = $statu;
 echo app_wx_iconv_result_no('getCropById', true, 'success', 0, 0, 0, $row);
 ?>

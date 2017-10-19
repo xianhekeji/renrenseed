@@ -22,13 +22,13 @@ if (!isset($_SESSION['user'])) {
     <script type="text/javascript">
         $(function () {
             $("#name").autocomplete({
-                source: "../Action/searchDistributor.php",
+                source: "../Action/searchEnterprise.php",
                 minLength: 1,
                 autoFocus: false,
                 select: function (event, ui) {
                     // event 是当前事件对象
                     ss = ui.item.label.split(";");
-                    $.post("../Action/searchDistributorById.php", {"DistributorId": ss[0]}, function (data) {
+                    $.post("../Action/searchEnterpriseById.php", {"EnterpriseId": ss[0]}, function (data) {
                         $("#flag").empty();
                         if (data["DistributorFlag"] == 1)
                         {
@@ -41,17 +41,17 @@ if (!isset($_SESSION['user'])) {
                             $("#flag_qiyong").hide();
                             $("#flag_zuofei").show();
                         }
-                        var c_img = data["DistributorUserAvatar"];
+                        var c_img = data["EnterpriseUserAvatar"];
                         if (c_img !== null && c_img !== "") {
                             $("#crop_img").empty();
                             var imgurl = '<td><a href="https://www.renrenseed.com/files/companyImgs/' + c_img + '" target="_blank"><img src="https://www.seed168.com/mobileinterface/IE/companyImgs/' + c_img + '" height="100" width="100" /></a></td>';
                             $("#crop_img").append(imgurl);
                         }
                         //这里你可以处理获取的数据。我使用是json 格式。你也可以使用其它格式。或者为空，让它自己判断得了  
-                        $("#name").val(data["DistributorId"] + ";" + data["DistributorName"]);
-                        $("#address").val(data["DistributorAddressDetail"]);
-                        $("#star").val(data["DistributorCommentLevel"]);
-                        $("#phone").val(data["DistributorTelephone"]);
+                        $("#name").val(data["EnterpriseId"] + ";" + data["EnterpriseName"]);
+                        $("#address").val(data["EnterpriseAddressDetail"]);
+                        $("#star").val(data["EnterpriseCommentLevel"]);
+                        $("#phone").val(data["EnterpriseTelephone"]);
                         $("#select_province").find("option[text='" + data["province"] + "']").attr("selected", true);
                         get_select_city_check(data["city"], data["zone"]);
                         $("#select_city").find("option[text='" + str + "']").attr("selected", true);
@@ -130,10 +130,10 @@ if (!isset($_SESSION['user'])) {
         }
     </script>
     <head>
-        <title>经销商维护</title>
+        <title>企业维护</title>
     </head>
     <body>
-        <form action="DistributorSetting.php" method="post"
+        <form action="EnterpriseSetting.php" method="post"
               enctype='multipart/form-data'
               onkeydown="if (event.keyCode == 13)
                           return false;">
@@ -209,7 +209,7 @@ if (isset($_POST ["flag_qiyong"])) {
     }
     $arr_id = explode(';', $_POST ['name']);
     $id = $arr_id [0];
-    $sql = "update AppDistributor SET DistributorFlag=0 WHERE DistributorId=$id";
+    $sql = "update AppEnterprise SET EnterpriseFlag=0 WHERE EnterpriseId=$id";
     $update = $db->query($sql);
     echo "<script>alert(" . $update . ")</script>";
 }
@@ -220,7 +220,7 @@ if (isset($_POST ["flag_zuofei"])) {
     }
     $arr_id = explode(';', $_POST ['name']);
     $id = $arr_id [0];
-    $sql = "update AppDistributor SET DistributorFlag=1 WHERE DistributorId=$id";
+    $sql = "update AppEnterprise SET EnterpriseFlag=1 WHERE EnterpriseId=$id";
     $update = $db->query($sql);
     echo "<script>alert(" . $update . ")</script>";
 }
@@ -257,7 +257,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
         foreach ($name as $k => $n) {
             if (!is_file($save [$k]))
                 continue;
-            $rename = 'distributor_' . time() . '_' . $i;
+            $rename = 'enterprise_' . time() . '_' . $i;
             $ext = pathinfo($n, PATHINFO_EXTENSION);
 
             if (copy($save [$k], $path . $rename . '.' . $ext)) {
@@ -270,22 +270,25 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
             if (isset($_POST ["modify"])) {
                 $arr_id = explode(';', $_POST ['name']);
                 $id = $arr_id [0];
-                $updatecondition = "DistributorAddressDetail ='$dis_address',DistributorCommentLevel='$dis_star',DistributorTelephone='$dis_phone',DistributorUserAvatar='$insert',DistributorIntroduce='$dis_introduce',DistributorLat='$dis_lat',DistributorLon='$dis_lon'";
+                $updatecondition = "EnterpriseAddressDetail ='$dis_address',EnterpriseCommentLevel='$dis_star',EnterpriseTelephone='$dis_phone',EnterpriseUserAvatar='$insert',EnterpriseIntroduce='$dis_introduce',EnterpriseLat='$dis_lat',EnterpriseLon='$dis_lon'";
                 if (!empty($dis_province)) {
-                    $updatecondition = $updatecondition . ",DistributorProvince='$dis_province'";
+                    $updatecondition = $updatecondition . ",EnterpriseProvince='$dis_province'";
                 }
                 if (!empty($dis_city)) {
-                    $updatecondition = $updatecondition . ",DistributorCity='$dis_city'";
+                    $updatecondition = $updatecondition . ",EnterpriseCity='$dis_city'";
                 }
                 if (!empty($dis_zone)) {
-                    $updatecondition = $updatecondition . ",DistributorZone='$dis_zone'";
+                    $updatecondition = $updatecondition . ",EnterpriseZone='$dis_zone'";
                 }
-                $sql = "update AppDistributor set $updatecondition where DistributorId='$id'";
+                $sql = "update AppEnterprise set $updatecondition where EnterpriseId='$id'";
+
                 $update = $db->query($sql);
+
                 echo "<script>alert(" . $update . ")</script>";
             } else if (isset($_POST ["add"])) {
                 $dis_name = $_POST ['name'];
-                $sql = "insert into AppDistributor values(NULL,'$dis_name','DistributorTrademark','DistributorLevel','$dis_phone','0','$dis_introduce','$dis_province','$dis_city','$dis_zone','$dis_address','$dis_lat','$dis_lon','DistributorBusinessLicense','DistributorTrueName','DistributorUserName','DistributorPassword','$insert','$dis_star')";
+                $sql = "insert into AppEnterprise values(NULL,'$dis_name','DistributorTrademark','DistributorLevel','$dis_phone','0','$dis_introduce','$dis_province','$dis_city','$dis_zone','$dis_address','$dis_lat','$dis_lon','EnterpriseUserCode','EnterprisePassword','$insert','$dis_star')";
+
                 $result_add = $db->query($sql);
                 $result_id = $db->lastInsertId();
                 echo "<script>alert(" . $result_id . ")</script>";
@@ -295,22 +298,24 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
         if (isset($_POST ["modify"])) {
             $arr_id = explode(';', $_POST ['name']);
             $id = $arr_id [0];
-            $updatecondition = "DistributorAddressDetail ='$dis_address',DistributorCommentLevel='$dis_star',DistributorTelephone='$dis_phone',DistributorIntroduce='$dis_introduce',DistributorLat='$dis_lat',DistributorLon='$dis_lon'";
+            $updatecondition = "EnterpriseAddressDetail ='$dis_address',EnterpriseCommentLevel='$dis_star',EnterpriseTelephone='$dis_phone',EnterpriseIntroduce='$dis_introduce',EnterpriseLat='$dis_lat',EnterpriseLon='$dis_lon'";
             if (!empty($dis_province)) {
-                $updatecondition = $updatecondition . ",DistributorProvince='$dis_province'";
+                $updatecondition = $updatecondition . ",EnterpriseProvince='$dis_province'";
             }
             if (!empty($dis_city)) {
-                $updatecondition = $updatecondition . ",DistributorCity='$dis_city'";
+                $updatecondition = $updatecondition . ",EnterpriseCity='$dis_city'";
             }
             if (!empty($dis_zone)) {
-                $updatecondition = $updatecondition . ",DistributorZone='$dis_zone'";
+                $updatecondition = $updatecondition . ",EnterpriseZone='$dis_zone'";
             }
-            $sql = "update AppDistributor set $updatecondition where DistributorId='$id'";
+            $sql = "update AppEnterprise set $updatecondition where EnterpriseId='$id'";
+
             $update = $db->query($sql);
             echo "<script>alert(" . $update . ")</script>";
         } else if (isset($_POST ["add"])) {
             $dis_name = $_POST ['name'];
-            $sql = "insert into AppDistributor values(NULL,'$dis_name','DistributorTrademark','DistributorLevel','$dis_phone','0','$dis_introduce','$dis_province','$dis_city','$dis_zone','$dis_address','$dis_lat','$dis_lon','DistributorBusinessLicense','DistributorTrueName','DistributorUserName','DistributorPassword','','$dis_star')";
+            $sql = "insert into AppEnterprise values(NULL,'$dis_name','DistributorTrademark','DistributorLevel','$dis_phone','0','$dis_introduce','$dis_province','$dis_city','$dis_zone','$dis_address','$dis_lat','$dis_lon','EnterpriseUserCode','EnterprisePassword','','$dis_star')";
+
             $result_add = $db->query($sql);
             $result_id = $db->lastInsertId();
             echo "<script>alert(" . $result_id . ")</script>";

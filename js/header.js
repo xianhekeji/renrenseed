@@ -6,6 +6,9 @@
 function login()
 {
     var url = location.href;
+    if (url == "http://www.seed168.com/"||url == "https://www.seed168.com/") {
+        url = "https://www.renrenseed.com/";
+    }
     url_new = url.replace("#", '');
 //    alert(funcUrlDel);
     var obj = new WxLogin({
