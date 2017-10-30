@@ -276,7 +276,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
     $au_organization = $_POST ['au_organization'];
     $app_Variety_1 = $_POST ['select_1'];
     $app_Variety_2 = $_POST ['select_2'];
-    $cropName = $_POST ['cropname'];
+    $cropName = trim ($_POST ['cropname']);
     $IsGen = $_POST ['class'];
     $images = isset($_FILES ["myfile"]) ? $_FILES ["myfile"] : '';
     $site = isset($_REQUEST ['site']) ? $_REQUEST ['site'] : '';
@@ -334,7 +334,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
                     $message = "已存在";
                     echo "<script>alert('" . $message . "')</script>";
                 } else {
-                    $sql = "insert into WXCrop VALUES (null,'$app_Variety_1','$app_Variety_2','$cropName','$insert','$IsGen','0','$au_min','$au_max','$au_region','$au_memo','$au_organization','$au_level','0','$insert_min')";
+                    $sql = "insert into WXCrop VALUES (null,'$app_Variety_1','$app_Variety_2','$cropName','$insert','$IsGen','0','$au_min','$au_max','$au_region','$au_memo','$au_organization','$au_level','0','$insert_min',0)";
 //                    $result_add = mysql_query($sql);
 //                    $result_id = mysql_insert_id();
                     $result_add = $db->query($sql);
@@ -361,7 +361,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
                 $message = "已存在";
                 echo "<script>alert('" . $message . "')</script>";
             } else {
-                $sql = "insert into WXCrop VALUES (null,'$app_Variety_1','$app_Variety_2','$cropName','','$IsGen','0','$au_min','$au_max','$au_region','$au_memo','$au_organization','$au_level','0','')";
+                $sql = "insert into WXCrop VALUES (null,'$app_Variety_1','$app_Variety_2','$cropName','','$IsGen','0','$au_min','$au_max','$au_region','$au_memo','$au_organization','$au_level','0','',0)";
                 $result_add = $db->query($sql);
                 $result_id = $db->lastInsertId();
                 echo "<script>alert(" . $result_id . ")</script>";

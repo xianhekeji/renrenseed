@@ -306,6 +306,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
 //        $result_add = mysql_query($sql);
 //        $result_id = mysql_insert_id();
         $result_add = $db->query($sql);
+        updateCropStatus($db, $crop_id);
         $result_id = $db->lastInsertId();
 
         echo "<script>alert(" . $result_id . ")</script>";
@@ -316,11 +317,39 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
 Production='$au_pro',BreedRegion='$au_region',BreedSkill='$au_skill',BreedRegionProvince='$au_province_id',AuthorizeUnit='$au_unit',AuCropId='$crop_id',AuCropName='$crop_name',
 AuthorizeProvince='$au_province_name',AuKangxing='$au_kangxing',AuPinzhi='$au_pinzhi',FlagReason='$au_tuichu',AuthorizeStatus=$select_status  
 where AuthorizeId='$number_id'";
-//
-//        $result_id = $db->lastInsertId();
-//        $result_update = mysql_query($sql_update);
         $update = $db->query($sql_update);
+        updateCropStatus($db, $crop_id);
         echo "<script>alert(" . $update . ")</script>";
     }
+}
+
+function updateCropStatus($db, $cropid) {
+    $sql_more = "select DISTINCT(AuthorizeStatus) AuthorizeStatus from WXAuthorize where AuCropId=$cropid";
+    $result_more = $db->query($sql_more);
+    $array = array();
+    $shending = false;
+    $dengji = false;
+    foreach ($result_more as $rows) {
+        // 可以直接把读取到的数据赋值给数组或者通过字段名的形式赋值也可以
+        if ($rows['AuthorizeStatus'] == 1 || $rows['AuthorizeStatus'] == 2) {
+            $shending = true;
+        }
+        if ($rows['AuthorizeStatus'] == 3) {
+            $dengji = true;
+        }
+    }
+    $statu = '';
+    if ($shending) {
+        $statu = '1';
+    }
+    if ($dengji) {
+        // $statu = $statu . '已登记';
+        $statu = '2';
+    }
+    if (!$shending && !$dengji) {
+        $statu = '0';
+    }
+    $sql_update = "update WXCrop set CropStatus='$statu' where CropId='$cropid'";
+    $update = $db->query($sql_update);
 }
 ?>

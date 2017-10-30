@@ -30,7 +30,7 @@ if (!isset($_SESSION['user'])) {
                     ss = ui.item.label.split(";");
                     $.post("../Action/searchEnterpriseById.php", {"EnterpriseId": ss[0]}, function (data) {
                         $("#flag").empty();
-                        if (data["DistributorFlag"] == 1)
+                        if (data["EnterpriseFlag"] == 1)
                         {
                             $("#flag").append("<text>已作废</text>");
                             $("#flag_qiyong").show();
@@ -235,7 +235,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
     $dis_phone = isset($_POST ['phone']) ? $_POST ['phone'] : '';
     $dis_lat = isset($_POST ['lat']) ? $_POST ['lat'] : '0';
     $dis_lon = isset($_POST ['lon']) ? $_POST ['lon'] : '0';
-    $dis_introduce = isset($_POST ['introduce ']) ? $_POST ['introduce '] : '';
+    $dis_introduce = isset($_POST ["introduce"]) ? $_POST ["introduce"] : '';
 
     $name = array();
     $save = array();
