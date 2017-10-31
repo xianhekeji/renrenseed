@@ -1,47 +1,30 @@
-<!DOCTYPE html>
-<head>
-    <title>人人种</title>
-    <meta name="baidu-site-verification" content="tBjldvuEm5" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{url}}css/header.css" type="text/css" />
-    <link rel="stylesheet" href="{{url}}css/comm.css" type="text/css" />
-    <script type="text/javascript" src="{{url}}js/jquery-3.2.1.min.js"></script>
-    <script src="https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
-    <script type="text/javascript" src="{{url}}js/header.js"></script>
-    <link rel="Stylesheet" type="text/css" href="{{url}}css/loginDialog.css" />
-</head>
-<body >
-    <div id="LoginBox">
-        <div class="row1">
-            <a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
-        </div>
-        <!--        <div class="login_title"><text >扫描二维码登录</br>人人种品种大全</text></div>-->
-        <div id="login_container" class="login_container"></div>
+<div id="LoginBox">
+    <div class="row1">
+        <a href="javascript:void(0)" title="关闭窗口" class="close_btn" id="closeBtn">×</a>
     </div>
-    <div class="top">
-        <div class="title left">
-            <span>
-                <a class="bold" href="{{url}}">主页</a>
-                <a class="bold" href="{{url}}model/crop/CropMain.php">品种</a>
-                <a class="bold" href="{{url}}model/article/index.php?">文章</a>
-                <a class="bold" href="{{url}}model/enmain/enmain.php?">企商</a>
-            </span>
-        </div>
-        <div class="title right">
-            <span>
-                {% if islogin %}
-                <a >{{localuser.UserName}}</a>&nbsp;
-                <a href="{{url}}comm/wxlogout.php" >退出</a>&nbsp;
-                {% else %}
-                <a  id="example" onclick="login()">登录</a>&nbsp;
-                {% endif %}
-
-                <!--                <a >{{province}}</a>&nbsp;-->
-                <!--            <input class="list" type="submit" value="更多产品" name="submit" />&nbsp;-->
-            </span>
-        </div>
+    <!--        <div class="login_title"><text >扫描二维码登录</br>人人种品种大全</text></div>-->
+    <div id="login_container" class="login_container"></div>
+</div>
+<div class="top">
+    <div class="title left">
+        <span>
+            <a class="bold" href="{{url}}">主页</a>
+            <a class="bold" href="{{url}}model/crop/CropMain.php">品种</a>
+            <a class="bold" href="{{url}}model/article/index.php?">文章</a>
+            <a class="bold" href="{{url}}model/enmain/enmain.php?">企商</a>
+        </span>
     </div>
+    <div class="title right">
+        <span>
+            {% if islogin %}
+            <a >{{localuser.UserName}}</a>&nbsp;
+            <a href="{{url}}comm/wxlogout.php" >退出</a>&nbsp;
+            {% else %}
+            <a  id="example" onclick="login()">登录</a>&nbsp;
+            {% endif %}
 
-</body>
+            <!--                <a >{{province}}</a>&nbsp;-->
+            <!--            <input class="list" type="submit" value="更多产品" name="submit" />&nbsp;-->
+        </span>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset>
+    <!-- urlset用来标记整个文档的开头 -->
+    <url>
+        <!-- url标记每条信息的开始和结束 -->
+        <loc>https://www.renrenseed.com</loc>
+        <!-- 该条数据的存放地址 -->
+        <lastmod>2017-10-30</lastmod>
+        <!-- 指该条数据的最新一次更新时间 -->
+        <changefreq>monthly</changefreq>
+        <!-- 指该条数据的更新频率 -->
+        <priority>1.0</priority>
+        <!-- 用来指定此链接相对于其他链接的优先权比值，此值定于0.0-1.0之间 -->
+        <data>
+            <display>
+                <name>人人种品种大全</name>
+                <!-- 软件名 -->
+                <inLanguage>简体中文</inLanguage>
+                <!-- 软件的界面语言，如简体中文，繁体中文，英文/英语/English，多语言 -->
+                <license>免费软件</license>
+                <!-- 免费/收费/试用/共享版/自由版/绿化版 等授权类型 -->
+                <dateModified>2017-10-30</dateModified>
+                <!-- 软件的最后修改时间，非页面更新时间 -->
+                <provider>人人种品种大全</provider>
+                <!-- 软件所在的站点或站点频道名称 -->
+                <alias>人人种</alias>
+                <!-- 软件别名，部分软件可能会没有 -->
+                <softwareVersion>正式版</softwareVersion>
+                <!-- 该软件包的具体版本，如：官方版/正式版/专业版/测试版 等版本类型 -->
+                <description>农作物品种查询平台</description>
+                <!-- 对软件的描述/简介 -->
+                <downloadUrl>www.renrenseed.com</downloadUrl>
+                <!-- 提供软件下载的链接 -->
+                <author>济南先禾信息技术有限公司</author>
+                <!-- 软件开发者 -->
+            </display>
+        </data>
+    </url>
+</urlset>

@@ -1,16 +1,18 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    {% include 'header.xhtml' %}
-    <link rel="stylesheet" href="css/index.css" type="text/css">
+{# /templates/index.html #}
+{% extends "base.xhtml" %}
+{% block title %}人人种品种大全{% endblock %}
+{% block meta %}
+<meta name="description" content="人人种,人人种品种大全,www.renrenseed.com,renrenseed,品种查询,品种点评,查询,点评"  />   
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="css/index.css" type="text/css">
     <link rel="stylesheet" href="css/rate.css" type="text/css" />
     <link rel="stylesheet" href="css/list_crop.css" type="text/css" />
+    {% endblock %}
+    {% block js %}
     <script type="text/javascript" src="js/index.js"></script>
-
+    {% endblock %}
+    {% block main %}
     <body style="background:url('{{url}}images/index_background.jpg') repeat fixed; width:100%;height:100%;margin: 0;">
         <div class="body_center">
             <div>
@@ -54,7 +56,6 @@ and open the template in the editor.
 
             </div>
         </div>
-        {% include 'bottom.xhtml' %}
     </body>
     <!--右侧悬浮菜单-->
     <div class="slide">
@@ -87,7 +88,5 @@ and open the template in the editor.
         </ul>
     </div>
     <div id="btn" class="index_cy"></div>
-</html>
-
-
+    {% endblock %}
 

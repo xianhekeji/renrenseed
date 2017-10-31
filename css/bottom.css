@@ -9,29 +9,33 @@ and open the template in the editor.
     Author     : liguangming <JN XianHe>
 */
 .foot {
-    width: 100%;
-    position: static;
-    margin-top: 50px;
-    text-align: center;
-    color: #ffffff;
-    bottom: 200px; }
+  width: 100%;
+  position: static;
+  margin-top: 120px;
+  text-align: center;
+  color: #ffffff;
+  background: #769ab9;
+  filter: alpha(Opacity=80);
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+  /*    bottom:200px;*/ }
 
 .foot > .link {
-    text-align: center;
-    margin-bottom: 10px; }
+  text-align: center;
+  margin-bottom: 10px; }
 
 .foot > .link > a {
-    font-size: 12px;
-    font-family: "宋体";
-    color: #ffffff;
-    text-decoration: underline; }
+  font-size: 12px;
+  font-family: "宋体";
+  color: #ffffff;
+  text-decoration: underline; }
 
 .copyright {
-    text-align: center; }
+  text-align: center; }
 
 p, p > a {
-    font-size: 12px;
-    font-family: "宋体";
-    color: #ffffff; }
+  font-size: 12px;
+  font-family: "宋体";
+  color: #ffffff; }
 
 /*# sourceMappingURL=bottom.css.map */

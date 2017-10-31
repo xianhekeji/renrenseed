@@ -303,8 +303,6 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
         $sql = "insert into WXAuthorize VALUES
 	(null,'$au_number','$au_year','$au_org','breedid','$au_source','$au_featrue','$au_pro','$au_region','$au_skill','ownership'
 						,'$select_status','$au_province_id','$au_unit','$crop_id','$crop_name','0','$au_province_name','0','$au_kangxing','$au_pinzhi','$au_tuichu')";
-//        $result_add = mysql_query($sql);
-//        $result_id = mysql_insert_id();
         $result_add = $db->query($sql);
         updateCropStatus($db, $crop_id);
         $result_id = $db->lastInsertId();

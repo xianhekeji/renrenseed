@@ -6,11 +6,12 @@ $province = $_GET['province'];
 $PageNo = $_GET ['searchPageNum'];
 $PageStart = $PageNo * 20;
 $sql = "select a.EnterpriseId,REPLACE(REPLACE(a.EnterpriseName,CONCAT(CHAR(13),'') , ''),CHAR(10),'') EnterpriseName,
-    a.EnterpriseLevel,a.EnterpriseTelephone,a.EnterpriseProvince,
+    a.EnterpriseLevel,a.EnterpriseTelephone,b.areaname EnterpriseProvince,
     REPLACE(REPLACE(a.EnterpriseAddressDetail,CONCAT(CHAR(13),CHAR(10)) , ''),CHAR(10),'')  EnterpriseAddressDetail,
 case when (EnterpriseUserAvatar is null  or EnterpriseUserAvatar='') then 'default_distirbutor.png' else EnterpriseUserAvatar end img, EnterpriseCommentLevel CropLevel
 from AppEnterprise a
-where EnterpriseFlag=0 and a.EnterpriseProvince like '%$province%'
+left join AppArea b on a.EnterpriseProvince=b.areaid
+where EnterpriseFlag=0 and b.areaname like '%$province%'
 limit $PageStart,20";
 $result = $db->query($sql);
 //$array = array();

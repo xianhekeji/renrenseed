@@ -52,6 +52,7 @@ if (!isset($_SESSION['user'])) {
                         $("#address").val(data["EnterpriseAddressDetail"]);
                         $("#star").val(data["EnterpriseCommentLevel"]);
                         $("#phone").val(data["EnterpriseTelephone"]);
+                        $("#introduce").val(data["EnterpriseIntroduce"]);
                         $("#select_province").find("option[text='" + data["province"] + "']").attr("selected", true);
                         get_select_city_check(data["city"], data["zone"]);
                         $("#select_city").find("option[text='" + str + "']").attr("selected", true);

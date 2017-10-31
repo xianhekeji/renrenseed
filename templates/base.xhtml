@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}人人种品种大全{% endblock %} </title>
+        <meta name="baidu-site-verification" content="muvkorLZ6c" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block meta %}人人种品种大全{% endblock %}
+        <link rel="Stylesheet" type="text/css" href="{{url}}css/base.css" />
+        <link rel="stylesheet" href="{{url}}css/header.css" type="text/css" />
+        <link rel="stylesheet" href="{{url}}css/comm.css" type="text/css" />
+        <link rel="Stylesheet" type="text/css" href="{{url}}css/loginDialog.css" />
+        {% block css %}人人种品种大全{% endblock %}
+        <script type="text/javascript" src="{{url}}js/jquery-3.2.1.min.js"></script>
+        <script src="https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+        <script type="text/javascript" src="{{url}}js/header.js"></script>
+        {% block js %}人人种品种大全{% endblock %}
+    </head>
+    <body>
+        <div id="header">
+            {% include 'header.xhtml' %}
+        </div>
+        <div id="main">
+            {% block main %}Hello {{name}}{% endblock %}
+            <!--            <div id="leftsider">
+                            {% block leftsider %}
+                            <span>系统模块1</span>
+                            <span>系统模块2</span>
+                            {% endblock %}
+                        </div>-->
+            <!--            <div id="rightsider">
+                            {% block rightsider %}Hello {{name}}{% endblock %}
+                        </div>-->
+        </div>
+        <div class="clear"></div>
+        <div id="footer">
+            {% block footer %}{% include 'bottom.xhtml' %}{% endblock %}
+        </div>
+    </body>
+</html>
