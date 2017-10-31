@@ -26,18 +26,24 @@ hr{ height:2px;
     width: 200px;
 }
 .left_div{
-    position: absolute;
+    /*    position: absolute;*/
     left: 100px;
     right:420px;
+    margin-left: 100px;
+    margin-right: 420px;
     border:1px solid #e7e7e7;
     top:50px;
 }
+
 .middle_div {
-    position: absolute;
+    /*    position: absolute;*/
     display: flex;
     left: 320px;
     right: 410px;
+    margin-left: 320px;
+    margin-right: 410px;
     top: 50px;
+    margin-top: 60px;
     flex-direction: column; }
 .right_div{
     position:absolute;
@@ -45,6 +51,7 @@ hr{ height:2px;
     right: 100px;
     width: 300px;
     top:50px;
+    margin-top: 50px;
     flex-direction:column;
 }
 .comm_menu{

@@ -10,146 +10,147 @@ and open the template in the editor.
 */
 /* CSS Document */
 nav {
-    position: absolute;
-    left: 100px;
-    top: 50px;
-    border: 1px solid #0076b5; }
+  position: absolute;
+  left: 100px;
+  top: 50px;
+  margin-top: 50px;
+  border: 1px solid #0076b5; }
 
-/*鍏ㄩ儴鍟嗗搧鍒嗙被*/
+/*全部商品分类*/
 .all {
-    width: 190px;
-    height: 44px;
-    line-height: 44px;
-    background: #0076b5;
-    padding: 0 10px; }
+  width: 190px;
+  height: 44px;
+  line-height: 44px;
+  background: #0076b5;
+  padding: 0 10px; }
 
 .all a {
-    color: white;
-    font-size: 16px; }
+  color: white;
+  font-size: 16px; }
 
-/*瀵艰埅鑿滃崟*/
+/*导航菜单*/
 .nav_item {
-    width: 190px;
-    height: 31px;
-    line-height: 31px;
-    color: white;
-    background: #008bd6;
-    padding: 0 10px; }
+  width: 190px;
+  height: 31px;
+  line-height: 31px;
+  color: white;
+  background: #008bd6;
+  padding: 0 10px; }
 
 ul li a {
-    color: white; }
+  color: white; }
 
 .jt {
-    color: white;
-    float: right;
-    width: 12px;
-    padding-top: 10px;
-    font: 13px consolas; }
+  color: white;
+  float: right;
+  width: 12px;
+  padding-top: 10px;
+  font: 13px consolas; }
 
 /*hover*/
 ul li:hover {
-    background: white; }
+  background: white; }
 
 ul li:hover a {
-    color: #0076b5; }
+  color: #0076b5; }
 
 /*submenu*/
 .sub_menu {
-    display: none;
-    /*    width:790px;*/
-    min-height: 200px;
-    width: 640px;
-    position: absolute;
-    left: 210px;
-    top: 44px;
-    z-index: 1;
-    background: #f7f7f7; }
+  display: none;
+  /*    width:790px;*/
+  min-height: 200px;
+  width: 640px;
+  position: absolute;
+  left: 210px;
+  top: 44px;
+  z-index: 1;
+  background: #f7f7f7; }
 
 ul li:hover .sub_menu {
-    display: block; }
+  display: block; }
 
 .leftmenu {
-    width: 550px;
-    overflow: hidden;
-    float: left; }
+  width: 550px;
+  overflow: hidden;
+  float: left; }
 
 .leftmenu dl {
-    overflow: hidden;
-    display: block;
-    margin: 20px 0; }
+  overflow: hidden;
+  display: block;
+  margin: 20px 0; }
 
 .leftmenu dl dt {
-    float: left;
-    font-weight: bold;
-    color: #737373;
-    padding: 0 8px; }
+  float: left;
+  font-weight: bold;
+  color: #737373;
+  padding: 0 8px; }
 
 .leftmenu dl dd a {
-    color: #737373;
-    float: left;
-    height: 20px;
-    line-height: 20px;
-    padding: 0 10px;
-    border-left: 1px solid #e0e0e0;
-    font-size: 12px;
-    margin-top: 5px; }
+  color: #737373;
+  float: left;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 10px;
+  border-left: 1px solid #e0e0e0;
+  font-size: 12px;
+  margin-top: 5px; }
 
 .rightmenu {
-    float: right; }
+  float: right; }
 
 .rightmenu dl {
-    margin-top: 20px;
-    display: none; }
+  margin-top: 20px;
+  display: none; }
 
 .rightmenu dl dd {
-    padding: 0;
-    margin-bottom: 2px;
-    display: none; }
+  padding: 0;
+  margin-bottom: 2px;
+  display: none; }
 
 .classmenu {
-    width: 100%;
-    overflow: hidden;
-    float: left;
-    background: #ffffff; }
+  width: 100%;
+  overflow: hidden;
+  float: left;
+  background: #ffffff; }
 
 .classmenu dl {
-    overflow: hidden;
-    display: block;
-    height: 50px;
-    border: 1px solid #e7e7e7;
-    line-height: 50px; }
+  overflow: hidden;
+  display: block;
+  height: 50px;
+  border: 1px solid #e7e7e7;
+  line-height: 50px; }
 
 .classmenu dl dt {
-    float: left;
-    font-weight: bold;
-    color: #383838;
-    padding: 0 8px;
-    background: #f3f3f3; }
+  float: left;
+  font-weight: bold;
+  color: #383838;
+  padding: 0 8px;
+  background: #f3f3f3; }
 
 .classmenu dl dd a {
-    float: left;
-    font-weight: bold;
-    color: #008bd6;
-    padding: 0 8px;
-    background: #ffffff; }
+  float: left;
+  font-weight: bold;
+  color: #008bd6;
+  padding: 0 8px;
+  background: #ffffff; }
 
 .middle_div .crop_list_div {
-    background: #ffffff;
-    margin-top: 20px;
-    border: 1px solid #e7e7e7; }
+  background: #ffffff;
+  margin-top: 20px;
+  border: 1px solid #e7e7e7; }
 
 .comm_menu {
-    height: 50px;
-    line-height: 50px;
-    color: #383838;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    border: 1px solid #f5f5ed;
-    padding: 0 10px; }
+  height: 50px;
+  line-height: 50px;
+  color: #383838;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: 1px solid #f5f5ed;
+  padding: 0 10px; }
 
 .comm_menu_text {
-    font-size: 16px;
-    color: #383838; }
+  font-size: 16px;
+  color: #383838; }
 
 /*# sourceMappingURL=crop.css.map */
