@@ -61,16 +61,22 @@ left join WXCrop b on a.CropId=b.CropId
 left join AppBrand c ON a.BrandId=c.BrandId
 left join AppEnterprise d on c.BrandCompany=d.EnterpriseId
 where a.CropId=$cropid");
+$crop_auth_count = $db->row("select count(1) count
+from WXAuthorize a
+left join AppArea b on a.AuthorizeProvince=b.areaid
+where AuCropId=$cropid");
+$auth_all_count = $crop_auth_count['count'];
+$one_count = ceil($auth_all_count / 2); //计算出总页数  
 $cropinfodata['crop_auth'] = $db->query("select AuthorizeId,AuthorizeNumber,AuthorizeYear,BreedOrganization,
 (case when AuthorizeNumber like '%国%' then '国家' else b.areaname end) areaname
 from WXAuthorize a
 left join AppArea b on a.AuthorizeProvince=b.areaid
-where AuCropId=$cropid ORDER BY AuOrderNo desc limit 0,3");
+where AuCropId=$cropid ORDER BY AuOrderNo desc limit 0,$one_count");
 $cropinfodata['crop_auth_right'] = $db->query("select AuthorizeId,AuthorizeNumber,AuthorizeYear,BreedOrganization,
 (case when AuthorizeNumber like '%国%' then '国家' else b.areaname end) areaname
 from WXAuthorize a
 left join AppArea b on a.AuthorizeProvince=b.areaid
-where AuCropId=$cropid ORDER BY AuOrderNo desc limit 3,3");
+where AuCropId=$cropid ORDER BY AuOrderNo desc limit $one_count,$one_count");
 
 
 //分页功能测试begin

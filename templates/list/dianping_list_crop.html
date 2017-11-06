@@ -1,13 +1,13 @@
 {% for item in dianping_crop %}
 <div class="item_dianping_list">
     <div class="item_dianping_list_content">
-        <a href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}"><image src="{{url}}files/cropImgs/{{  (item.img|split(';'))[0] }}" class="item_crop_img"></image></a>
-        <a class="crop_name" href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}">{{item.VarietyName}}</a>
+        <a  title="{{ item.VarietyName }}" href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}"><image src="{{url}}files/cropImgs/{{  (item.img|split(';'))[0] }}" class="item_crop_img"></image></a>
+        <a  title="{{ item.VarietyName }}" class="crop_name" href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}">{{item.VarietyName}}</a>
         <div class="crop_content_dianping">
 
             <div class="crop_name_content">
                 {% include 'comm/rate.html' with {'data':item.CommentLevel} %}</div>
-            <div class="content_text">  <a href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}"><text class="dianping_text">{{ item.CommentComment }} </text></a></div>
+            <div class="content_text">  <a  title="{{ item.VarietyName }}" href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}"><text class="dianping_text">{{ item.CommentComment }} </text></a></div>
         </div>
     </div>
 </div>

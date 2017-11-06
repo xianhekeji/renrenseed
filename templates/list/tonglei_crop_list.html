@@ -1,11 +1,11 @@
 <div class="s-ctner_div"><a class="a_more">更多</a></div>
 {% for item in tonglei %}
 <div class="item_crop_list">
-    <image src="{{url}}files/cropImgs/{{  (item.img|split(';'))[0] }}" class="item_crop_img"></image>
+    <image src="{{url}}files/cropImgs/{{  (item.img|split(';'))[0] }}" class="item_crop_img" alt="{{ item.VarietyName }}"></image>
     <div class="crop_content">
         <div class="crop_name_content">
             {% include 'comm/rate.html' with {'data':item.CropLevel} %}</div>
-        <a class="crop_name" href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}">{{ item.VarietyName }}</a>
+        <a class="crop_name"  title="{{ item.VarietyName }}" href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}">{{ item.VarietyName }}</a>
         <text class="crop_text_cropinfo">{{ item.category_1 }}  {{ item.category_2 }}</text>
     </div>
     <div class="right_menu_line_1"></div>

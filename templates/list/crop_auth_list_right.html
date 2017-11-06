@@ -1,9 +1,9 @@
 <table class="item_auth_list">
     {% for item in crop_auth_right %}
     <tr>
-        <td>   <a href="{{url}}/model/crop/authorizeInfo.php?id={{item.AuthorizeId}}&name={{cropinfo.VarietyName}}" style="text-decoration:none"><text class="auth_text">{{ item.areaname }}</text></a></td>
-        <td> <a href="{{url}}/model/crop/authorizeInfo.php?id={{item.AuthorizeId}}&name={{cropinfo.VarietyName}}" style="text-decoration:none"><text class="auth_text">{{ item.AuthorizeNumber}}</text></a></td>
-        <td><a href="{{url}}/model/crop/authorizeInfo.php?id={{item.AuthorizeId}}&name={{cropinfo.VarietyName}}" style="text-decoration:none"><text  class="text_arrow">></text></a></td>
+        <td>   <a  title="{{ cropinfo.VarietyName}}" href="{{url}}/model/crop/authorizeInfo.php?id={{item.AuthorizeId}}&name={{cropinfo.VarietyName}}" style="text-decoration:none"><text class="auth_text">{{ item.areaname }}</text></a></td>
+        <td> <a title="{{ item.AuthorizeNumber}}" href="{{url}}/model/crop/authorizeInfo.php?id={{item.AuthorizeId}}&name={{cropinfo.VarietyName}}" style="text-decoration:none"><text class="auth_text">{{ item.AuthorizeNumber}}</text></a></td>
+        <td><a title="{{ item.AuthorizeNumber}}" href="{{url}}/model/crop/authorizeInfo.php?id={{item.AuthorizeId}}&name={{cropinfo.VarietyName}}" style="text-decoration:none"><text  class="text_arrow">></text></a></td>
     </tr>
     {% endfor %}
 </table>

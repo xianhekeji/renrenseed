@@ -15,7 +15,7 @@ function setArea(obj)
 }
 function setBrand(obj)
 {
-    window.location.href = funcUrlDel_t("brand") + '&brand=' + obj;
+    window.location.href = funcUrlDel_t("brand","page") + '&brand=' + obj;
 }
 // 删除url中某个参数,并跳转
 function funcUrlDel_t(name1, name2) {

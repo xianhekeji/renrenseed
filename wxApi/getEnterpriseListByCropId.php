@@ -7,12 +7,12 @@ $wxId = $_GET['cropid'];
 //$lon=$_GET['lon'];
 //$PageNo = $_GET ['searchPageNum'];
 $sql = "SELECT a.EnterpriseId,a.EnterpriseName,d.areaname EnterpriseProvince,a.EnterpriseCity,a.EnterpriseZone,a.EnterpriseAddressDetail,case when (EnterpriseUserAvatar=null or EnterpriseUserAvatar='') then '' else 'default_distirbutor.png' end img,
- EnterpriseCommentLevel CropLevel,c.BrandName BrandName_1,c.BrandId BrandId_1,b.CommodityOrderNo,a.EnterpriseTelephone
+ EnterpriseCommentLevel CropLevel,c.BrandName BrandName_1,c.BrandId BrandId_1,b.CommodityOrderNoCompany,a.EnterpriseTelephone
  FROM AppEnterprise a
-inner join (SELECT Owner,CommodityBrand,CommodityOrderNo FROM AppCommodity WHERE CommodityVariety=$wxId  AND OwnerClass=1 group by CommodityBrand,Owner ) b on a.EnterpriseId=b.Owner
+inner join (SELECT Owner,CommodityBrand,CommodityOrderNoCompany FROM AppCommodity WHERE CommodityVariety=$wxId  AND OwnerClass=1 group by CommodityBrand,Owner ) b on a.EnterpriseId=b.Owner
 left join AppBrand c on b.CommodityBrand=c.BrandId
 left join AppArea d on a.EnterpriseProvince=d.areaid
-order by CommodityOrderNo desc;";
+order by CommodityOrderNoCompany desc;";
 $result = $db->query($sql);
 //$array = array();
 //foreach ($result as $rows) {

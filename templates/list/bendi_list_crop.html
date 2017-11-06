@@ -1,10 +1,10 @@
 
 {% for item in bendi_crop %}
 <div class="item_crop_list">
-    <image src="{{url}}files/cropImgs/{{  (item.img|split(';'))[0] }}" class="item_crop_img"></image>
+    <image src="{{url}}files/cropImgs/{{  (item.img|split(';'))[0] }}" class="item_crop_img" alt="{{ item.VarietyName }}"></image>
     <div class="crop_content">
         <div class="crop_name_content">
-            <a class="crop_name"  href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}">{{ item.VarietyName }}</a>
+            <a class="crop_name" title="{{ item.VarietyName }}"  href="{{url}}model/crop/cropinfo.php?cropid={{item.CropId}}">{{ item.VarietyName }}</a>
             {% include 'comm/rate.html' with {'data':item.CropLevel} %}</div>
         <text class="crop_text">{{ item.category_1 }}  {{ item.category_2 }}</text>
         <text class="crop_text">{{item.IsGen}}</text>

@@ -10,7 +10,7 @@ inner join  AppCommodity b on a.CropId=b.CommodityVariety
 inner join AppBrand c on b.CommodityBrand=c.BrandId
 left join app_variety d on a.CropCategory1=d.varietyid
 left join app_variety e on a.CropCategory2=e.varietyid
-where b.Owner=$enid limit 0,5";
+where b.Owner=$enid order by b.CommodityOrderNo limit 0,5";
 $result = $db->query($sql);
 
 foreach ($result as $rows) {

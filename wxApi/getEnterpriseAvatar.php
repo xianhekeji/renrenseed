@@ -28,10 +28,10 @@ $space_y = 3;
 $line_x = 0;
 switch ($pic_count) {
     case 1: // 正中间  
-        $start_x = intval($bg_w / 4);  // 开始位置X  
-        $start_y = intval($bg_h / 4);  // 开始位置Y  
-        $pic_w = intval($bg_w / 2); // 宽度  
-        $pic_h = intval($bg_h / 2); // 高度  
+        $start_x =0;  // 开始位置X  
+        $start_y =0;  // 开始位置Y  
+        $pic_w = intval($bg_w ); // 宽度  
+        $pic_h = intval($bg_h ); // 高度  
         break;
     case 2: // 中间位置并排  
         $start_x = 2;

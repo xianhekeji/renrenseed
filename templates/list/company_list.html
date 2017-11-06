@@ -1,9 +1,9 @@
 {% for item in company_list %}
 <div class="company_list_content">
     <div class="item_company_list">
-        <image src="{{url}}wxApi/getEnterpriseAvatar.php?id={{item.EnterpriseId}}" class="item_company_img"></image>
+        <image src="{{url}}wxApi/getEnterpriseAvatar.php?id={{item.EnterpriseId}}" class="item_company_img" alt="{{item.EnterpriseName}}"></image>
         <div class="company_content">
-            <a class="company_name" href="{{url}}/model/enmain/companyinfo.php?id={{item.EnterpriseId}}">{{item.EnterpriseName}}</a>
+            <a title="{{item.EnterpriseName}}" class="company_name" href="{{url}}/model/enmain/companyinfo.php?id={{item.EnterpriseId}}">{{item.EnterpriseName}}</a>
             <text class="company_item_text">主营品牌：{% for item_brand in item.brands %}&nbsp;{{item_brand}}{% endfor %} 共{{item.crop_count}}个品种</text> 
             <!--            <text class="company_item_text">电话：{{item.EnterpriseTelephone}}</text>-->
             <text class="company_item_text">地址：{{item.EnterpriseProvince}}{{item.EnterpriseAddressDetail}}</text>

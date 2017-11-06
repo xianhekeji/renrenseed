@@ -1,79 +1,80 @@
 {# /templates/index.html #}
 {% extends "base.xhtml" %}
-{% block title %}人人种品种大全{{cropinfo.VarietyName}}{% endblock %}
+{% block title %}{{cropinfo.VarietyName}}-人人种品种大全{% endblock %}
 {% block meta %}
-<meta name="description" content="人人种（www.renrenseed.com），汇集高产{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子品种，优秀的{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子公司名录，并提供{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子展会，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种植技术，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}病虫草害，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}施肥技术等内容。" />  
-{% endblock %}
-{% block css %}
-<link rel="stylesheet" href="{{url}}css/cropinfo.css" />
-<link rel="stylesheet" href="{{url}}css/rate.css" type="text/css" />
-{% endblock %}
-{% block js %}
-<script type="text/javascript" src="{{url}}js/cropinfo.js"></script>
-{% endblock %}
-{% block main %}
-<div class="left_div">
-    <div style="margin-top: 30px;">&nbsp;{{cropinfo.CropCategoryName1}}&gt;{{cropinfo.CropCategoryName2}}&gt;{{cropinfo.VarietyName}}</div>
-    <div class="crop_info">
-        <image class="crop_img" src="{{url}}files/cropImgs/{{cropinfo.img[0]}}"></image>
-        <div class="crop_info_content">
-            <div class="crop_name_div">
-                <text class="crop_info_name">{{cropinfo.VarietyName}}</text>
-                <text class="crop_info_statu">({{statu}})</text></div>
-            <text class="crop_info_text">{{cropinfo.IsGen}}</text>
-            <text class="crop_info_text">育种：{{cropinfo.BreedOrganization}}</text>
+<meta name="keywords" content={{cropinfo.VarietyName}},{% for item in crop_auth %},{{ item.AuthorizeNumber}}{% endfor %}{% for item in crop_auth_right %},{{ item.AuthorizeNumber}}{% endfor %} />
+      <meta name="description" content="人人种品种大全（www.renrenseed.com），{{cropinfo.VarietyName}},{{cropinfo.CropCategoryName2}},汇集高产{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子品种，优秀的{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子公司名录，并提供{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子展会，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种植技术，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}病虫草害，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}施肥技术等内容。 " />  
+    {% endblock %}
+    {% block css %}
+    <link rel="stylesheet" href="{{url}}css/cropinfo.css" />
+    <link rel="stylesheet" href="{{url}}css/rate.css" type="text/css" />
+    {% endblock %}
+    {% block js %}
+    <script type="text/javascript" src="{{url}}js/cropinfo.js"></script>
+    {% endblock %}
+    {% block main %}
+    <div class="left_div">
+        <div style="margin-top: 30px;">&nbsp;{{cropinfo.CropCategoryName1}}&gt;{{cropinfo.CropCategoryName2}}&gt;{{cropinfo.VarietyName}}</div>
+        <div class="crop_info">
+            <image class="crop_img" src="{{url}}files/cropImgs/{{cropinfo.img[0]}}" alt="{{cropinfo.VarietyName}}"></image>
+            <div class="crop_info_content">
+                <div class="crop_name_div">
+                    <text class="crop_info_name">{{cropinfo.VarietyName}}</text>
+                    <text class="crop_info_statu">({{statu}})</text></div>
+                <text class="crop_info_text">{{cropinfo.IsGen}}</text>
+                <text class="crop_info_text">育种：{{cropinfo.BreedOrganization}}</text>
+            </div>
+        </div>
+        <div class="crop_brand">
+            <div class="comm_menu">
+                <text>推荐品牌</text>
+            </div>
+            <div class="crop_brand_content">
+                {{ include ('list/crop_brand_list.html')}}
+            </div>
+        </div>
+        <div class="crop_auth">
+            <div class="comm_menu">
+                <text>审定信息</text>
+            </div>
+            <div class="crop_auth_content">
+                <div > {{ include ('list/crop_auth_list.html')}}</div>
+                <div class="middle_line"></div>
+                <div> {{ include ('list/crop_auth_list_right.html')}}</div>
+            </div>
+        </div>
+        <div class="crop_dianping">
+            <div class="comm_menu">
+                <text>点评</text>
+            </div>
+            <div class="crop_dianping_content">
+                {{ include ('list/crop_dianping_list.html')}}
+                {{ include ('list/page_count.html')}}
+            </div>
         </div>
     </div>
-    <div class="crop_brand">
-        <div class="comm_menu">
-            <text>推荐品牌</text>
+    <div class="right_div">
+        <div class="right_menu">
+            <div class="right_menu_line"></div>
+            <text class="right_menu_text">种友评分</text><div class="right_menu_line"></div></div>
+        <div class="pingfen">
+            <div class="pingfen_content">
+                <div class="pingfen_text"><text class="pingfen_fen">{{cropinfo.CropLevel}}</text></div>
+                <div class="pingfen_star">
+                    <div class="sty_rate">{% include 'comm/rate.html' with {'data':cropinfo.CropLevel} %}</div>
+                    <text style="font-size: 16px;">{{commentCountl}}人评价</text>
+                </div            >          
+            </div>  
+            <a href="javascript:checkLogin({{cropinfo.CropId}})"> <input type="button" class="dianping_btn" value="我要点评"/></a>        
         </div>
-        <div class="crop_brand_content">
-            {{ include ('list/crop_brand_list.html')}}
-        </div>
-    </div>
-    <div class="crop_auth">
-        <div class="comm_menu">
-            <text>审定信息</text>
-        </div>
-        <div class="crop_auth_content">
-            <div > {{ include ('list/crop_auth_list.html')}}</div>
-            <div class="middle_line"></div>
-            <div> {{ include ('list/crop_auth_list_right.html')}}</div>
-        </div>
-    </div>
-    <div class="crop_dianping">
-        <div class="comm_menu">
-            <text>点评</text>
-        </div>
-        <div class="crop_dianping_content">
-            {{ include ('list/crop_dianping_list.html')}}
-            {{ include ('list/page_count.html')}}
+        <!--            <div class="right_menu">
+                        <div class="right_menu_line"></div>
+                        <text class="right_menu_text">同类推荐</text><div class="right_menu_line"></div></div>-->
+        <div class="r            ight_menu">
+            <div class="right_menu_l            ine"></div>
+            <text class="right_menu_text">文章</text><div class="right_menu_line"></div></div>
+        <div class="article">
+            {{ include ('list/article_list.html')}}    
         </div>
     </div>
-</div>
-<div class="right_div">
-    <div class="right_menu">
-        <div class="right_menu_line"></div>
-        <text class="right_menu_text">种友评分</text><div class="right_menu_line"></div></div>
-    <div class="pingfen">
-        <div class="pingfen_content">
-            <div class="pingfen_text"><text class="pingfen_fen">{{cropinfo.CropLevel}}</text></div>
-            <div class="pingfen_star">
-                <div class="sty_rate">{% include 'comm/rate.html' with {'data':cropinfo.CropLevel} %}</div>
-                <text style="font-size: 16px;">{{commentCountl}}人评价</text>
-            </div            >          
-        </div>  
-        <a href="javascript:checkLogin({{cropinfo.CropId}})"> <input type="button" class="dianping_btn" value="我要点评"/></a>        
-    </div>
-    <!--            <div class="right_menu">
-                    <div class="right_menu_line"></div>
-                    <text class="right_menu_text">同类推荐</text><div class="right_menu_line"></div></div>-->
-    <div class="r            ight_menu">
-        <div class="right_menu_l            ine"></div>
-        <text class="right_menu_text">文章</text><div class="right_menu_line"></div></div>
-    <div class="article">
-        {{ include ('list/article_list.html')}}    
-    </div>
-</div>
-{% endblock %}
+    {% endblock %}

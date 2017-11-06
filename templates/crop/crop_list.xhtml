@@ -31,7 +31,7 @@ and open the template in the editor.
                 <div class="left_menu_line"></div>
                 <div class="crop_content_item">
                     {% for item in crop_category_1%}
-                    <a class="class_item"  onclick="resetClass({{item.varietyid}},'{{item.varietyname}}')" href="javascript:void(0)">{{item.varietyname}}</a>
+                    <a class="class_item" title="{{item.varietyname}}" onclick="resetClass({{item.varietyid}},'{{item.varietyname}}')" href="javascript:void(0)">{{item.varietyname}}</a>
                     {% endfor %}
                 </div></div>
         </div>
@@ -42,7 +42,7 @@ and open the template in the editor.
                 <div class="left_menu_line"></div>
                 <div id="crop_class_2" class="crop_content_item">
                     {% for item in select%}
-                    <a class="class_item"  onclick="setClass2id({{item.varietyid}},'{{item.varietyname}}')" href="javascript:void(0)">{{item.varietyname}}</a>
+                    <a class="class_item" title="{{item.varietyname}}" onclick="setClass2id({{item.varietyid}},'{{item.varietyname}}')" href="javascript:void(0)">{{item.varietyname}}</a>
                     {% endfor %}
                 </div></div>
         </div>
@@ -55,7 +55,7 @@ and open the template in the editor.
                 <div class="crop_content_item">
                     <a class="class_item"  onclick="setYear('无')" href="javascript:void(0)">无</a>
                     {% for item in year%}
-                    <a class="class_item"  onclick="setYear('{{item.AuthorizeYear}}')" href="javascript:void(0)">{{item.AuthorizeYear}}</a>
+                    <a class="class_item" title="{{item.AuthorizeYear}}"  onclick="setYear('{{item.AuthorizeYear}}')" href="javascript:void(0)">{{item.AuthorizeYear}}</a>
                     {% endfor %}
                 </div></div>
         </div>
@@ -65,9 +65,9 @@ and open the template in the editor.
                 <nobr><text>转基因&nbsp;&nbsp;</text></nobr>
                 <div class="left_menu_line"></div>
                 <div class="crop_content_item">
-                    <a class="class_item"  onclick="setIsGen('无')" href="javascript:void(0)">无</a>
-                    <a class="class_item"  onclick="setIsGen('是转基因')" href="javascript:void(0)">是转基因</a>
-                    <a class="class_item"  onclick="setIsGen('非转基因')" href="javascript:void(0)">非转基因</a>
+                    <a class="class_item" onclick="setIsGen('无')" href="javascript:void(0)">无</a>
+                    <a class="class_item"   title="是转基因"  onclick="setIsGen('是转基因')" href="javascript:void(0)">是转基因</a>
+                    <a class="class_item"  title="非转基因"  onclick="setIsGen('非转基因')" href="javascript:void(0)">非转基因</a>
                 </div></div>
         </div>
         <div class="top_menu_line"></div>

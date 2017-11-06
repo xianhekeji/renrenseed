@@ -2,7 +2,9 @@
 {% extends "base.xhtml" %}
 {% block title %}人人种品种大全{{cropinfo.VarietyName}}{% endblock %}
 {% block meta %}
-<meta name="description" content="人人种（www.renrenseed.com），汇集高产{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子品种，优秀的{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子公司名录，并提供{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子展会，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种植技术，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}病虫草害，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}施肥技术等内容。" />  
+<meta name="description" content="人人种品种大全（www.renrenseed.com），汇集高产{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子品种，优秀的{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子公司名录，并提供{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子展会，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种植技术，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}病虫草害，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}施肥技术等内容。" />  
+{% endblock %}
+{% block footer %}
 {% endblock %}
 {% block css %}
 <link href="../../css/cssreset.css" rel="stylesheet">
@@ -30,7 +32,7 @@
                                     <dd>
                                         {% for item_item in crop_class %}
                                         {% if item_item.varietyclassid==item.varietyid%}
-                                        <a href="{{url}}model/crop/CropMain.php?class2id={{item_item.varietyid}}" >{{item_item.varietyname}}</a>
+                                        <a title="{{item_item.varietyname}}" href="{{url}}model/crop/CropMain.php?class2id={{item_item.varietyid}}" >{{item_item.varietyname}}</a>
                                         {% endif%}
                                         {% endfor %}
                                     </dd>
@@ -61,30 +63,30 @@
             <div class="middle_div">
                 <div class="classmenu">
                     <dl>
-                        <dt><a href="{{url}}model/crop/CropMain.php?type=1">热门品种</a></dt>
+                        <dt><a title="热门品种"  href="{{url}}model/crop/CropMain.php?type=1">热门品种</a></dt>
                         <dd>
                             {% for item_item in crop_class_hot %}
-                            <a href="{{url}}model/crop/cropinfo.php?cropid={{item_item.CropId}}" >{{item_item.VarietyName}}</a>
+                            <a title="{{item_item.VarietyName}}"  href="{{url}}model/crop/cropinfo.php?cropid={{item_item.CropId}}" >{{item_item.VarietyName}}</a>
                             {% endfor %}
                         </dd>
                     </dl> 
                 </div>
                 <div class="classmenu">
                     <dl>
-                        <dt><a href="{{url}}model/crop/CropMain.php?type=2">推荐品种</a></dt>
+                        <dt><a title="推荐品种"  href="{{url}}model/crop/CropMain.php?type=2">推荐品种</a></dt>
                         <dd>
                             {% for item_item in crop_class_tuijian %}
-                            <a href="{{url}}model/crop/cropinfo.php?cropid={{item_item.CropId}}" >{{item_item.VarietyName}}</a>
+                            <a title="{{item_item.VarietyName}}"  href="{{url}}model/crop/cropinfo.php?cropid={{item_item.CropId}}" >{{item_item.VarietyName}}</a>
                             {% endfor %}
                         </dd>
                     </dl> 
                 </div>
                 <div class="classmenu">
                     <dl>
-                        <dt><a href="{{url}}model/crop/CropMain.php?type=3">最新品种</a></dt>
+                        <dt><a  title="最新品种"  href="{{url}}model/crop/CropMain.php?type=3">最新品种</a></dt>
                         <dd>
                             {% for item_item in crop_class_zuixin %}
-                            <a href="{{url}}model/crop/cropinfo.php?cropid={{item_item.CropId}}" >{{item_item.VarietyName}}</a>
+                            <a  title="{{item_item.VarietyName}}"  href="{{url}}model/crop/cropinfo.php?cropid={{item_item.CropId}}" >{{item_item.VarietyName}}</a>
                             {% endfor %}
                         </dd>
                     </dl> 
@@ -92,7 +94,7 @@
                 <div class="crop_list_div">
                     <div class="comm_menu">
                         <text class="comm_menu_text">农作物（{{allcount.count}}）</text>
-                        <a class="comm_menu_text" href="{{url}}model/crop/croplist.php?">查看更多</a>
+                        <a  title="更多农作物品种"  class="comm_menu_text" href="{{url}}model/crop/croplist.php?">查看更多</a>
                     </div>
                     {% if isExceed %}
                     {{ include ('comm/exceed_div.html')}}

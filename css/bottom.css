@@ -34,9 +34,9 @@ and open the template in the editor.
 .copyright {
   text-align: center; }
 
-p, p > a {
-  font-size: 12px;
-  font-family: "宋体";
-  color: #ffffff; }
+/*p,p>a{
+    font-size:12px;
+    font-family:"宋体";
+    color:#ffffff;}*/
 
 /*# sourceMappingURL=bottom.css.map */

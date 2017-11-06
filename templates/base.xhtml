@@ -6,17 +6,17 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        {% block meta %}人人种品种大全{% endblock %}
+        {% block meta %}{% endblock %}
         <link rel="Stylesheet" type="text/css" href="{{url}}css/base.css" />
         <link rel="stylesheet" href="{{url}}css/header.css" type="text/css" />
         <link rel="stylesheet" href="{{url}}css/comm.css" type="text/css" />
         <link rel="Stylesheet" type="text/css" href="{{url}}css/loginDialog.css" />
         <link rel="stylesheet" href="{{url}}css/bottom.css" type="text/css" />
-        {% block css %}人人种品种大全{% endblock %}
+        {% block css %}{% endblock %}
         <script type="text/javascript" src="{{url}}js/jquery-3.2.1.min.js"></script>
         <script src="https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
         <script type="text/javascript" src="{{url}}js/header.js"></script>
-        {% block js %}人人种品种大全{% endblock %}
+        {% block js %}{% endblock %}
     </head>
     <body>
         <div id="header">
@@ -39,4 +39,18 @@
             {% block footer %}{% include 'bottom.xhtml' %}{% endblock %}
         </div>
     </body>
+    <script>
+(function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+    </script>
+
 </html>

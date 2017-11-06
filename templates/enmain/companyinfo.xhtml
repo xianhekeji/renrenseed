@@ -1,12 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-{% include 'header.xhtml' %}
+{# /templates/index.html #}
+{% extends "base.xhtml" %}
+{% block title %}人人种品种大全{% endblock %}
+{% block meta %}
+<meta name="description" content="人人种,人人种品种大全,（www.renrenseed.com），{{data.EnterpriseName}},汇集高产{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子品种，优秀的{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子公司名录，并提供{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子展会，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种植技术，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}病虫草害，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}施肥技术等内容。" />  
+{% endblock %}
+{% block css %}
 <link rel="stylesheet" href="{{url}}css/companyinfo.css" />
+{% endblock %}
+{% block main %}
 <div class="left_div">
     <div class="company_info">
         <img class="en_avatar" src="{{url}}wxApi/getEnterpriseAvatar.php?id={{data.EnterpriseId}}"/>
@@ -15,7 +16,7 @@ and open the template in the editor.
             <span class="company_text">{{data.EnterpriseProvince}}&nbsp;{{data.EnterpriseAddressDetail}}</span>
         </div>
         <div class="company_img_div">
-            <img class="en_company" src="{{url}}images/gh_gongzhonghao.jpg"/>
+            <img class="en_company" src="{{url}}images/gh_gongzhonghao.jpg" alt="{{data.EnterpriseName}}"/>
             <text>关注公众号，获取联系电话</text>
         </div>
     </div>
@@ -40,4 +41,4 @@ and open the template in the editor.
         </div>
     </div>
 </div>
-<div class="right_div"></div>
+<div class="right_div"></div>{% endblock %}

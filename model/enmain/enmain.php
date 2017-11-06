@@ -24,7 +24,7 @@ $brand = isset($_GET['brand']) ? $_GET['brand'] : '';
 if (!empty($area)) {
     $sql = "select BrandId,BrandName,BrandImg,b.EnterpriseName from AppBrand a
 left join AppEnterprise b on a.BrandCompany=b.EnterpriseId
-where b.EnterpriseProvince like '%$area%'";
+where b.EnterpriseProvince ='$area'";
 } else {
     $sql = "select BrandId,BrandName,BrandImg from AppBrand a
 where GET_FIRST_PINYIN_CHAR(BrandName) like '%A%'";
@@ -57,9 +57,10 @@ $enmaindata['page'] = $page;
 $enmaindata['pageBegin'] = $page > 5 ? $page - 5 : 1;
 $enmaindata['pageEnd'] = $page + 4 > $totalPage ? $totalPage : $page + 4;
 $enmaindata['totalPage'] = $totalPage;
-$sql = "select a.EnterpriseId,a.EnterpriseName,a.EnterpriseLevel,a.EnterpriseTelephone,a.EnterpriseProvince,a.EnterpriseAddressDetail,
+$sql = "select a.EnterpriseId,a.EnterpriseName,a.EnterpriseLevel,a.EnterpriseTelephone,b.areaname EnterpriseProvince,a.EnterpriseAddressDetail,
 case when (EnterpriseUserAvatar is null  or EnterpriseUserAvatar='') then 'default_distirbutor.png' else EnterpriseUserAvatar end img, EnterpriseCommentLevel CropLevel
 from AppEnterprise a
+left join AppArea b on a.EnterpriseProvince=b.areaid
 where EnterpriseFlag=0 $condition
 limit $startCount,$perNumber";
 $q = $db->query($sql); //根据前面的计算出开始的记录和记录数 

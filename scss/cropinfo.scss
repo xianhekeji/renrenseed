@@ -251,6 +251,8 @@ and open the template in the editor.
 
 .item_crop_img {
     width: 100px;
+    min-width: 100px;
+    max-width: 100px;
     height: 100px; }
 
 .crop_name {

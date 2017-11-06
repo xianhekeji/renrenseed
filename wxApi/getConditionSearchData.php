@@ -21,7 +21,16 @@ $province_name = $arr_province ['ProName'];
 $conditionRegionPro = '';
 
 $checkRegionPro = $_GET ['checkRegionPro'];
-
+$checkStatus = $_GET['checkStatus'];
+if ($checkStatus == "无") {
+    $conditionStatus = "";
+} else if ($checkStatus == "已审定") {
+    $conditionStatus = "and (a.AuthorizeStatus=1 or a.AuthorizeStatus=2) ";
+} else if ($checkStatus == "已登记") {
+    $conditionStatus = "and a.AuthorizeStatus=3";
+} else if ($checkStatus == "审定/登记") {
+    $conditionStatus = "and (a.AuthorizeStatus=1 or a.AuthorizeStatus=2 or a.AuthorizeStatus=3)";
+}
 //获取适宜种植地区id
 if ($checkRegionPro == "全部" || $checkRegionPro == "") {
     $conditionRegionPro = "";
@@ -61,10 +70,10 @@ a.AuthorizeNumber AuthorizeNumber
 left join WXCrop b on a.AuCropId=b.CropId
 left join app_variety c on b.CropCategory1=c.varietyid
 left join app_variety d on b.CropCategory2=d.varietyid
-where 1=1 $conditionClass $conditionClass2 $conditionYear $conditionGen $conditionRegionPro $conditionAddress
+where 1=1 $conditionClass $conditionClass2 $conditionYear $conditionGen $conditionRegionPro $conditionAddress $conditionStatus
 ORDER BY pro desc,CropOrderNo desc
 limit $PageStart,20";
-//echo $sql;
+
 $result = $db->query($sql);
 $array = array();
 foreach ($result as $rows) {

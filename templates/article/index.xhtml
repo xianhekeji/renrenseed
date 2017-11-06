@@ -1,50 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
-    {% include 'header.xhtml' %}
-    <link rel="stylesheet" href="{{url}}css/article.css" />
-    <link rel="stylesheet" href="{{url}}css/rate.css" type="text/css" />
-    <script type="text/javascript" src="{{url}}js/article.js" ></script>
-    <body>
-        <div class="left_div">
-            <div class="search">
-                <label for="search"></label>
-                <input class="input" type="text" name="search" id="search" value="{{key}}" /><input name="mainSearch" id="mainSearch" class="btn" type="button" value="搜索" />
-            </div>
-            <div class="crop_class" style="display: none;">
-                <div class="crop_content_class" >
-                    <nobr><text class="changyong">常用标签</text></nobr>
-                    <div class="crop_content_item">
-                        {% for item in labeldata%}
-                        <a class="class_item"  onclick="resetClass({{item.LabelId}})" href="javascript:void(0)">{{item.LabelText}}</a>
-                        {% endfor %}
-                    </div></div>
-            </div>
-            <div class="article_list">
-                {{ include ('list/article_list_article.html')}} 
-                {{ include ('list/page_count.html')}}
-            </div>
-        </div>
-        <div class="right_div">
+{# /templates/index.html #}
+{% extends "base.xhtml" %}
+{% block title %}人人种品种大全{{cropinfo.VarietyName}}{% endblock %}
+{% block meta %}
+<meta name="description" content="人人种,人人种品种大全,（www.renrenseed.com），汇集高产,种子品种，种子展会，种植技术，病虫草害，施肥技术" />  
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{{url}}css/article.css" />
+<link rel="stylesheet" href="{{url}}css/rate.css" type="text/css" />
+{% endblock %}
+{% block js %}
+<script type="text/javascript" src="{{url}}js/article.js" ></script>
+{% endblock %}
+{% block main %}
+<div class="left_div">
+    <div class="search">
+        <label for="search"></label>
+        <input class="input" type="text" name="search" id="search" value="{{key}}" /><input name="mainSearch" id="mainSearch" class="btn" type="button" value="搜索" />
+    </div>
+    <div class="crop_class" style="display: none;">
+        <div class="crop_content_class" >
+            <nobr><text class="changyong">常用标签</text></nobr>
+            <div class="crop_content_item">
+                {% for item in labeldata%}
+                <a class="class_item" title="{{item.LabelText}}"  onclick="resetClass({{item.LabelId}})" href="javascript:void(0)">{{item.LabelText}}</a>
+                {% endfor %}
+            </div></div>
+    </div>
+    <div class="article_list">
+        {{ include ('list/article_list_article.html')}} 
+        {{ include ('list/page_count.html')}}
+    </div>
+</div>
+<div class="right_div">
 
-            <div class="ad_1">
-                广告
-            </div>
-            <div class="right_menu">
-                <div class="right_menu_line"></div>
-                <text class="right_menu_text">热门阅读</text><div class="right_menu_line"></div></div>
-            <div class="remen">
-                {{ include ('list/article_list.html')}}
+    <div class="ad_1">
+        广告
+    </div>
+    <div class="right_menu">
+        <div class="right_menu_line"></div>
+        <text class="right_menu_text">热门阅读</text><div class="right_menu_line"></div></div>
+    <div class="remen">
+        {{ include ('list/article_list.html')}}
 
-            </div>
-            <div class="ad_1">
-                广告
-            </div>
-        </div>
-    </body>
-</html>
+    </div>
+    <div class="ad_1">
+        广告
+    </div>
+</div>
+{% endblock %}

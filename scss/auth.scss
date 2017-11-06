@@ -58,16 +58,27 @@ span{
     background: red;
     margin-top: 100px;
 }
+.main_idv{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
 .auth_left_div{
-    position: absolute;
+    /*    position: absolute;*/
     left: 200px;
-    right:420px;
+    margin-left: 200px;
+    margin-top: 10px;
+    width: 200px;
+    min-width: 200px;
+    max-width: 200px;
     border:1px solid #e7e7e7;
     top:10px;
 }
 .auth_middle_div{
-    position: absolute;
+    /*    position: absolute;*/
     display: flex;
+    margin-right: 210px;
+    margin-top: 10px;
     left: 520px;
     right: 210px;
     top: 10px;

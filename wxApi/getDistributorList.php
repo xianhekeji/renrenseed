@@ -9,10 +9,12 @@ $sql = "select a.EnterpriseId,REPLACE(REPLACE(a.EnterpriseName,CONCAT(CHAR(13),'
     a.EnterpriseLevel,a.EnterpriseTelephone,b.areaname EnterpriseProvince,
     REPLACE(REPLACE(a.EnterpriseAddressDetail,CONCAT(CHAR(13),CHAR(10)) , ''),CHAR(10),'')  EnterpriseAddressDetail,
 case when (EnterpriseUserAvatar is null  or EnterpriseUserAvatar='') then 'default_distirbutor.png' else EnterpriseUserAvatar end img, EnterpriseCommentLevel CropLevel
+,case when b.areaname like '%$province%' then '1' else '0' end TempOrderNo
 from AppEnterprise a
 left join AppArea b on a.EnterpriseProvince=b.areaid
-where EnterpriseFlag=0 and b.areaname like '%$province%'
-limit $PageStart,20";
+where EnterpriseFlag=0 
+order by TempOrderNo desc,EnterpriseOrderNo desc
+limit $PageStart,20 ";
 $result = $db->query($sql);
 //$array = array();
 //foreach ($result as $rows) {
