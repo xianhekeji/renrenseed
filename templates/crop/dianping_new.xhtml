@@ -1,8 +1,9 @@
 {# /templates/index.html #}
 {% extends "base.xhtml" %}
-{% block title %}人人种品种大全{{cropinfo.VarietyName}}{% endblock %}
+{% block title %}{{cropinfo.VarietyName}}-品种点评-人人种品种大全{% endblock %}
 {% block meta %}
-<meta name="description" content="人人种品种大全（www.renrenseed.com），{{cropinfo.VarietyName}},{{cropinfo.CropCategoryName2}},汇集高产{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子品种，优秀的{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子公司名录，并提供{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子展会，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种植技术，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}病虫草害，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}施肥技术等内容。" />  
+<meta name="keywords" content="{{cropinfo.CropCategoryName2}},{{cropinfo.VarietyName}},发布点评,查看点评,查看品种好坏"/>
+<meta name="description" content="农户、经销商、企业以及企商可以在人人种品种平台为{{cropinfo.CropCategoryName2}},{{cropinfo.VarietyName}}发布有价值的评论或者点评信息,为其他用户提供可以借鉴的种植信息、栽培技术、产量表现、特征特性等信息." />  
 {% endblock %}
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{{url}}/css/dianping.css" />

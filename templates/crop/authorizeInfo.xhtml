@@ -1,8 +1,9 @@
 {# /templates/index.html #}
 {% extends "base.xhtml" %}
-{% block title %}人人种品种大全{{cropinfo.VarietyName}}{% endblock %}
+{% block title %}{{cropinfo.VarietyName}}-审定信息-人人种品种大全{% endblock %}
 {% block meta %}
-<meta name="description" content="人人种品种大全（www.renrenseed.com），汇集高产{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子品种，优秀的{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子公司名录，并提供{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子展会，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种植技术，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}病虫草害，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}施肥技术等内容。" />  
+<meta name="keywords" content="{{cropinfo.CropCategoryName2}}{{cropinfo.VarietyName}}的审定信息,{{cropinfo.CropCategoryName2}}{{cropinfo.VarietyName}}的登记信息"/>
+<meta name="description" content="人人种品种大全提供了完整的{{cropinfo.CropCategoryName2}}中{{cropinfo.VarietyName}}品种的审定信息.方便广大农民、经销商以及企业的查询到{{cropinfo.VarietyName}}的审定编码、登记编号、品种名称、审定年份、育种单位、品种来源、特征特性、抗性表现、实验产量、栽培技术、适宜种植地区等审定以及登记信息" />  
 {% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{{url}}css/auth.css" />

@@ -1,8 +1,9 @@
 {# /templates/index.html #}
 {% extends "base.xhtml" %}
-{% block title %}人人种品种大全{% endblock %}
+{% block title %}{{data.ArticleTitle}}-人人种品种大全{% endblock %}
 {% block meta %}
-<meta name="description" content="人人种（www.renrenseed.com），{{data.ArticleTitle}}"/>  
+<meta name="keywords" content="{{data.ArticleTitle}}，人人种品种大全"/>
+<meta name="description" content="人人种品种大全，关注农业互联网发展，了解品种审定/登记信息，提供大量品种种植高产经验,栽培技术,和更多的农业专家/农业爱好者的精品文章"/>  
 {% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{{url}}css/article.css" />

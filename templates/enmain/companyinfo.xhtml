@@ -1,8 +1,9 @@
 {# /templates/index.html #}
 {% extends "base.xhtml" %}
-{% block title %}人人种品种大全{% endblock %}
+{% block title %}{{data.EnterpriseName}}-{{data.EnterpriseAddressDetail}}-人人种品种大全{% endblock %}
 {% block meta %}
-<meta name="description" content="人人种,人人种品种大全,（www.renrenseed.com），{{data.EnterpriseName}},汇集高产{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子品种，优秀的{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子公司名录，并提供{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子展会，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种植技术，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}病虫草害，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}施肥技术等内容。" />  
+<meta name="keywords" content="{{data.EnterpriseName}},{{data.EnterpriseAddressDetail}}{% for item in cropdata %} ,{{item.BrandName}}  {{item.VarietyName}}  {% endfor %}"/>
+<meta name="description" content="{{data.EnterpriseName}}位于{{data.EnterpriseProvince}}{{data.EnterpriseAddressDetail}}是一家专注于农产品/农作物/非浓雾品种的经销、生产等的种子经营经销商/企业" />  
 {% endblock %}
 {% block css %}
 <link rel="stylesheet" href="{{url}}css/companyinfo.css" />
