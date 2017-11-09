@@ -43,4 +43,15 @@ require DT_ROOT . '/data/PDODB.php';
 //$db_class = PDODB;
 $db = new PDODB($CFG['db_host'], $CFG['db_name'], $CFG['db_user'], $CFG['db_pass']);
 $db->__construct($CFG['db_host'], $CFG['db_name'], $CFG['db_user'], $CFG['db_pass']);
+
+function _post($str) {
+    $val = !empty($_POST[$str]) ? $_POST[$str] : null;
+    return $val;
+}
+
+function _get($str) {
+    $val = !empty($_GET[$str]) ? $_GET[$str] : null;
+    return $val;
+}
+
 ?>

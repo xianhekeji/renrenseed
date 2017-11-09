@@ -22,6 +22,7 @@ $conditionRegionPro = '';
 
 $checkRegionPro = $_GET ['checkRegionPro'];
 $checkStatus = $_GET['checkStatus'];
+$conditionStatus='';
 if ($checkStatus == "无") {
     $conditionStatus = "";
 } else if ($checkStatus == "已审定") {
@@ -62,7 +63,7 @@ if ($checkYear == '2009前') {
     $conditionYear = "and a.AuthorizeYear<=2009";
 }
 $conditionGen = $checkGen == '' ? "" : "and b.IsGen='$checkGen'";
-$sql = "select b.CropId,b.CropStatus,b.VarietyName,b.IsGen,b.CropLevel,(select COUNT(*) from AppCropCommentRecord WHERE CommentCropId=b.CropId) Comment,c.varietyname category_1,d.varietyname category_2 ,
+$sql = "select b.CropVipStatus,b.CropId,b.CropStatus,b.VarietyName,b.IsGen,b.CropLevel,(select COUNT(*) from AppCropCommentRecord WHERE CommentCropId=b.CropId) Comment,c.varietyname category_1,d.varietyname category_2 ,
 case when (b.CropImgs is null or b.CropImgs='') then d.variety_img else b.CropImgs end img ,
 case when (a.BreedRegionProvince like '%$province_id%') then '$province_name' else '' end pro,
 a.AuthorizeNumber AuthorizeNumber

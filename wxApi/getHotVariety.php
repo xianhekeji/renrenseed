@@ -6,8 +6,19 @@
  */
 require '../common.php';
 include '../wxAction.php';
-$sql = "select  varietyid,varietyname,variety_icon,getPY(varietyname) variety_py,arrvarietyname arrvarietyname from app_variety 
- where varietyclassid !=0 and varietyclassid!=1 and variety_flag!=1 limit 0,200;";
+$sql = "select  varietyid,varietyname name,variety_icon,GET_FIRST_PINYIN_CHAR(varietyname) variety_py,arrvarietyname arrvarietyname from app_variety 
+ where varietyclassid !=0 and varietyclassid!=1 and variety_flag!=1 ORDER BY variety_py limit 0,200";
 $result = $db->query($sql);
-echo app_wx_iconv_result_no('getHotCropClass', true, 'success', 0, 0, 0, $result);
+$array = array();
+$i = 0;
+$array = array();
+foreach ($result as $rows) {
+    $rows['key']=$rows['variety_py'];
+    if ($i == 0) {
+        $array[$rows['variety_py']][] = $rows;
+    }
+}
+//echo $array;
+//var_dump($array);
+echo app_wx_iconv_result_no('getHotCropClass', true, 'success', 0, 0, 0, $array);
 ?>

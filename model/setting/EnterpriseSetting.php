@@ -288,7 +288,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
                 echo "<script>alert(" . $update . ")</script>";
             } else if (isset($_POST ["add"])) {
                 $dis_name = $_POST ['name'];
-                $sql = "insert into AppEnterprise values(NULL,'$dis_name','DistributorTrademark','DistributorLevel','$dis_phone','0','$dis_introduce','$dis_province','$dis_city','$dis_zone','$dis_address','$dis_lat','$dis_lon','EnterpriseUserCode','EnterprisePassword','$insert','$dis_star',0)";
+                $sql = "insert into AppEnterprise values(NULL,'$dis_name','DistributorTrademark','0','$dis_phone','0','$dis_introduce','$dis_province','$dis_city','$dis_zone','$dis_address','$dis_lat','$dis_lon','EnterpriseUserCode','EnterprisePassword','$insert','$dis_star',0)";
 
                 $result_add = $db->query($sql);
                 $result_id = $db->lastInsertId();
@@ -315,7 +315,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
             echo "<script>alert(" . $update . ")</script>";
         } else if (isset($_POST ["add"])) {
             $dis_name = $_POST ['name'];
-            $sql = "insert into AppEnterprise values(NULL,'$dis_name','DistributorTrademark','DistributorLevel','$dis_phone','0','$dis_introduce','$dis_province','$dis_city','$dis_zone','$dis_address','$dis_lat','$dis_lon','EnterpriseUserCode','EnterprisePassword','','$dis_star',0)";
+            $sql = "insert into AppEnterprise values(NULL,'$dis_name','DistributorTrademark','0','$dis_phone','0','$dis_introduce','$dis_province','$dis_city','$dis_zone','$dis_address','$dis_lat','$dis_lon','EnterpriseUserCode','EnterprisePassword','','$dis_star',0)";
 
             $result_add = $db->query($sql);
             $result_id = $db->lastInsertId();

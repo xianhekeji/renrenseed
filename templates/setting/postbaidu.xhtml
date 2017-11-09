@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv = "Content-Type" content = "text/html; charset=utf-8">
+        <script type="text/javascript" src="js/setting.js"></script>
+    </head>
+    <body>
+        <form action="postBaiduUrls.php" method="post"
+              enctype='multipart/form-data'>
+            <table>
+                <tr>
+                    <td>单个URL</td><td><input type="text" id="one_url" name="one_url" width="200px;"/></td><td><input name="one_set" class="submit" type="submit" value="上传单个url"  /></td>
+                </tr>
+                <tr>
+                    <td>品种URL</td><td>最后提交ID：<input  disabled="disabled" id="last_id" name="last_id" value="{{lastid}}"/></td><td><input name="post_crop_urls" class="submit" type="submit" value="提交品种Urls" /></td>
+                </tr>
+            </table></form>
+    </body>
+</html>

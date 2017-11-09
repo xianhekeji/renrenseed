@@ -1,6 +1,6 @@
 {# /templates/index.html #}
 {% extends "base.xhtml" %}
-{% block title %}{{cropinfo.VarietyName}}-{{cropinfo.CropCategoryName2}}-人人种品种大全{% endblock %}
+{% block title %}{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}品种详情介绍,{{cropinfo.VarietyName}}审定登记信息,{{cropinfo.VarietyName}}品种点评-人人种品种大全{% endblock %}
 {% block meta %}
 <meta name="keywords" content={{cropinfo.VarietyName}},{% for item in crop_auth %},{{ item.AuthorizeNumber}}{% endfor %}{% for item in crop_auth_right %},{{ item.AuthorizeNumber}}{% endfor %} />
       <meta name="description" content="汇集高产{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子品种，优秀的{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子公司名录，并提供{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种子展会，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}种植技术，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}病虫草害，{{cropinfo.VarietyName}}{{cropinfo.CropCategoryName2}}施肥技术等内容。 " />  
