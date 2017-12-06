@@ -9,14 +9,17 @@
  * @Description
  *  */
 require '../../common.php';
-$index_data['tuijian_select'] = $db->query("select a.*,(select COUNT(*) from AppCropCommentRecord WHERE CommentCropId=a.CropId) Comment,b.varietyname category_1,c.varietyname category_2 
- ,case when (isnull(CropImgsMin) or CropImgsMin='') then c.variety_img else a.CropImgsMin end img 
- 		from WXCrop a
+$index_data['tuijian_select'] = $db->query("select a.*,b.varietyname category_1,c.varietyname category_2,
+ case when (ISNULL(CropImgsMin) or CropImgsMin='') then c.variety_img else a.CropImgsMin end img,
+  case when (ISNULL(CropImgs)  or CropImgsMin='') then 1 else 0 end isCrop
+ from WXCrop a
  left join app_variety b on a.CropCategory1=b.varietyid
  left join app_variety c on a.CropCategory2=c.varietyid
  LEFT JOIN CropOrder d on a.CropId=d.OrderCropId 
- ORDER BY d.TuijianOrderNo desc
- limit 0,20");
+ 
+where a.Flag=0
+ORDER BY d.TuijianOrderNo desc,a.CropVipStatus desc,CropOrderNo desc
+  limit 0,20");
 //echo $sql;
 echo $twig->render('list/tuijian_list_crop.html', $index_data, true);
 

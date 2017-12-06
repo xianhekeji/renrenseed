@@ -60,7 +60,7 @@ class TwigClass {
      * @param bool $return true返回 false直接输出页面
      * @return string
      */
-    public function render($template, $data = array(), $return = FALSE) {
+    public function render($template, $data = array(), $return = TRUE) {
         @$template = $this->twig->loadTemplate($this->getTemplateName($template));
         @$data = array_merge($this->data, $data);
         $islogin = isset($_SESSION['userinfo']) ? true : false;

@@ -8,8 +8,17 @@
  *  @version 1.0 
  * @Description
  *  */
-$CFG = array();
-require DT_ROOT . '/common.php';
-$db_class = 'db_' . $CFG['database'];
-$db = new $db_class($CFG['db_host'], $CFG['db_user'], $CFG['db_pass'], $CFG['db_name'], $CFG['pconnect'], $CFG['db_charset']);
-$db->__construct($CFG['db_host'], $CFG['db_user'], $CFG['db_pass'], $CFG['db_name'], $CFG['pconnect'], $CFG['db_charset']);
+$db_config = array();
+$db_config['database'] = 'mysql';
+$db_config['pconnect'] = '0';
+$db_config['db_host'] = '101.200.62.29';
+$db_config['db_name'] = 'db_renrenseed';
+$db_config['db_user'] = 'root';
+$db_config['db_pass'] = 'devLGM123';
+$db_config['db_charset'] = 'utf8_decode';
+$db_config['db_expires'] = '0';
+require_once DT_ROOT . '/data/PDODB.php';
+//数据连接初始化
+//$db_class = PDODB;
+$db = new PDODB($db_config['db_host'], $db_config['db_name'], $db_config['db_user'], $db_config['db_pass']);
+$db->__construct($db_config['db_host'], $db_config['db_name'], $db_config['db_user'], $db_config['db_pass']);

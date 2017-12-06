@@ -16,16 +16,16 @@ $arr_province = $db->query($pro_sql);
 $province_id = $arr_province [0]['ProSort'];
 $province_name = $arr_province [0]['ProName'];
 $condition = '';
-$ishot='';
+$ishot = '';
 if ($class_id == '1') {
-    $ishot=",(select MAX(CommentRecordCreateTime) CommentRecordCreateTime from AppCropCommentRecord where CommentCropId=a.CropId) CommentRecordCreateTime ";
-    $condition = " ,CommentRecordCreateTime desc,a.CropOrderNo desc ";
+    $ishot = ",(select MAX(CommentRecordCreateTime) CommentRecordCreateTime from AppCropCommentRecord where CommentCropId=a.CropId) CommentRecordCreateTime ";
+    $condition = " auths.pro  desc ,CommentRecordCreateTime desc,a.CropOrderNo desc ";
 } else if ($class_id == '2') {
-    $condition = " ,d.TuijianOrderNo desc ,a.CropOrderNo desc ";
+    $condition = " a.CropVipStatus desc,auths.pro  desc ,d.TuijianOrderNo desc ,a.CropOrderNo desc ";
 } else if ($class_id == '3') {
-    $condition = " ,d.ZuixinOrderNo desc ,a.CropOrderNo desc ";
+    $condition = " auths.pro  desc ,d.ZuixinOrderNo desc ,a.CropOrderNo desc ";
 } else {
-    $condition = " ,a.CropOrderNo desc  ";
+    $condition = " auths.pro  desc ,a.CropOrderNo desc  ";
 }
 $sql = "select a.*,(select COUNT(*) from AppCropCommentRecord WHERE CommentCropId=a.CropId) Comment,b.varietyname category_1,c.varietyname category_2 
  ,case when (CropImgsMin is null  or CropImgsMin='') then c.variety_img else a.CropImgsMin end img ,auths.pro pro ,
@@ -36,7 +36,8 @@ $sql = "select a.*,(select COUNT(*) from AppCropCommentRecord WHERE CommentCropI
  left join app_variety c on a.CropCategory2=c.varietyid
  LEFT JOIN CropOrder d on a.CropId=d.OrderCropId 
  left join (select AuCropId,'$province_name' pro from WXAuthorize where FIND_IN_SET('$province_id',BreedRegionProvince) group by AuCropId) auths on auths.AuCropId=a.CropId
- ORDER BY auths.pro  desc $condition
+where a.Flag=0
+ORDER BY $condition
  limit $PageStart,20";
 $result = $db->query($sql);
 $array = array();

@@ -35,11 +35,11 @@ if (isset($_POST ["add"])) {
         <script type="text/javascript" src="../../../js/jquery.ui.position.js"></script>
         <script type="text/javascript" src="../../../js/jquery.ui.autocomplete.js"></script>
 
-        <link rel="stylesheet" href="themes/default/default.css" />
-        <link rel="stylesheet" href="plugins/code/prettify.css" />
-        <script charset="utf-8" src="kindeditor.js"></script>
-        <script charset="utf-8" src="lang/zh_CN.js"></script>
-        <script charset="utf-8" src="plugins/code/prettify.js"></script>
+        <link rel="stylesheet" href="../../../themes/default/default.css" />
+        <link rel="stylesheet" href="../../../js/plugins/code/prettify.css" />
+        <script charset="utf-8" src="../../../js/kindeditor.js"></script>
+        <script charset="utf-8" src="../../../js/lang/zh_CN.js"></script>
+        <script charset="utf-8" src="../../../js/plugins/code/prettify.js"></script>
         <script>
             $(function () {
                 provinces = "";
@@ -56,6 +56,20 @@ if (isset($_POST ["add"])) {
                     }
                 });
             })
+            function addPhone() {
+                var phone = $.trim($("#au_province").val());
+                if (phone == "") {
+                    alert("标签不能为空");
+                } else {
+                    if ($.trim($("#t_province").val()) == "") {
+                        $("#t_province").val(phone);
+                    } else {
+                        $("#t_province").val($("#t_province").val() + ";" + phone);
+                    }
+
+                    $("#au_province").val("");
+                }
+            }
             function resetProvince() {
                 provinces = "";
                 $("#t_province").empty();
@@ -64,9 +78,9 @@ if (isset($_POST ["add"])) {
         <script>
             KindEditor.ready(function (K) {
                 var editor1 = K.create('textarea[name="content1"]', {
-                    cssPath: 'plugins/code/prettify.css',
-                    uploadJson: 'upload_json.php',
-                    fileManagerJson: 'file_manager_json.php',
+                    cssPath: '../../../js/plugins/code/prettify.css',
+                    uploadJson: '../upload_json.php',
+                    fileManagerJson: '../file_manager_json.php',
                     allowFileManager: true,
                     afterCreate: function () {
                         var self = this;
@@ -80,9 +94,14 @@ if (isset($_POST ["add"])) {
                         });
                     },
                     items: [
-                        'forecolor', 'bold', 'italic', 'underline',
-                        'removeformat', '|', 'justifyleft', 'justifycenter', 'justifyright', 'insertorderedlist',
-                        'insertunorderedlist', '|', 'formatblock', 'image', 'link'],
+                        'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
+                        'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+                        'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+                        'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
+                        'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
+                        'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
+                        'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
+                        'anchor', 'link', 'unlink', '|', 'about'],
                     afterBlur: function () {
                         this.sync();
                     }//需要添加的  
@@ -94,9 +113,9 @@ if (isset($_POST ["add"])) {
             KindEditor.ready(function (K) {
                 var editor = K.editor({
                     allowFileManager: true,
-                    cssPath: 'plugins/code/prettify.css',
-                    uploadJson: 'upload_json.php',
-                    fileManagerJson: 'file_manager_json.php',
+                    cssPath: '../../../js/plugins/code/prettify.css',
+                    uploadJson: '../upload_json.php',
+                    fileManagerJson: '../file_manager_json.php',
                 });
                 K('#image1').click(function () {
                     editor.loadPlugin('image', function () {
@@ -124,6 +143,7 @@ if (isset($_POST ["add"])) {
             <tr>
             <p>
                 标签 <input type="text" id="au_province" name="au_province" />
+                <a class="phone_a" href="javascript:void(0);"  onclick="addPhone()"><strong>+</strong></a>
                 <textarea style="width: 300px;" type="text" id="t_province"
                           name="t_province" readonly="readonly"></textarea>
                 <input type="button" id="reset_province" value="重置"

@@ -12,8 +12,12 @@
                     <td>单个URL</td><td><input type="text" id="one_url" name="one_url" width="200px;"/></td><td><input name="one_set" class="submit" type="submit" value="上传单个url"  /></td>
                 </tr>
                 <tr>
-                    <td>品种URL</td><td>最后提交ID：<input  disabled="disabled" id="last_id" name="last_id" value="{{lastid}}"/></td><td><input name="post_crop_urls" class="submit" type="submit" value="提交品种Urls" /></td>
+                    <td>品种URL</td><td>最后提交ID：<input  disabled="disabled" id="last_id" name="last_id" value="{{lastid}}"/></td><td>提交条数：<input id="sub_sum" name="sub_sum"  value="{{sub_sum}}"/></td><td><input name="post_crop_urls" class="submit" type="submit" value="提交品种Urls" /></td>
                 </tr>
+                <tr>
+                    <td>企业URL</td><td>最后提交ID：<input  disabled="disabled" id="companylastid" name="companylastid" value="{{companylastid}}"/></td><td>提交条数：<input id="sub_company_sum" name="sub_company_sum" value="{{sub_company_sum}}" /></td><td><input name="post_company_urls" class="submit" type="submit" value="提交企业Urls" /></td>
+                </tr>
+
             </table></form>
     </body>
 </html>

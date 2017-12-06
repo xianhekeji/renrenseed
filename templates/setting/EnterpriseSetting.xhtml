@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <link rel="stylesheet" href="{{url}}css/jquery.ui.autocomplete.css">
+    <link rel="stylesheet" href="{{url}}css/enterprisesetting.css">
+    <script type="text/javascript" src="{{url}}js/jquery-1.4.2.js"></script>
+    <script type="text/javascript" src="{{url}}js/jquery.ui.core.js"></script>
+    <script type="text/javascript" src="{{url}}js/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="{{url}}js/jquery.ui.position.js"></script>
+    <script type="text/javascript" src="{{url}}js/jquery.ui.autocomplete.js"></script>
+    <script type="text/javascript" src="{{url}}js/enterprisesetting.js"></script>
+    <link rel="stylesheet" href="{{url}}themes/default/default.css" />
+    <link rel="stylesheet" href="{{url}}js/plugins/code/prettify.css" />
+    <script charset="utf-8" src="{{url}}js/kindeditor.js"></script>
+    <script charset="utf-8" src="{{url}}js/lang/zh_CN.js"></script>
+    <script charset="utf-8" src="{{url}}js/plugins/code/prettify.js"></script>
+
+    <head>
+        <title>企业维护</title>
+    </head>
+    <body>
+        <form action="EnterpriseSettingNew.php" method="post"
+              enctype='multipart/form-data'
+              onkeydown="if (event.keyCode == 13)
+        return false;">
+            <table>
+                <tr>
+                    <td>名称</td>
+                    <td><input type="heddin" name="name" id="name" /></td>
+                    <td id="flag" name="flag"></td>
+                </tr>
+                <tr>
+                    <td width=100>地址</td>
+                    <td><select name="select_province" id="select_province" title="选择省份">
+                        </select><select name="select_city" id="select_city" title="选择市区">
+                        </select><select name="select_zone" id="select_zone" title="选择县乡">
+                        </select></td>
+                </tr>
+                <tr>
+                    <td>详细地址</td>
+                    <td><input type="text" id="address" name="address" /></td>
+                </tr>
+                <tr>
+                    <td>坐标</td>
+                    <td>横坐标：<input type="text" id="lat" name="lat" />
+                        纵坐标<input type="text" id="lon" name="lon" /></td>
+
+                </tr>
+                <tr>
+                    <td>星级</td>
+                    <td><input type="text" id="star" name="star" />(1-10)</td>
+                </tr>
+                <tr>
+                    <td>联系电话</td>
+                    <td><select name="select_phone_class" id="select_phone_class" title="选择品种">
+                            <option value="电话" >电话</option>
+                            <option value="销售" >销售</option>
+                            <option value="客服" >客服</option>
+                            <option value="售后">售后</option>
+                        </select><input type="text" name="phone" id="phone"  />
+                        <a class="phone_a" href="javascript:void(0);"  onclick="addPhone()"><strong>+</strong></a>   
+                        <textarea
+                            style="width: 400px;" type="text" id="selected_phone"
+                            name="selected_phone" readonly="readonly"></textarea> <input
+                            type="button" id="reset_phone" value="重置"
+                            onclick="resetPhone()" /></td>
+                    <td>
+                </tr>
+                <!--                <tr><td></td><td id="selected_phone" name="selected_phone">
+                                    </td></tr>-->
+                <tr>
+                    <td>简介(300字以内)</td>
+                    <td> <textarea name="introduce" id="introduce"
+                                   style="width: 800px; height: 300px; visibility: hidden;"></textarea></td>
+                </tr>
+                <tr>
+                    <td>头像</td>
+                <br />
+                <td><div id="picInput">
+                        上传头像：<input type="file" name='myfile[]'>
+                    </div> </td>
+                </tr>
+                <tr name="crop_img" id="crop_img"></tr>
+            </table>
+            <tr>
+            <input name="add" class="submit" type="submit" value="新建" />
+            <input name="modify" class="submit" type="submit" value="修改" />
+            <input name="reset" class="submit" type="submit" value="重置" />
+            <input id="flag_zuofei" name="flag_zuofei" class="submit"
+                   type="submit" value="作废" />
+            <input id="flag_qiyong" name="flag_qiyong" class="submit"
+                   type="submit" value="启用" />
+        </tr>
+    </form>
+</body>
+</html>

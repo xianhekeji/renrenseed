@@ -1,6 +1,6 @@
 {% for item in brandlist %}
 <div class="py_a_content">
     <a  name="py_a" id="py_a" href="javascript:void(0);" onclick="setBrand('{{item.BrandName}}')">
-        <image class="brand_img" src="{{url}}files/brandImgs/{{item.BrandImg}}" alt="{{item.BrandName}}"></image>
+        <image class="brand_img" src="{{url}}files/brandImgs/{{item.BrandImgMin}}" alt="{{item.BrandName}}"></image>
         {{item.BrandName}}</a></div>
 {% endfor %}

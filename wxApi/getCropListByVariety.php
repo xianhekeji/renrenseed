@@ -18,8 +18,8 @@ left join app_variety b on a.CropCategory1=b.varietyid
 left join app_variety c on a.CropCategory2=c.varietyid
 left join (select AuCropId,'$province_name' pro from WXAuthorize where BreedRegionProvince like '%$province_id%' group by AuCropId) auths on auths.AuCropId=a.CropId
 
-where c.varietyname like '%$variety%' 
-ORDER BY auths.pro desc,CropOrderNo desc
+where a.Flag=0 and c.varietyname like '%$variety%' 
+ORDER BY CropVipStatus desc,auths.pro desc,CropOrderNo desc
 limit $PageStart,20";
 $result = $db->query($sql);
 $array = array();

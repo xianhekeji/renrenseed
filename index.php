@@ -9,10 +9,11 @@ $index_data = array();
 $perNumber = $CFG['perNumber']; //每页显示的记录数  
 $page = isset($_GET['page']) ? $_GET['page'] : 1; //获得当前的页面值  
 $count = $db->row("select count(*) count
-from WXCrop a
-left join app_variety b on a.CropCategory1 = b.varietyid
-left join app_variety c on a.CropCategory2 = c.varietyid
-LEFT JOIN CropOrder d on a.CropId = d.OrderCropId"); //获得记录总数  
+ from WXCrop a
+ left join app_variety b on a.CropCategory1=b.varietyid
+ left join app_variety c on a.CropCategory2=c.varietyid
+ LEFT JOIN CropOrder d on a.CropId=d.OrderCropId 
+where a.Flag=0"); //获得记录总数  
 $totalNumber = $count['count'];
 $totalPage = ceil($totalNumber / $perNumber); //计算出总页数  
 if (!isset($page)) {
@@ -23,13 +24,16 @@ $index_data['page'] = $page;
 $index_data['pageBegin'] = $page > 5 ? $page - 5 : 1;
 $index_data['pageEnd'] = $page + 4 > $totalPage ? $totalPage : $page + 4;
 $index_data['totalPage'] = $totalPage;
-$sql = "select a.*, b.varietyname category_1, c.varietyname category_2
-, case when (isnull(CropImgsMin) is null or CropImgsMin = '') then c.variety_img else a.CropImgsMin end img
-from WXCrop a
-left join app_variety b on a.CropCategory1 = b.varietyid
-left join app_variety c on a.CropCategory2 = c.varietyid
-LEFT JOIN CropOrder d on a.CropId = d.OrderCropId
-ORDER BY d.HotOrderNo desc limit 0, 20";
+$sql = "select a.*,b.varietyname category_1,c.varietyname category_2,
+ case when (ISNULL(CropImgsMin) or CropImgsMin='') then c.variety_img else a.CropImgsMin end img,
+  case when (ISNULL(CropImgs)  or CropImgsMin='') then 1 else 0 end isCrop
+ from WXCrop a
+ left join app_variety b on a.CropCategory1=b.varietyid
+ left join app_variety c on a.CropCategory2=c.varietyid
+ LEFT JOIN CropOrder d on a.CropId=d.OrderCropId 
+where a.Flag=0
+ORDER BY a.CropVipStatus desc,d.TuijianOrderNo desc,CropOrderNo desc
+  limit 0,20";
 $index_data['select'] = $db->query($sql); //根据前面的计算出开始的记录和记录数 
 //分页功能测试end
 $index_data['category_1'] = $db->query("select varietyid id, varietyname value from app_variety where varietyclassid = 1 and variety_flag !=1 ORDER BY hotorder desc");

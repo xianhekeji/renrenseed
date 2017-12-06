@@ -18,4 +18,4 @@ foreach ($result as $rows) {
     $array [] = $rows;
 }
 
-echo app_wx_iconv_result_no('getArticleByCropId', true, 'success', 0, 0, 0, $array);
+echo app_wx_iconv_result('getArticleByCropId', true, 'success', 0, 0, 0, $array);

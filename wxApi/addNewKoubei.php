@@ -14,7 +14,7 @@ if ($UserId == 0) {
     );
 } else {
     $Comment = $_POST ['Comment'];
-    if (strlen($Comment) < 20) {
+    if (mb_strlen($Comment, 'utf-8') < 20) {
         $data = array(
             'content' => '点评字数不能少于20字',
             'status' => 1

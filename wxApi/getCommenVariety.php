@@ -8,7 +8,7 @@ require '../common.php';
 include '../wxAction.php';
 $sql = "select  varietyid,varietyname,variety_icon  from app_variety  
 where varietyclassid !=0 and varietyclassid !=1 and variety_flag!=1 
-ORDER BY hotlevel desc
+ORDER BY hotlevel 
 desc limit 0,10";
 $result = $db->query($sql);
 echo app_wx_iconv_result_no('getCommenVariety', true, 'success', 0, 0, 0, $result);

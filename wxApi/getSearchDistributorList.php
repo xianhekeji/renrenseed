@@ -10,6 +10,7 @@ case when (EnterpriseUserAvatar is null  or EnterpriseUserAvatar='') then 'defau
 from AppEnterprise a
 left join AppArea b on a.EnterpriseProvince=b.areaid
 where EnterpriseFlag=0 and EnterpriseName like '%$text%'
+    order by EnterpriseLevel desc
 LIMIT $PageStart,20";
 $result = $db->query($sql);
 echo app_wx_iconv_result('getSearchDistributorList', true, 'success', 0, 0, 0, $result);

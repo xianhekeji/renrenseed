@@ -17,7 +17,7 @@ inner join  AppCommodity b on a.CropId=b.CommodityVariety
 inner join AppBrand c on b.CommodityBrand=c.BrandId
 left join app_variety d on a.CropCategory1=d.varietyid
 left join app_variety e on a.CropCategory2=e.varietyid
-where b.Owner=$enid $contionPinpai $contionLeibie 
+where a.Flag=0 and b.Owner=$enid $contionPinpai $contionLeibie 
     order by d.varietyname,e.varietyname,b.CommodityOrderNoCompany desc
 limit $PageStart,20";
 $result = $db->query($sql);

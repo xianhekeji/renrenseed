@@ -14,6 +14,7 @@ $access_token_url = 'https://api.weixin.qq.com/cgi-bin/token';
 $access_token_url = sprintf("%s?appid=%s&secret=%s&grant_type=%s", $access_token_url, $appid, $secret, $grant_type);
 $access_token_data = json_decode(get_url($access_token_url));
 $access_token = $access_token_data->access_token;
+
 $get_qrcode_url = "https://api.weixin.qq.com/wxa/getwxacodeunlimit?access_token=$access_token";
 $data = array("scene" => $CropId, "page" => "pages/itemCrop/itemCrop");
 $result = http($get_qrcode_url, $data, true);

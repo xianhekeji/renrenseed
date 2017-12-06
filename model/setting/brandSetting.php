@@ -142,9 +142,10 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
                 continue;
             $rename = 'brand_' . time() . '_' . $i;
             $ext = pathinfo($n, PATHINFO_EXTENSION);
-            setShuiyin($save [$k], $path, $rename . '_min' . '.' . $ext, 200, 200);
+            setBrandImg($save [$k], $path, $rename . '_min' . '.' . $ext, 200, 200);
             if (copy($save [$k], $path . $rename . '.' . $ext)) {
                 $insert_name [] = $rename . '.' . $ext;
+                $insert_name_min[] = $rename . '_min' . '.' . $ext;
                 @unlink($save [$k]);
             }
             $i++;

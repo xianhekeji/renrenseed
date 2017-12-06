@@ -22,11 +22,11 @@ $condition = '';
 $area = isset($_GET['areaname']) ? $_GET['areaname'] : '';
 $brand = isset($_GET['brand']) ? $_GET['brand'] : '';
 if (!empty($area)) {
-    $sql = "select BrandId,BrandName,BrandImg,b.EnterpriseName from AppBrand a
+    $sql = "select BrandId,BrandName,BrandImg,BrandImgMin,b.EnterpriseName from AppBrand a
 left join AppEnterprise b on a.BrandCompany=b.EnterpriseId
 where b.EnterpriseProvince ='$area'";
 } else {
-    $sql = "select BrandId,BrandName,BrandImg from AppBrand a
+    $sql = "select BrandId,BrandName,BrandImg,BrandImgMin from AppBrand a
 where GET_FIRST_PINYIN_CHAR(BrandName) like '%A%'";
 }
 

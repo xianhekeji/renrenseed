@@ -6,6 +6,43 @@
  * and open the template in the editor.
  */
 
+function setBrandImg($dst_path, $save_path, $rename, $new_width, $new_height) {
+    $dst = imagecreatefromstring(file_get_contents($dst_path));
+    /* imagecreatefromstring()--从字符串中的图像流新建一个图像，返回一个图像标示符，其表达了从给定字符串得来的图像
+      图像格式将自动监测，只要php支持jpeg,png,gif,wbmp,gd2. */
+    $sizi = getimagesize($dst_path);
+    $pic_width = $sizi[0];
+    $pic_height = $sizi[1];
+    $new_img = resizeImage($dst, $new_width, $new_height, '', $sizi[2]);
+//    $new_img = resizeImage($dst, 500, 500, '', $sizi[2]);
+//
+//    $x = 80;
+//    $y = 100;
+//    $font = DT_ROOT . '/css/SIMYOU.TTF';
+//    $col = imagecolorallocatealpha($dst, 247, 240, 240, 50);
+//    $content = ' 人人种' . PHP_EOL . '品种大全';
+//    imagefttext($new_img, 48, 0, $x, $y, $col, $font, $content);
+    switch ($sizi[2]) {
+        case 1://GIF
+            // header("content-type:image/gif");
+            imagegif($new_img, $save_path . $rename);
+            break;
+        case 2://JPG
+            //header("content-type:image/jpeg");
+            imagejpeg($new_img, $save_path . $rename);
+            break;
+        case 3://PNG
+            //header("content-type:image/png");
+            imagepng($new_img, $save_path . $rename);
+            break;
+        default:
+            break;
+        /* imagepng--以PNG格式将图像输出到浏览器或文件
+          imagepng()将GD图像流(image)以png格式输出到标注输出（通常为浏览器），或者如果用filename给出了文件名则将其输出到文件 */
+    }
+    imagedestroy($new_img);
+}
+
 function setShuiyin($dst_path, $save_path, $rename, $new_width, $new_height) {
     $dst = imagecreatefromstring(file_get_contents($dst_path));
     /* imagecreatefromstring()--从字符串中的图像流新建一个图像，返回一个图像标示符，其表达了从给定字符串得来的图像

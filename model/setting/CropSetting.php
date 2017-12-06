@@ -137,7 +137,7 @@ if (!isset($_SESSION['user'])) {
             input.name = 'myfile[]';
             var picInut = document.getElementById('picInput');
             picInut.appendChild(input);
-            if (picInut.children.length == 3) {
+            if (picInut.children.length == 10) {
                 addBtn.disabled = 'disabled';
             }
         }
@@ -276,7 +276,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
     $au_organization = $_POST ['au_organization'];
     $app_Variety_1 = $_POST ['select_1'];
     $app_Variety_2 = $_POST ['select_2'];
-    $cropName = trim ($_POST ['cropname']);
+    $cropName = trim($_POST ['cropname']);
     $IsGen = $_POST ['class'];
     $images = isset($_FILES ["myfile"]) ? $_FILES ["myfile"] : '';
     $site = isset($_REQUEST ['site']) ? $_REQUEST ['site'] : '';
@@ -304,7 +304,6 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
             if (!is_file($save [$k]))
                 continue;
             $rename = 'crop_' . time() . '_' . $i;
-//            $rename = $n . time();
             $ext = pathinfo($n, PATHINFO_EXTENSION);
             setShuiyin($save [$k], $path, $rename . '_min' . '.' . $ext, 500, 500);
             if (copy($save [$k], $path . $rename . '.' . $ext)) {

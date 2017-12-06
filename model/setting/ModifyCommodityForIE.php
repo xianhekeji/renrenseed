@@ -69,7 +69,7 @@ if (!isset($_SESSION['user'])) {
                         $("#key").val(data["EnterpriseId"] + ";" + data["EnterpriseName"]);
                         $("#cropname").val(data["CropId"] + ";" + data["VarietyName"]);
                         $("#flag").empty();
-                        if (data[0]['CommodityFlag'] == '1')
+                        if (data["CommodityFlag"] == 1)
                         {
                             $("#flag").append("<text>已作废</text>");
                             $("#flag_qiyong").show();
@@ -170,7 +170,7 @@ if (!isset($_SESSION['user'])) {
                 <tr>
                     <td>搜索名称</td>
                     <td><input type="text" id="commodityname" name="commodityname" /></td>
-                    <td id="flag"></td>
+
                 </tr>
                 <tr>
                     <td>商品分类</td>
@@ -181,6 +181,7 @@ if (!isset($_SESSION['user'])) {
                 <tr>
                     <td>商品名称</td>
                     <td><input type="heddin" name="name" value="" id="name" /></td>
+                    <td id="flag" name="flag"></td>
                 </tr>
                 <tr>
                     <td>商品价格</td>
@@ -384,7 +385,7 @@ where CommodityId=$app_commodityid";
             } else if (isset($_POST ["add"])) {
                 $insert = implode(";", $insert_name);
                 $sql = "INSERT INTO AppCommodity VALUE (NULL, '$app_commodity_title', '$app_commodity_name', '$app_commodity_price', '$time', '0',
-		'$time', '$app_commodity_describe', '$companyid', 'NewId', '$insert', '$crop_id', '$app_commodity_class', '1','$app_Variety_1','$app_Variety_2',0,'$app_brand','$app_spec','0','$insert_min');";
+		'$time', '$app_commodity_describe', '$companyid', '0', '$insert', '$crop_id', '$app_commodity_class', '1','$app_Variety_1','$app_Variety_2',0,'$app_brand','$app_spec','0','$insert_min');";
                 $result_add = $db->query($sql);
                 $result_id = $db->lastInsertId();
                 echo "<script>alert(" . $result_id . ")</script>";
@@ -401,7 +402,7 @@ where CommodityId=$app_commodityid";
             echo "<script>alert(" . $update . ")</script>";
         } else if (isset($_POST ["add"])) {
             $sql = "INSERT INTO AppCommodity VALUE (NULL, '$app_commodity_title', '$app_commodity_name', '$app_commodity_price', '$time', '0',
-		'$time', '$app_commodity_describe', '$companyid', 'NewId', '', '$crop_id', '$app_commodity_class', '1','$app_Variety_1','$app_Variety_2',0,'$app_brand','$app_spec','0','');";
+		'$time', '$app_commodity_describe', '$companyid', '0', '', '$crop_id', '$app_commodity_class', '1','$app_Variety_1','$app_Variety_2',0,'$app_brand','$app_spec','0','');";
             $result_add = $db->query($sql);
             $result_id = $db->lastInsertId();
             echo "<script>alert(" . $result_id . ")</script>";

@@ -2,88 +2,89 @@
 {% extends "base.xhtml" %}
 {% block title %}人人种品种大全{% endblock %}
 {% block meta %}
+<meta name="360-site-verification" content="a1f0e85c7c24e0fbde80031b7a32e7d5" />
 <meta name="keywords" content="人人种,人人种品种大全,www.renrenseed.com,renrenseed,品种查询,品种点评,查询,点评,新品种,非主要农作物登记,主要农作物审定"/>
-    <meta name="description" content="人人种品种大全是以农作物品种为核心的品种信息平台.平台提供玉米、小麦、棉花、大豆、水稻5个主要农作物品类以及瓜果蔬菜等非主要农作物156个品类共3万多个品种的审定登记信息、品种图片、种植者评价、在售企商情况等数十万条数据。平台坚持以品种为索引，串联品种属性、商业信息和种植者口碑，为用户提供农作物全方位的信息视角，从而更全面有效的了解品种特性。"  />   
+<meta name="description" content="人人种品种大全是以农作物品种为核心的品种信息平台.平台提供玉米、小麦、棉花、大豆、水稻5个主要农作物品类以及瓜果蔬菜等非主要农作物156个品类共3万多个品种的审定登记信息、品种图片、种植者评价、在售企商情况等数十万条数据。平台坚持以品种为索引，串联品种属性、商业信息和种植者口碑，为用户提供农作物全方位的信息视角，从而更全面有效的了解品种特性。"  />   
+{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="css/index.css" type="text/css">
+    <link rel="stylesheet" href="css/rate.css" type="text/css" />
+    <link rel="stylesheet" href="css/list_crop.css" type="text/css" />
     {% endblock %}
-    {% block css %}
-    <link rel="stylesheet" href="css/index.css" type="text/css">
-        <link rel="stylesheet" href="css/rate.css" type="text/css" />
-        <link rel="stylesheet" href="css/list_crop.css" type="text/css" />
-        {% endblock %}
-        {% block js %}
-        <script type="text/javascript" src="js/index.js"></script>
-        {% endblock %}
-        {% block main %}
-        <body style="background:url('{{url}}images/index_background.jpg') repeat fixed; width:100%;height:100%;margin: 0;">
-            <div class="body_center">
-                <div>
-                    <div class="pic">
-                        <img class="logo" src="images/logo_new.png" alt="人人种品种大全"/>
+    {% block js %}
+    <script type="text/javascript" src="js/index.js"></script>
+    {% endblock %}
+    {% block main %}
+    <body style="background:url('{{url}}images/index_background.jpg') repeat fixed; width:100%;height:100%;margin: 0;">
+        <div class="body_center">
+            <div>
+                <div class="pic">
+                    <img class="logo" src="images/logo_new.png" alt="人人种品种大全"/>
 
-                    </div>
-                    <div class="search">
-                        <label for="search"></label>
-                        <input class="input" type="text" name="search" id="search" value="" /><input name="mainSearch" id="mainSearch" class="btn" type="button" value="搜索" />
-                    </div>
                 </div>
-                <div class="s-menu-gurd">       
-                    <ul class="s-ctner-menus">
-                        <!--                    <li id=s_menu_mine class="s-menu-item s-menu-mine" title="s_content_1">
-                                                <div class="mine-icon"></div><div class="mine-text">我的关注</div></li>-->
-                        <li  class="s-menu-item" title="s_content_7"> <span>热评品种</span>  </li>
-                        <li class="s-menu-item" title="s_content_3"><span> 推荐</span>   </li>
-                        <li class="s-menu-item" title="s_content_4"><span> 最新</span>  </li>
-                        <!--                    <li class="s-menu-item" title="s_content_5"> <span>适宜本地</span>   </li>-->
-                        <li class="s-menu-item" title="s_content_6"> <span>文章</span>  </li>
-                        <li class="s-menu-item" title="s_content_2"> <span>分类搜</span> </li>
-                    </ul></div>
-                <div  class="s-ctner-menus_1" >
-                    <div   id="s_content_2" style="display:none">
-                        {{ include ('index/condition_search.html')}}
-                    </div>
-                    <div  style="display:none" id="s_content_3">
-
-                    </div>
-                    <div style="display:none" id="s_content_4">
-                    </div>
-                    <!--                <div style="display:none" id="s_content_5">
-                                    </div>-->
-                    <div style="display:none" id="s_content_6">
-
-                    </div>
-                    <div   id="s_content_7">
-                        {{ include ('list/reping_list_crop.html')}}
-                    </div>
-
+                <div class="search">
+                    <label for="search"></label>
+                    <input class="input" type="text" name="search" id="search" value="" /><input name="mainSearch" id="mainSearch" class="btn" type="button" value="搜索" />
                 </div>
             </div>
-        </body>
-        <!--右侧悬浮菜单-->
-        <div class="slide">
-            <ul class="icon">
-                <li class="up" title="上一页"></li>
-                <li class="qq"></li>
-                <li class="tel"></li>
-                <li class="wx"></li>
-                <li class="down" title="下一页"></li>
-            </ul>
-            <ul class="info">
-                <li class="qq">
-                    <p>商务合作，请点我<a href="http://wpa.qq.com/msgrd?v=3&uin=3170480679&site=qq&menu=yes" target="_blank">在线咨询</a></p>
-                </li>
-                <li class="tel" >
-                    <p>
-                        <!--                    咨询热线：<br>400-800-8888<br>-->
-                        客服qq：<br>3170480679</p>
-                </li>
-                <li class="wx">
-                    <div class="img">
-                        <img src="{{url}}/images/gh_gongzhonghao.jpg" alt="公众平台"/>
-                        <text style="color:#000;">扫一扫关注公众平台，在手机上体验更多服务。</text>
-                    </div>
-                </li>
-            </ul>
+            <div class="s-menu-gurd">       
+                <ul class="s-ctner-menus">
+                    <!--                    <li id=s_menu_mine class="s-menu-item s-menu-mine" title="s_content_1">
+                                            <div class="mine-icon"></div><div class="mine-text">我的关注</div></li>-->
+                    <li  class="s-menu-item" title="s_content_7"> <span>热评品种</span>  </li>
+                    <li class="s-menu-item" title="s_content_3"><span> 推荐</span>   </li>
+                    <li class="s-menu-item" title="s_content_4"><span> 最新</span>  </li>
+                    <!--                    <li class="s-menu-item" title="s_content_5"> <span>适宜本地</span>   </li>-->
+                    <li class="s-menu-item" title="s_content_6"> <span>文章</span>  </li>
+                    <li class="s-menu-item" title="s_content_2"> <span>分类搜</span> </li>
+                </ul></div>
+            <div  class="s-ctner-menus_1" >
+                <div   id="s_content_2" style="display:none">
+                    {{ include ('index/condition_search.html')}}
+                </div>
+                <div  style="display:none" id="s_content_3">
+
+                </div>
+                <div style="display:none" id="s_content_4">
+                </div>
+                <!--                <div style="display:none" id="s_content_5">
+                                </div>-->
+                <div style="display:none" id="s_content_6">
+
+                </div>
+                <div   id="s_content_7">
+                    {{ include ('list/reping_list_crop.html')}}
+                </div>
+
+            </div>
         </div>
-        <div id="btn" class="index_cy"></div>
-        {% endblock %}
+    </body>
+    <!--右侧悬浮菜单-->
+    <div class="slide">
+        <ul class="icon">
+            <li class="up" title="上一页"></li>
+            <li class="qq"></li>
+            <li class="tel"></li>
+            <li class="wx"></li>
+            <li class="down" title="下一页"></li>
+        </ul>
+        <ul class="info">
+            <li class="qq">
+                <p>商务合作，请点我<a href="http://wpa.qq.com/msgrd?v=3&uin=3170480679&site=qq&menu=yes" target="_blank">在线咨询</a></p>
+            </li>
+            <li class="tel" >
+                <p>
+                    <!--                    咨询热线：<br>400-800-8888<br>-->
+                    客服qq：<br>3170480679</p>
+            </li>
+            <li class="wx">
+                <div class="img">
+                    <img class="gz_img" src="{{url}}/images/gh_gongzhonghao.jpg" alt="公众平台"/>
+                    <text style="color:#000;">扫一扫关注公众平台，在手机上体验更多服务。</text>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="btn" class="index_cy"></div>
+    {% endblock %}
 

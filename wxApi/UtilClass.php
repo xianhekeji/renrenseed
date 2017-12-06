@@ -18,7 +18,7 @@ function AddNewCropComment($db, $UserId, $Comment, $CommentCropId, $CommentLevel
     return $new_id;
 }
 
-function AddNewDistributorComment($db, $UserId, $Comment, $CommentCompanyId, $CommentLevel, $insert, $insert_min) {
+function AddNewDistributorComment($db,$UserId, $Comment, $CommentCompanyId, $CommentLevel, $insert, $insert_min) {
     $sql = "INSERT INTO AppDistributorCommentRecord VALUE(NULL,'$CommentCompanyId','$UserId','$Comment', now(),'0','0','$CommentLevel','$insert',', $insert_min')";
     $result = $db->query($sql);
     $new_id = $db->lastInsertId();

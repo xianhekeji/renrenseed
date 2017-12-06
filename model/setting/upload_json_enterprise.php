@@ -13,9 +13,9 @@ $php_path = dirname(__FILE__) . '/';
 $php_url = dirname($_SERVER['PHP_SELF']) . '/';
 
 //文件保存目录路径
-$save_path = $php_path . '../attached/';
+$save_path = $php_path . 'enterprise/';
 //文件保存目录URL
-$save_url = $php_url . '../attached/';
+$save_url = $php_url . 'enterprise/';
 //定义允许上传的文件扩展名
 $ext_arr = array(
     'image' => array('gif', 'jpg', 'jpeg', 'png', 'bmp'),
@@ -77,7 +77,7 @@ if (empty($_FILES) === false) {
     }
     //检查目录写权限
     if (@is_writable($save_path) === false) {
-        alert("上传目录没有写权限。");
+        alert("上传目录没有写权限。".$save_path);
     }
     //检查是否已上传
     if (@is_uploaded_file($tmp_name) === false) {
@@ -89,6 +89,7 @@ if (empty($_FILES) === false) {
     }
     //检查目录名
     $dir_name = empty($_GET['dir']) ? 'image' : trim($_GET['dir']);
+
     if (empty($ext_arr[$dir_name])) {
         alert("目录名不正确。");
     }

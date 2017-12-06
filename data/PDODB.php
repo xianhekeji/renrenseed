@@ -70,6 +70,18 @@ class PDODB {
         $this->pdo = null;
     }
 
+    /**
+     * Singleton instance
+     * 
+     * @return Object
+     */
+    public static function getInstance($dbHost, $dbUser, $dbPasswd, $dbName, $dbCharset) {
+        if (self::$_instance == null) {
+            self::$_instance = new self($dbHost, $dbUser, $dbPasswd, $dbName, $dbCharset);
+        }
+        return self::$_instance;
+    }
+
     private function Init($query, $parameters = "") {
         if (!$this->bConnected) {
             $this->Connect();
@@ -77,7 +89,6 @@ class PDODB {
         try {
             $this->parameters = $parameters;
             $this->sQuery = $this->pdo->prepare($this->BuildParams($query, $this->parameters));
-
             if (!empty($this->parameters)) {
                 if (array_key_exists(0, $parameters)) {
                     $parametersType = true;
@@ -90,7 +101,6 @@ class PDODB {
                     $this->sQuery->bindParam($parametersType ? intval($column) : ":" . $column, $this->parameters[$column]); //It would be query after loop end(before 'sQuery->execute()').It is wrong to use $value.
                 }
             }
-
             $this->succes = $this->sQuery->execute();
             $this->querycount++;
         } catch (PDOException $e) {

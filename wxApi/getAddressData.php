@@ -14,7 +14,7 @@ $sql = "select DISTINCT(areaname) from AppArea WHERE parentid=0 ";
 $result = $db->query($sql);
 $sql_userdata[] = '全部';
 foreach ($result as $n) {
-    $sql_userdata[] = $n['areaname'];
+     $sql_userdata[] = $n['areaname'];
 }
 
 echo app_wx_iconv_result_no('getAddressData', true, 'success', 0, 0, 0, $sql_userdata);

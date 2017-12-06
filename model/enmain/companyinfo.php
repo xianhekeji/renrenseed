@@ -11,7 +11,10 @@ require '../../comm/wxLogin.php';
 header("Content-Type:text/html;charset=utf-8");
 $cropmaindata = array();
 $companyid = $_GET['id'];
-$row = $db->row("select * from AppEnterprise where EnterpriseId=$companyid limit 0,1 ");
+$row = $db->row("select a.EnterpriseId,a.EnterpriseName,a.EnterpriseBusScrope,a.EnterpriseLevel,a.EnterpriseTelephone
+,a.EnterpriseFlag,a.EnterpriseIntroduce,b.areaname EnterpriseProvince,a.EnterpriseAddressDetail,a.EnterpriseUserAvatar from AppEnterprise a
+left join AppArea b on a.EnterpriseProvince=b.areaid
+where EnterpriseId=$companyid limit 0,1 ");
 //分页功能测试begin
 $perNumber = 5; //每页显示的记录数  
 $page = isset($_GET['page']) ? $_GET['page'] : 1; //获得当前的页面值  

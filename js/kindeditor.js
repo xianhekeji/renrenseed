@@ -963,7 +963,7 @@
         if (/\.(rm|rmvb)(\?|$)/i.test(src)) {
             return 'audio/x-pn-realaudio-plugin';
         }
-        if (/\.(swf|flv)(\?|$)/i.test(src)) {
+        if (/\.(swf|flv|mp4)(\?|$)/i.test(src)) {
             return 'application/x-shockwave-flash';
         }
         return 'video/x-ms-asf-plugin';
@@ -983,7 +983,13 @@
     function _mediaEmbed(attrs) {
         var html = '<embed ';
         _each(attrs, function (key, val) {
-            html += key + '="' + val + '" ';
+            if (key == 'src') {
+                html += key + '="' + K.options.pluginsPath + 'ckplayer/ckplayer.swf"';
+                html += 'flashvars="f=' + val + '"';
+            } else {
+                html += key + '="' + val + '" ';
+            }
+
         });
         html += '/>';
         return html;

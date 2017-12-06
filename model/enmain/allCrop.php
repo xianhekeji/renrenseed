@@ -13,7 +13,7 @@ $companyid = $_GET['id'];
 $row = $db->row("select * from AppEnterprise where EnterpriseId=$companyid limit 0,1 ");
 $auinfodata['data'] = $row;
 $sql = "select a.CropId,a.VarietyName,a.IsGen,a.Flag,a.Memo,a.CropLevel,d.varietyname category_1,e.varietyname category_2 
- ,c.BrandImg,c.BrandName
+ ,c.BrandImg,c.BrandName,c.BrandImgMin 
   from WXCrop a
 inner join  AppCommodity b on a.CropId=b.CommodityVariety
 inner join AppBrand c on b.CommodityBrand=c.BrandId

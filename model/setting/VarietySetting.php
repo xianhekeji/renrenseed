@@ -84,6 +84,10 @@ if (!isset($_SESSION['user'])) {
                     <td><input type="text" name="memo" id="memo" /></td>
                 </tr>
                 <tr>
+                    <td>拼音：</td>
+                    <td><input type="text" name="py" id="py" /></td>
+                </tr>
+                <tr>
                     <td>图标图片：</td>
 
                     <td><div id="picInput">
@@ -144,6 +148,7 @@ if (isset($_POST ["flag_qiyong"])) {
 if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
 
     $memo = $_POST ['memo'];
+    $py = $_POST['py'];
     if (empty($_POST ['variety_2'])) { // 点击提交按钮后才执行
         echo "<script>alert('分类名称不能为空')</script>";
         return;
@@ -231,7 +236,6 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
         $arr_variety_2 = explode(';', $_POST ['variety_2']);
         $variety_id_2 = $arr_variety_2 [0];
         $variety_name_2 = $arr_variety_2 [1];
-
         $condition = '';
         if (isset($insert) && strlen($insert) > 0) {
             $condition = ",variety_icon='$insert'";
@@ -239,13 +243,12 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
         if (isset($insert_2) && strlen($insert_2) > 0) {
             $condition = $condition . ",variety_img='$insert_2'";
         }
-        $sql = "update app_variety set varietyname='$variety_name_2',varietyclassid='$variety_id_1' $condition ,variety_memo='$memo'where varietyid='$variety_id_2'";
+        $sql = "update app_variety set varietyname='$variety_name_2',varietyclassid='$variety_id_1' $condition ,variety_memo='$memo',variety_py='$py' where varietyid='$variety_id_2'";
         $update = $db->query($sql);
         echo "<script>alert(" . $update . ")</script>";
     } else if (isset($_POST ["add"])) {
         $variety_2 = $_POST ['variety_2'];
-
-        $sql = "insert into app_variety values(null,'$variety_2','$variety_id_1','','$time','','','','$insert','$insert_2','1','$memo')";
+        $sql = "insert into app_variety values(null,'$variety_2','$variety_id_1','','$time','','','','$insert','$insert_2','1','$memo','$py')";
         $result_add = $db->query($sql);
         $result_id = $db->lastInsertId();
         echo "<script>alert(" . $result_id . ")</script>";

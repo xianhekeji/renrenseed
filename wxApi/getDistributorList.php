@@ -13,7 +13,7 @@ case when (EnterpriseUserAvatar is null  or EnterpriseUserAvatar='') then 'defau
 from AppEnterprise a
 left join AppArea b on a.EnterpriseProvince=b.areaid
 where EnterpriseFlag=0 
-order by TempOrderNo desc,EnterpriseOrderNo desc
+order by TempOrderNo desc,EnterpriseLevel desc,EnterpriseOrderNo desc
 limit $PageStart,20 ";
 $result = $db->query($sql);
 //$array = array();

@@ -1,6 +1,6 @@
 {# /templates/index.html #}
 {% extends "base.xhtml" %}
-{% block title %}{{data.EnterpriseName}}-{{data.EnterpriseAddressDetail}}-人人种品种大全{% endblock %}
+{% block title %}{% for item in cropdata %} {{item.VarietyName}} | {% endfor %}{{data.EnterpriseName}}-{{data.EnterpriseAddressDetail}}-人人种品种大全{% endblock %}
 {% block meta %}
 <meta name="keywords" content="{{data.EnterpriseName}},{{data.EnterpriseAddressDetail}}{% for item in cropdata %} ,{{item.BrandName}}  {{item.VarietyName}}  {% endfor %}"/>
 <meta name="description" content="{{data.EnterpriseName}}位于{{data.EnterpriseProvince}}{{data.EnterpriseAddressDetail}}是一家专注于农产品/农作物/非浓雾品种的经销、生产等的种子经营经销商/企业" />  
