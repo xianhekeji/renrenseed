@@ -15,15 +15,13 @@
     <script charset="utf-8" src="{{url}}js/kindeditor.js"></script>
     <script charset="utf-8" src="{{url}}js/lang/zh_CN.js"></script>
     <script charset="utf-8" src="{{url}}js/plugins/code/prettify.js"></script>
-
+    <script charset="utf-8" src="{{url}}js/system.js"></script>
     <head>
         <title>企业维护</title>
     </head>
     <body>
         <form action="EnterpriseSettingNew.php" method="post"
-              enctype='multipart/form-data'
-              onkeydown="if (event.keyCode == 13)
-        return false;">
+              enctype='multipart/form-data'>
             <table>
                 <tr>
                     <td>名称</td>
@@ -50,6 +48,10 @@
                 <tr>
                     <td>星级</td>
                     <td><input type="text" id="star" name="star" />(1-10)</td>
+                </tr>
+                <tr>
+                    <td>网址</td>
+                    <td><input type="text" id="com_url" name="com_url" /></td>
                 </tr>
                 <tr>
                     <td>联系电话</td>

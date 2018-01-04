@@ -115,7 +115,8 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
                 
             } else if (isset($_POST ["add"])) {
                 $dis_name = $_POST ['name'];
-                $sql = "insert into WXUser VALUES(null,'$dis_name','phone','$time','province','city','zone','addressdetail','0','0','0','$url" . "files/userAvatar/$insert','0','0','0','$time','$time')";
+                $sql = "insert into WXUser VALUES(null,'$dis_name','phone','$time','province','city','zone','addressdetail','0','0','0','$url" . "files/userAvatar/$insert','0','0','0','0','$time','$time','$time')";
+
                 $result_add = $db->query($sql);
                 $result_id = $db->lastInsertId();
 
@@ -127,7 +128,8 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
             
         } else if (isset($_POST ["add"])) {
             $dis_name = $_POST ['name'];
-            $sql = "insert into WXUser VALUES(null,'$dis_name','phone','$time','province','city','zone','addressdetail','0','0','0','','0','0','0','$time','$time')";
+            $sql = "insert into WXUser VALUES(null,'$dis_name','phone','$time','province','city','zone','addressdetail','0','0','0','','0','0','0','0','$time','$time','$time')";
+
             $result_add = $db->query($sql);
             $result_id = $db->lastInsertId();
             echo "<script>alert(" . $result_id . ")</script>";

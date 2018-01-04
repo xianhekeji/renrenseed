@@ -1,17 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
-<html>
-    {% include 'header.xhtml' %}
-    <link href="{{url}}css/cssreset.css" rel="stylesheet">
+{# /templates/index.html #}
+{% extends "base.xhtml" %}
+{% block title %}推荐-最新-热门-适宜-人人种品种大全{% endblock %}
+{% block meta %}
+<meta name="keywords" content="推荐品种、最新品种、热门品种、适宜本地种植"/>
+<meta name="description" content="人人种品种平台为广大农户提供推荐种植品种，最新国审省审品种以及种植地域大、农户偏矮的热门品种，更提供了适宜本地/本省/本区域适宜种植的农作物/非农作物品种" />  
+{% endblock %}
+{% block footer %}
+{% endblock %}
+{% block css %}
+<link href="{{url}}css/cssreset.css" rel="stylesheet">
     <link rel="stylesheet" href="{{url}}css/list_crop.css" />
     <link rel="stylesheet" href="{{url}}css/croplist.css" />
-    <script type="text/javascript" src="{{url}}js/croplist.js"></script>
     <link rel="stylesheet" href="{{url}}css/rate.css" type="text/css" />
+    {% endblock %}
+    {% block js %}
+    <script type="text/javascript" src="{{url}}js/croplist.js"></script>
+    {% endblock %}
+    {% block main %}
     <div class="left_div">
         <div class="search">
             <label for="search"></label>
@@ -97,3 +102,4 @@ and open the template in the editor.
         </div>
     </div>
 </html>
+{% endblock %}

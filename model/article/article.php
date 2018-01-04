@@ -16,6 +16,7 @@ $cropmaindata = array();
 $db->query("SET NAMES utf8");
 $id = $_GET['id'];
 $articledata = array();
+$db->query("update WXArticle set ArticleReadCount=ArticleReadCount+1 where ArticleId=$id");
 $data = $db->row("select * from WXArticle where ArticleId=$id");
 //$data = mysqli_fetch_array($q, MYSQLI_ASSOC);
 //var_dump($data);

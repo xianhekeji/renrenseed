@@ -17,7 +17,7 @@ $db_config['db_user'] = 'root';
 $db_config['db_pass'] = 'devLGM123';
 $db_config['db_charset'] = 'utf8_decode';
 $db_config['db_expires'] = '0';
-require_once DT_ROOT . '/data/PDODB.php';
+require_once 'PDODB.php';
 //数据连接初始化
 //$db_class = PDODB;
 $db = new PDODB($db_config['db_host'], $db_config['db_name'], $db_config['db_user'], $db_config['db_pass']);

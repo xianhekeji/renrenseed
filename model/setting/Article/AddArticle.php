@@ -1,26 +1,42 @@
 <?php
 require '../../../common.php';
 include '../../../wxAction.php';
+include '../Class/ArticleClass.php';
 $htmlData = '';
-$arr_province = $_POST ['t_province'];
-if (!empty($_POST ['url1'])) {
-    $url = $_POST ['url1'];
-}
-$title = $_POST ['title'];
-if (!empty($_POST ['content1'])) {
-    if (get_magic_quotes_gpc()) {
-        $htmlData = stripslashes($_POST ['content1']);
-    } else {
-        $htmlData = $_POST ['content1'];
-    }
-}
-;
+$article_class = new ArticleClass();
+
+$arr_province = isset($_POST ['t_province']) ? $_POST ['t_province'] : '';
+//if (!empty($_POST ['url1'])) {
+//    $url = $_POST ['url1'];
+//}
+$url = !empty($_POST ['url1']) ? $_POST ['url1'] : '';
+$titlenew = isset($_POST ['titlenew']) ? $_POST ['titlenew'] : '';
+$title = isset($_POST ['title']) ? $_POST ['title'] : '';
+$htmlData = isset($_POST ['content1']) ? stripslashes($_POST ['content1']) : '';
+$class = isset($_POST ['select_class']) ? $_POST ['select_class'] : '';
 $data = htmlspecialchars($htmlData);
 if (isset($_POST ["add"])) {
-    $sql = "insert into WXArticle VALUES ( NULL, '$title', '$data', '$time', '0', '$url','$arr_province' )";
-    $result_add = $db->query($sql);
-    $result_id = $db->lastInsertId();
-    echo "<script>alert(" . $result_id . ")</script>";
+    $param = array();
+    $param['ArticleTitle'] = $titlenew;
+    $param['ArticleContent'] = $data;
+    $param['ArticleCover'] = $url;
+    $param['ArticleLabel'] = $arr_province;
+    $param['ArticleClassId'] = $class;
+    $insert = $article_class->insertInfo($param);
+    echo "<script>alert(" . $insert . ")</script>";
+}
+if (isset($_POST ["modify"])) {
+    $arr_id = explode(';', $_POST ['title']);
+    $id = $arr_id [0];
+    $article_class->setInfo($id);
+    $param = array();
+    $param['ArticleTitle'] = $titlenew;
+    $param['ArticleContent'] = $data;
+    $param['ArticleCover'] = $url;
+    $param['ArticleLabel'] = $arr_province;
+    $param['ArticleClassId'] = $class;
+    $update = $article_class->updateInfo($param);
+    echo "<script>alert(" . $update . ")</script>";
 }
 ?>
 <!doctype html>
@@ -34,108 +50,23 @@ if (isset($_POST ["add"])) {
         <script type="text/javascript" src="../../../js/jquery.ui.widget.js"></script>
         <script type="text/javascript" src="../../../js/jquery.ui.position.js"></script>
         <script type="text/javascript" src="../../../js/jquery.ui.autocomplete.js"></script>
-
         <link rel="stylesheet" href="../../../themes/default/default.css" />
         <link rel="stylesheet" href="../../../js/plugins/code/prettify.css" />
         <script charset="utf-8" src="../../../js/kindeditor.js"></script>
         <script charset="utf-8" src="../../../js/lang/zh_CN.js"></script>
         <script charset="utf-8" src="../../../js/plugins/code/prettify.js"></script>
-        <script>
-            $(function () {
-                provinces = "";
-                $("#au_province").autocomplete({
-                    source: "../../Action/searchLabel.php",
-                    minLength: 1,
-                    autoFocus: false,
-                    select: function (event, ui) {
-                        ss = ui.item.label;
-                        provinces = provinces + ss + ";";
-                        $("#t_province").empty();
-                        $("#t_province").append(provinces);
-                        $("#au_province").val("");
-                    }
-                });
-            })
-            function addPhone() {
-                var phone = $.trim($("#au_province").val());
-                if (phone == "") {
-                    alert("标签不能为空");
-                } else {
-                    if ($.trim($("#t_province").val()) == "") {
-                        $("#t_province").val(phone);
-                    } else {
-                        $("#t_province").val($("#t_province").val() + ";" + phone);
-                    }
-
-                    $("#au_province").val("");
-                }
-            }
-            function resetProvince() {
-                provinces = "";
-                $("#t_province").empty();
-                $("#au_province").val("");
-            }</script>
-        <script>
-            KindEditor.ready(function (K) {
-                var editor1 = K.create('textarea[name="content1"]', {
-                    cssPath: '../../../js/plugins/code/prettify.css',
-                    uploadJson: '../upload_json.php',
-                    fileManagerJson: '../file_manager_json.php',
-                    allowFileManager: true,
-                    afterCreate: function () {
-                        var self = this;
-                        K.ctrl(document, 13, function () {
-                            self.sync();
-                            K('form[name=example]')[0].submit();
-                        });
-                        K.ctrl(self.edit.doc, 13, function () {
-                            self.sync();
-                            K('form[name=example]')[0].submit();
-                        });
-                    },
-                    items: [
-                        'source', '|', 'undo', 'redo', '|', 'preview', 'print', 'template', 'code', 'cut', 'copy', 'paste',
-                        'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
-                        'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
-                        'superscript', 'clearhtml', 'quickformat', 'selectall', '|', 'fullscreen', '/',
-                        'formatblock', 'fontname', 'fontsize', '|', 'forecolor', 'hilitecolor', 'bold',
-                        'italic', 'underline', 'strikethrough', 'lineheight', 'removeformat', '|', 'image', 'multiimage',
-                        'flash', 'media', 'insertfile', 'table', 'hr', 'emoticons', 'baidumap', 'pagebreak',
-                        'anchor', 'link', 'unlink', '|', 'about'],
-                    afterBlur: function () {
-                        this.sync();
-                    }//需要添加的  
-                });
-                prettyPrint();
-            });
-        </script>
-        <script>
-            KindEditor.ready(function (K) {
-                var editor = K.editor({
-                    allowFileManager: true,
-                    cssPath: '../../../js/plugins/code/prettify.css',
-                    uploadJson: '../upload_json.php',
-                    fileManagerJson: '../file_manager_json.php',
-                });
-                K('#image1').click(function () {
-                    editor.loadPlugin('image', function () {
-                        editor.plugin.imageDialog({
-                            imageUrl: 'https://www.renrenseed.com' + K('#url1').val(),
-                            clickFn: function (url, title, width, height, border, align) {
-                                K('#url1').val(url);
-                                editor.hideDialog();
-                            }
-                        });
-                    });
-                });
-            });
-        </script>
+        <script type="text/javascript" src="../../../js/articlesetting.js" ></script>
     </head>
     <body>
         <form name="example" method="post" action="AddArticle.php">
             <p>
-                标题：<input type="text" name="title" id="title" />
+                搜索：<input type="text" id="title" name="title" id="title" />
             </p>
+            <p>
+                标题：<input type="text" id="titlenew" name="titlenew" id="title" />
+                <select name="select_class" id="select_class" title="选择类别"></select>
+            </p>
+
             <p>
                 封面图片：<input type="text" name="url1" id="url1" value="" /> <input
                     type="button" id="image1" value="选择图片" />（网络图片 + 本地上传）
@@ -152,10 +83,10 @@ if (isset($_POST ["add"])) {
             <textarea name="content1"
                       style="width: 1000px; height: 600px; visibility: hidden;"></textarea>
             <br />
-            <input name="add" type="submit" name="button" value="提交内容" /> (提交快捷键:
+            <input name="add" class="submit" type="submit" value="新建" />(新建快捷键:
             Ctrl + Enter)
+            <input name="modify" class="submit" type="submit" value="修改" />
             <input name="reset" class="submit" type="submit" value="重置" />
-
         </form>
     </body>
 </html>

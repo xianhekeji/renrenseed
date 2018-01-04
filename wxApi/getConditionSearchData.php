@@ -29,8 +29,8 @@ if ($checkStatus == "全部") {
     $conditionStatus = "and (a.AuthorizeStatus=1 or a.AuthorizeStatus=2) ";
 } else if ($checkStatus == "已登记") {
     $conditionStatus = "and a.AuthorizeStatus=3";
-} else if ($checkStatus == "审定/登记") {
-    $conditionStatus = "and (a.AuthorizeStatus=1 or a.AuthorizeStatus=2 or a.AuthorizeStatus=3)";
+} else if ($checkStatus == "已退出") {
+    $conditionStatus = "and a.AuFlag=2";
 }
 $isSelectShending = false;
 //获取适宜种植地区id

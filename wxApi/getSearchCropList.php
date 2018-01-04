@@ -4,6 +4,10 @@ require '../common.php';
 include '../wxAction.php';
 $text = isset($_GET['text']) ? $_GET['text'] : '';
 $text = $_GET['text'] == 'undefined' ? '' : $_GET['text'];
+$record = $db->query("select * from WXSearchRecord where searchText ='$text'");
+if (count($record) == 0) {
+    $db->query("insert into WXSearchRecord VALUES(null,'$text',now())");
+}
 $province = isset($_GET ['province']) ? $_GET ['province'] : '山东省';
 $pro_sql = "select * from AppProvince WHERE ProName LIKE '%$province%' limit 0,1";
 $arr_province = $db->row($pro_sql);

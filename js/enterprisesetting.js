@@ -1,4 +1,5 @@
 var i = 0;
+var editor1;
 $(function () {
     KindEditor.ready(function (K) {
         var editor = K.editor({
@@ -20,7 +21,7 @@ $(function () {
         });
     });
     KindEditor.ready(function (K) {
-        var editor1 = K.create('textarea[name="introduce"]', {
+        editor1 = K.create('textarea[name="introduce"]', {
             cssPath: 'plugins/code/prettify.css',
             uploadJson: 'upload_json_enterprise.php',
             fileManagerJson: 'file_manager_json_enterprise.php',
@@ -48,6 +49,7 @@ $(function () {
             afterBlur: function () {
                 this.sync();
             }//需要添加的  
+
         });
         prettyPrint();
     });
@@ -80,9 +82,19 @@ $(function () {
                 //这里你可以处理获取的数据。我使用是json 格式。你也可以使用其它格式。或者为空，让它自己判断得了  
                 $("#name").val(data["EnterpriseId"] + ";" + data["EnterpriseName"]);
                 $("#address").val(data["EnterpriseAddressDetail"]);
+                $("#com_url").val(data["EnterpriseWeb"]);
                 $("#star").val(data["EnterpriseCommentLevel"]);
                 $("#selected_phone").val(data["EnterpriseTelephone"]);
-                $("#introduce").val(data["EnterpriseIntroduce"]);
+                $.post("../Action/getHtmlData.php", {"data": data["EnterpriseIntroduce"]}, function (data) {
+                    editor1.html(data);
+                });
+
+
+
+
+
+
+//                $("#introduce").val(stripslashes(data["EnterpriseIntroduce"]));
                 $("#select_province").find("option[text='" + data["province"] + "']").attr("selected", true);
                 get_select_city_check(data["city"], data["zone"]);
                 $("#select_city").find("option[text='" + str + "']").attr("selected", true);
@@ -90,6 +102,14 @@ $(function () {
         }
     });
 });
+function htmlspecialchars_decode(str) {
+    str = str.replace(/&amp;/g, '&');
+    str = str.replace(/&lt;/g, '<');
+    str = str.replace(/&gt;/g, '>');
+    str = str.replace(/&quot;/g, "'");
+    str = str.replace(/&#039;/g, "'");
+    return str;
+}
 
 $().ready(function () {
     get_select_province();
@@ -161,9 +181,9 @@ function addPhone() {
     if (phone == "") {
         alert("电话号码不能为空");
     } else {
-        alert($("#select_phone_class").val() + ',' + phone + ';');
-        $("#selected_phone").append("111");
-        var aa = $("#select_phone_class").val() + ',' + phone + ';';
+//        alert($("#select_phone_class").val() + ':' + phone + ';');
+//        $("#selected_phone").append("111");
+        var aa = $("#select_phone_class").val() + ':' + phone + ';';
 
         $("#selected_phone").val($("#selected_phone").val() + aa);
         $("#phone").val("");

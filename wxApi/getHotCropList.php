@@ -18,6 +18,7 @@ $sql = "select a.*,b.varietyname category_1,c.varietyname category_2,
  left join app_variety c on a.CropCategory2=c.varietyid
  LEFT JOIN CropOrder d on a.CropId=d.OrderCropId 
  left join (select AuCropId,'$province_name' pro from WXAuthorize where FIND_IN_SET('$province_id',BreedRegionProvince) group by AuCropId) auths on auths.AuCropId=a.CropId
+     , case when (ISNULL(CropImgsMin)  or CropImgsMin='') then 1 else 0 end isCrop
 where a.Flag=0 
 ORDER BY auths.pro desc,CommentRecordCreateTime desc,CropOrderNo desc
   limit 0,5";

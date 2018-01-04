@@ -6,6 +6,14 @@ $variety = $_GET ['variety_name'];
 $PageNo = $_GET ['searchPageNum'];
 $PageStart = $PageNo * 20;
 $province = $_GET ['province'];
+
+$click_variety = $db->row("select * from app_variety WHERE varietyname = '$variety' limit 0,1");
+if (count($click_variety) > 0) {
+    $id = $click_variety['varietyid'];
+    if ($PageNo == 0) {
+        $db->query("update app_variety set hotclick=hotclick+1 where varietyid=$id");
+    }
+}
 $pro_sql = "select * from AppProvince WHERE ProName LIKE '%$province%' limit 0,1";
 $arr_province = $db->row($pro_sql);
 $province_id = $arr_province ['ProSort'];
@@ -29,5 +37,5 @@ foreach ($result as $rows) {
     $array [] = $rows;
 }
 
-echo app_wx_iconv_result_no('getCropListByVariety', true, 'success', 0, 0, 0, $array);
+echo app_wx_iconv_result('getCropListByVariety', true, 'success', 0, 0, 0, $array);
 ?>

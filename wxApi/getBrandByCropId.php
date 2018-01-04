@@ -10,5 +10,12 @@ left join AppEnterprise d on c.BrandCompany=d.EnterpriseId
 where b.CropId=$wxCropId order by a.OrderNo 
 ";
 $result = $db->query($sql);
-echo app_wx_iconv_result_no('getBrandByCropId', true, 'success', 0, 0, 0, $result);
+$array = array();
+foreach ($result as $rows) {
+    $url = explode(';', $rows['EnterpriseTelephone']);
+    array_push($url, '取消');
+    $rows['EnterpriseTelephone'] = array_filter($url);
+    $array[] = $rows;
+}
+echo app_wx_iconv_result('getBrandByCropId', true, 'success', 0, 0, 0, $result);
 ?>

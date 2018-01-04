@@ -19,6 +19,7 @@ if (!isset($_SESSION['user'])) {
     <script type="text/javascript" src="../../js/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="../../js/jquery.ui.position.js"></script>
     <script type="text/javascript" src="../../js/jquery.ui.autocomplete.js"></script>
+    <script charset="utf-8" src="../../js/system.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#variety_1").autocomplete({
@@ -50,7 +51,7 @@ if (!isset($_SESSION['user'])) {
                         $("#variety_icon").empty();
                         $("#variety_img").empty();
                         if (data["variety_icon"].length > 0) {
-                            var icon_url = '<td><a href="https://www.renrenseed.com/files/cropImgs/' + data["variety_icon"] + '" target="_blank"><img src="https://www.renrenseed.com/files/cropImgs/' + data["variety_icon"] + '" height="100" width="100" /></a></td>';
+                            var icon_url = '<td><a href="https://www.renrenseed.com/files/categoryImgs/' + data["variety_icon"] + '" target="_blank"><img src="https://www.renrenseed.com/files/categoryImgs/' + data["variety_icon"] + '" height="100" width="100" /></a></td>';
                             $("#variety_icon").append(icon_url);
                         }
                         if (data["variety_img"].length > 0) {
@@ -248,7 +249,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
         echo "<script>alert(" . $update . ")</script>";
     } else if (isset($_POST ["add"])) {
         $variety_2 = $_POST ['variety_2'];
-        $sql = "insert into app_variety values(null,'$variety_2','$variety_id_1','','$time','','','','$insert','$insert_2','1','$memo','$py')";
+        $sql = "insert into app_variety values(null,'$variety_2','$variety_id_1','','$time','','','','$insert','$insert_2','1','$memo','$py',0)";
         $result_add = $db->query($sql);
         $result_id = $db->lastInsertId();
         echo "<script>alert(" . $result_id . ")</script>";

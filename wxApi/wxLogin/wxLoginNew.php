@@ -64,7 +64,7 @@ function getUserInfo($db, $unionId) {
 function addUser($db, $info) {
     $time = date('Y-m-d H:i:s', time());
     $name = $info->nickName;
-    $sql = "insert into WXUser VALUES(null,'$name','phone','$time','province','city','zone','addressdetail','0','lat','lng','$info->avatarUrl','$info->openId','','$info->unionId','$time','$time')";
+    $sql = "insert into WXUser VALUES(null,'$name','phone','$time','province','city','zone','addressdetail','0','lat','lng','$info->avatarUrl','$info->openId','','','$info->unionId','$time','$time','$time')";
     $result = $db->query($sql);
     return $result > 0 ? true : false;
 }

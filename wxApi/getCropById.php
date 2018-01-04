@@ -12,6 +12,13 @@ $arr_province = $db->row($pro_sql);
 $province_id = $arr_province['ProSort'];
 $province_name = $arr_province['ProName'];
 $wxCropId = $_GET['CropId'];
+try {
+    $db->query("update WXCrop set CropClickCount=CropClickCount+1 where CropId=$wxCropId");
+} catch (Exception $exc) {
+    echo $exc->getTraceAsString();
+}
+
+
 $sql = "select a.*,b.varietyname CropCategoryName1,c.varietyname CropCategoryName2
 ,case when (ISNULL(CropImgsMin)  or CropImgsMin='') then c.variety_img else a.CropImgsMin end img,auths.pro pro,au.region Region,
   case when (ISNULL(CropImgsMin)  or CropImgsMin='') then 1 else 0 end isCrop
@@ -45,9 +52,8 @@ if ($shending) {
 if ($dengji) {
     $statu = $statu . '已登记';
 }
-if(!$shending&&!$dengji)
-{
-     $statu = $statu . '未审定登记';
+if (!$shending && !$dengji) {
+    $statu = $statu . '未审定登记';
 }
 $row['statu'] = $statu;
 echo app_wx_iconv_result_no('getCropById', true, 'success', 0, 0, 0, $row);

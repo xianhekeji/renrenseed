@@ -19,10 +19,15 @@ order by EnterpriseLevel desc, CommodityOrderNoCompany desc;";
 $result = $db->query($sql);
 //$array = array();
 $isshow = 0;
+$array = array();
 foreach ($result as $rows) {
     if ($rows['EnterpriseLevel'] == 1) {
         $isshow = 1;
     }
+    $url = explode(';', $rows['EnterpriseTelephone']);
+    array_push($url, '取消');
+    $rows['EnterpriseTelephone'] = array_filter($url);
+    $array[] = $rows;
 }
 echo app_wx_iconv_result_no('getEnterpriseListByCropId', true, $isshow, 0, 0, 0, $result);
 ?>

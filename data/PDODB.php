@@ -164,6 +164,20 @@ class PDODB {
         return $this->sQuery->fetchColumn();
     }
 
+    public function getColumn($table_name) {
+//        if (!empty($db_name)) {
+        $getColomn = "select DISTINCT(COLUMN_NAME) COLUMN_NAME from information_schema.COLUMNS where table_name = '$table_name';  ";
+//        } else {
+//            $getColomn = " select DISTINCT(COLUMN_NAME) COLUMN_NAME from information_schema.COLUMNS where table_name = '$table_name' and table_schema = 'renrenseed'";
+//        }
+        $this->Init($getColomn, null);
+        $resultColumn = $this->sQuery->fetchAll(PDO::FETCH_COLUMN);
+        $this->rowCount = $this->sQuery->rowCount();
+        $this->columnCount = $this->sQuery->columnCount();
+        $this->sQuery->closeCursor();
+        return $resultColumn;
+    }
+
     private function ExceptionLog($message, $sql = "") {
         $exception = 'Unhandled Exception. <br />';
         $exception .= $message;

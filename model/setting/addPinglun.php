@@ -19,6 +19,7 @@ if (!isset($_SESSION['user'])) {
     <script type="text/javascript" src="../../js/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="../../js/jquery.ui.position.js"></script>
     <script type="text/javascript" src="../../js/jquery.ui.autocomplete.js"></script>
+     <script charset="utf-8" src="../../js/system.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#cropname").autocomplete({
@@ -59,9 +60,7 @@ if (!isset($_SESSION['user'])) {
     </head>
     <body>
         <form action="addPinglun.php" method="post"
-              enctype='multipart/form-data'
-              onkeydown="if (event.keyCode == 13)
-                          return false;">
+              enctype='multipart/form-data'>
             <table>
                 <tr>
                     <td>搜索用户</td>

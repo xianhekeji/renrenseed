@@ -2,9 +2,9 @@
 
 require '../common.php';
 include '../wxAction.php';
-$cropname = $_GET['cropname'];
-$CropCategoryName1 = $_GET['CropCategoryName1'];
-$CropCategoryName2 = $_GET['CropCategoryName2'];
+$cropname = isset($_GET['cropname']) ? $_GET['cropname'] : '';
+$CropCategoryName1 = isset($_GET['CropCategoryName1']) ? $_GET['CropCategoryName1'] : '';
+$CropCategoryName2 = isset($_GET['CropCategoryName2']) ? $_GET['CropCategoryName2'] : '';
 $condition = '';
 if ($cropname == '') {
     
@@ -31,18 +31,23 @@ if ($CropCategoryName2 == '') {
 }
 //$PageNo = $_GET ['searchPageNum'];
 $sql = "select ArticleId,ArticleTitle,
-        REPLACE(REPLACE(REPLACE(ArticleContent,CONCAT(CHAR(13),CHAR(10)) , ''),CHAR(13),''),CHAR(9),'')  ArticleContent,
        ArticleCreateTime,ArticleFlag,ArticleCover,ArticleLabel  from WXArticle
 where $condition
            ORDER BY ArticleCreateTime desc;";
-
 $result = $db->query($sql);
+if (count($result) == 0) {
+    $sql = "select ArticleId,ArticleTitle,
+        REPLACE(REPLACE(REPLACE(ArticleContent,CONCAT(CHAR(13),CHAR(10)) , ''),CHAR(13),''),CHAR(9),'')  ArticleContent,
+       ArticleCreateTime,ArticleFlag,ArticleCover,ArticleLabel  from WXArticle
+           ORDER BY ArticleCreateTime desc limit 0,10;";
+    $result = $db->query($sql);
+}
 $array = array();
 foreach ($result as $rows) {
-    $rows['ArticleContent'] = str_replace('&quot;', "'", $rows['ArticleContent']);
+//    $rows['ArticleContent'] = str_replace('&quot;', "'", $rows['ArticleContent']);
     $new_time = date("Y-m-d", strtotime($rows['ArticleCreateTime']));
     $rows['ArticleCreateTime'] = $new_time;
     $array [] = $rows;
 }
 
-echo app_wx_iconv_result_no('getArticleByCrop', true, 'success', 0, 0, 0, $array);
+echo app_wx_iconv_result('getArticleByCrop', true, 'success', 0, 0, 0, $array);

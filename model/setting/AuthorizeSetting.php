@@ -19,6 +19,7 @@ if (!isset($_SESSION['user'])) {
     <script type="text/javascript" src="../../js/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="../../js/jquery.ui.position.js"></script>
     <script type="text/javascript" src="../../js/jquery.ui.autocomplete.js"></script>
+    <script charset="utf-8" src="../../js/system.js"></script>
     <script type="text/javascript">
         $(function () {
             provinces = "";
@@ -259,7 +260,7 @@ if (isset($_POST ["flag_qiyong"])) {
     $number_id = $arr_number [0];
     $sql = "update WXAuthorize set AuFlag=0
 	where AuthorizeId='$number_id'";
-    $update = $db->query($sql_update);
+    $update = $db->query($sql);
     echo "<script>alert(" . $update . ")</script>";
 }
 if (isset($_POST ["add"]) || isset($_POST ["modify"])) {

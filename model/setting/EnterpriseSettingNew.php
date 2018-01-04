@@ -16,7 +16,6 @@ if (isset($_POST ["flag_qiyong"])) {
     $eninfo = new RRZ_enterprise($id);
     $eninfo->__construct($id);
     $result = $eninfo->setFlag(0);
-    var_dump($result);
     echo "<script>alert('" . $result . "')</script>";
 }
 if (isset($_POST ["flag_zuofei"])) {
@@ -29,7 +28,7 @@ if (isset($_POST ["flag_zuofei"])) {
     $eninfo = new RRZ_enterprise($id);
     $eninfo->__construct($id);
     $result = $eninfo->setFlag(1);
-    echo $result;
+
     echo "<script>alert('" . $result . "')</script>";
 }
 
@@ -44,12 +43,8 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
     $dis_phone = isset($_POST ['selected_phone']) ? $_POST ['selected_phone'] : '';
     $dis_lat = isset($_POST ['lat']) ? $_POST ['lat'] : '0';
     $dis_lon = isset($_POST ['lon']) ? $_POST ['lon'] : '0';
-    if (get_magic_quotes_gpc()) {
-        $dis_introduce = htmlspecialchars(stripslashes($_POST ['introduce']));
-        ;
-    } else {
-        $dis_introduce = htmlspecialchars($_POST ['introduce']);
-    }
+    $dis_com_url = isset($_POST ['com_url']) ? $_POST ['com_url'] : '';
+    $dis_introduce = addslashes(htmlspecialchars($_POST ['introduce']));
     $name = array();
     $save = array();
     if (!empty($images) && is_array($images ['name'])) {
@@ -112,6 +107,8 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
                 $para['enterpriseLon'] = $dis_lon;
                 $para['enterpriseCommentLevel'] = $dis_star;
                 $para['enterpriseUserAvatar'] = $insert;
+                $para['enterpriseWeb'] = $dis_com_url;
+
                 $result = $eninfo->addNew($para);
                 echo "<script>alert(" . $result . ")</script>";
             }
@@ -120,9 +117,10 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
         if (isset($_POST ["modify"])) {
             $arr_id = explode(';', $_POST ['name']);
             $id = $arr_id [0];
+            $name = $arr_id [1];
             $eninfo = new RRZ_enterprise($id);
             $eninfo->__construct($id);
-            $updatecondition = "EnterpriseAddressDetail ='$dis_address',EnterpriseCommentLevel='$dis_star',EnterpriseTelephone='$dis_phone',EnterpriseIntroduce='$dis_introduce',EnterpriseLat='$dis_lat',EnterpriseLon='$dis_lon'";
+            $updatecondition = "EnterpriseName ='$name',EnterpriseAddressDetail ='$dis_address',EnterpriseCommentLevel='$dis_star',EnterpriseTelephone='$dis_phone',EnterpriseIntroduce='$dis_introduce',EnterpriseLat='$dis_lat',EnterpriseLon='$dis_lon',EnterpriseWeb='$dis_com_url'";
             if (!empty($dis_province)) {
                 $updatecondition = $updatecondition . ",EnterpriseProvince='$dis_province'";
             }
@@ -150,6 +148,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
             $para['enterpriseLat'] = $dis_lat;
             $para['enterpriseLon'] = $dis_lon;
             $para['enterpriseCommentLevel'] = $dis_star;
+            $para['enterpriseWeb'] = $dis_com_url;
             $result = $eninfo->addNew($para);
             echo "<script>alert(" . $result . ")</script>";
         }

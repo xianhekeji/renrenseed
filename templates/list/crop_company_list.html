@@ -1,0 +1,12 @@
+<div class="crop_company_content">
+    <table>
+        {% for item in company %}
+        <tr>
+            <td ><image class="en_brand" src="{{item.avatar}}"/></td>
+            <td ><text class="text">{{item.EnterpriseName}}</text></td>
+            <td ><a href="{{item.qrcode}}" target='_blank'><image class="useravatar" src="{{item.qrcode}}"/></td></a>
+            <td ><text class="text">（点击放大）扫码联系该企业</text></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>

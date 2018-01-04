@@ -49,6 +49,7 @@ if (!empty($class2id)) {
 //分页功能测试begin
 $perNumber = $CFG['perNumber']; //每页显示的记录数  
 $page = isset($_GET['page']) ? $_GET['page'] : 1; //获得当前的页面值  
+
 if ($page > 3) {
     $cropmaindata['isExceed'] = TRUE;
 } else {
@@ -60,7 +61,7 @@ from WXCrop a
  left join app_variety b on a.CropCategory1=b.varietyid
  left join app_variety c on a.CropCategory2=c.varietyid
  LEFT JOIN CropOrder d on a.CropId=d.OrderCropId 
- where 1=1 $condition"); //获得记录总数  
+ where a.Flag=0 $condition"); //获得记录总数  
 $totalNumber = $count['count'];
 $totalPage = ceil($totalNumber / $perNumber) == 0 ? 1 : ceil($totalNumber / $perNumber); //计算出总页数  
 if (!isset($page)) {

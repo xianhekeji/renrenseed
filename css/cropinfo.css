@@ -7,6 +7,10 @@ and open the template in the editor.
     Created on : 2017-7-26, 10:03:11
     Author     : liguangming <JN XianHe>
 */
+h1 {
+  font-weight: normal;
+  font-size: 20px; }
+
 .crop_info {
   display: flex;
   flex-direction: row;
@@ -14,6 +18,8 @@ and open the template in the editor.
 
 .crop_info .crop_img {
   width: 200px;
+  min-width: 200px;
+  min-height: 200px;
   margin-left: 20px;
   height: 200px; }
 
@@ -267,6 +273,8 @@ and open the template in the editor.
   margin-left: 10px; }
 
 .article_content {
+  display: flex;
+  flex-direction: column;
   max-width: 220px;
   margin-left: 10px; }
 
@@ -293,5 +301,35 @@ and open the template in the editor.
   height: 100px;
   max-height: 100px;
   max-width: 100px; }
+
+.crop_qrcode {
+  width: 180px;
+  height: 180px;
+  max-width: 180px;
+  max-height: 180px; }
+
+.qrcode_text {
+  width: 180px;
+  text-align: center; }
+
+.crop_company_content {
+  display: flex;
+  flex-direction: column; }
+
+.crop_company_list {
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px; }
+
+.item_company_content {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  line-height: 50px; }
+
+.en_brand {
+  width: 80px;
+  height: 80px;
+  margin-left: 20px; }
 
 /*# sourceMappingURL=cropinfo.css.map */

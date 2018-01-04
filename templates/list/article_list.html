@@ -2,8 +2,8 @@
 <div class="item_article_list">
     <image src="{{comm_url}}{{  item.ArticleCover}}" class="item_article_img" alt="{{item.ArticleTitle}}"></image>
     <div class="article_content">
-        <a title="{{item.ArticleTitle}}" class="crop_name" href="{{url}}model/article/article.php?id={{item.ArticleId}}">{{item.ArticleTitle}}</a>
-        <text class="time">{{item.ArticleCreateTime}}</text>
+        <a title="{{item.ArticleTitle}}" href="{{url}}model/article/article.php?id={{item.ArticleId}}">{{item.ArticleTitle}}</a>
+        <text class="time">{{item.ArticleCreateTime|date("Y-m-d")}}</text>
     </div>
 </div>
 {% endfor %}

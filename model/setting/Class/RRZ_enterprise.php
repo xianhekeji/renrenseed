@@ -19,6 +19,7 @@ class RRZ_enterprise {
     private $enterprisePassword; //关联用户密码（未用）
     private $enterpriseUserAvatar; //头像
     private $enterpriseCommentLevel; //点评级别（功能已关闭）
+    private $enterpriseWeb; //点评级别（功能已关闭）
     private $enterpriseOrderNo; //自定义排序
     private $enterpriseInfo; //存储数据库返回信息的数组变量.
     private $db;
@@ -54,6 +55,7 @@ class RRZ_enterprise {
         $this->enterpriseUserAvatar = $this->enterpriseInfo["EnterpriseUserAvatar"];
         $this->enterpriseCommentLevel = $this->enterpriseInfo["EnterpriseCommentLevel"];
         $this->enterpriseOrderNo = $this->enterpriseInfo["EnterpriseOrderNo"];
+        $this->enterpriseWeb = $this->enterpriseInfo["EnterpriseWeb"];
     }
 
     //返回每个属性的public 方法.
@@ -80,7 +82,7 @@ class RRZ_enterprise {
         foreach ($param as $key => $value) {
             $this->$key = $value;
         }
-        $sql = "insert into AppEnterprise values(NULL,'$this->enterpriseName','DistributorTrademark','0','$this->enterpriseTelephone','0','$this->enterpriseIntroduce','$this->enterpriseProvince','$this->enterpriseCity','$this->enterpriseZone','$this->enterpriseAddressDetail','$this->enterpriseLat','$this->enterpriseLon','$this->enterpriseUserCode','$this->enterprisePassword','$this->enterpriseUserAvatar','$this->enterpriseCommentLevel',0)";
+        $sql = "insert into AppEnterprise values(NULL,'$this->enterpriseName','DistributorTrademark','0','$this->enterpriseTelephone','0','$this->enterpriseIntroduce','$this->enterpriseProvince','$this->enterpriseCity','$this->enterpriseZone','$this->enterpriseAddressDetail','$this->enterpriseLat','$this->enterpriseLon','$this->enterpriseUserCode','$this->enterprisePassword','$this->enterpriseUserAvatar','$this->enterpriseCommentLevel',0,'$this->enterpriseWeb')";
         $result_add = $this->db->query($sql);
         return $this->db->lastInsertId();
     }

@@ -41,7 +41,7 @@ if (isset($_POST ["post_company_urls"])) {
     $post_last_id = $post_last_row['EnterpriseId'];
 //    echo $post_last_id;
     foreach ($result as $row) {
-        array_push($urls, "https://www.renrenseed.com//model/enmain/companyinfo.php?id=11=" . $row['EnterpriseId']);
+        array_push($urls, "https://www.renrenseed.com//model/enmain/companyinfo.php?id=" . $row['EnterpriseId']);
     }
 
     $urlResult = postBaiduUrls($urls);

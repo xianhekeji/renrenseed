@@ -13,5 +13,6 @@ left JOIN AppArea b on aa.EnterpriseProvince=b.areaid
 left join AppArea c on aa.EnterpriseCity=c.areaid
 left join AppArea d on aa.EnterpriseZone=d.areaid
  where aa.EnterpriseId ='$q' LIMIT 0,1");
-echo str_replace("\r\n", '\\n', str_replace('\n', '\\n', urldecode(json_encode(url_encode($result)))))
+//echo str_replace("\r\n", '\\n', str_replace('\n', '\\n', urldecode(json_encode(url_encode($result)))))
+echo json_encode($result);
 ?>

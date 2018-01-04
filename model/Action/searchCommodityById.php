@@ -10,5 +10,5 @@ left join WXCrop e on a.CommodityVariety=e.CropId
 left join app_variety f on a.CommodityVariety_1=f.varietyid
 left join app_variety g on a.CommodityVariety_2=g.varietyid
 where CommodityId ='$q' LIMIT 0,1");
-echo str_replace("\r\n", '\\n', str_replace('\n', '\\n', urldecode(json_encode(url_encode($result)))));
+echo json_encode($result);
 ?>

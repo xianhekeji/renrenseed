@@ -19,6 +19,7 @@ if (!isset($_SESSION['user'])) {
     <script type="text/javascript" src="../../js/jquery.ui.widget.js"></script>
     <script type="text/javascript" src="../../js/jquery.ui.position.js"></script>
     <script type="text/javascript" src="../../js/jquery.ui.autocomplete.js"></script>
+    <script charset="utf-8" src="../../js/system.js"></script>
     <script type="text/javascript">
         $(function () {
             $("#key").autocomplete({
@@ -63,7 +64,7 @@ if (!isset($_SESSION['user'])) {
                         get_select_3(data["VarietyName_2"]);
                         $("#name").val(data["CommodityName"]);
                         $("#price").val(data["CommodityPrice"]);
-                        $("#spec").val(data["CommoditySpec"]);
+                        $("#spec").val(data["CommodityLicence"]);
                         $("#describe").val(data["CommodityDescribe"]);
                         $("#brand").val(data["BrandId"] + ";" + data["BrandName"]);
                         $("#key").val(data["EnterpriseId"] + ";" + data["EnterpriseName"]);
@@ -163,9 +164,7 @@ if (!isset($_SESSION['user'])) {
     </head>
     <body>
         <form action="ModifyCommodityForIE.php" method="post"
-              enctype='multipart/form-data'
-              onkeydown="if (event.keyCode == 13)
-                          return false;">
+              enctype='multipart/form-data'>
             <table>
                 <tr>
                     <td>搜索名称</td>
@@ -193,7 +192,7 @@ if (!isset($_SESSION['user'])) {
                     <td><input type="text" name="brand" id="brand" /></td>
                 </tr>
                 <tr>
-                    <td>商品规格</td>
+                    <td>商品许可证</td>
                     <td><input type="heddin" name="spec" id="spec" value="0" /></td>
                 </tr>
                 <tr>
@@ -378,7 +377,7 @@ if (isset($_POST ["add"]) || isset($_POST ["modify"])) {
                 $sql = "update AppCommodity SET CommodityTitle='$app_commodity_title',CommodityName='$app_commodity_name'
 			,CommodityPrice='$app_commodity_price',CommodityDescribe='$app_commodity_describe',
 `Owner`='$companyid',CommodityImgs='$insert',CommodityVariety='$crop_id',CommodityClass='$app_commodity_class',CommodityVariety_1='$app_Variety_1',CommodityVariety_2='$app_Variety_2'
-,CommoditySpec='$app_spec',CommodityBrand='$app_brand' ,CommodityImgsMin='$insert_min' 
+,CommodityLicence='$app_spec',CommodityBrand='$app_brand' ,CommodityImgsMin='$insert_min' 
 where CommodityId=$app_commodityid";
                 $update = $db->query($sql);
                 echo "<script>alert(" . $update . ")</script>";
@@ -396,7 +395,7 @@ where CommodityId=$app_commodityid";
             $sql = "update AppCommodity SET CommodityTitle='$app_commodity_title',CommodityName='$app_commodity_name'
 				,CommodityPrice='$app_commodity_price',CommodityDescribe='$app_commodity_describe',
 				`Owner`='$companyid',CommodityVariety='$crop_id',CommodityClass='$app_commodity_class',CommodityVariety_1='$app_Variety_1',CommodityVariety_2='$app_Variety_2'
-				,CommoditySpec='$app_spec',CommodityBrand='$app_brand' 
+				,CommodityLicence='$app_spec',CommodityBrand='$app_brand' 
 				where CommodityId=$app_commodityid";
             $update = $db->query($sql);
             echo "<script>alert(" . $update . ")</script>";

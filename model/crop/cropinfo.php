@@ -128,6 +128,78 @@ $cropinfodata['tonglei'] = $db->query("select a.*,b.varietyname category_1,c.var
 where a.CropId!=$cropid 
  ORDER BY d.HotOrderNo desc
  limit 0,2");
-$cropinfodata['articlelist'] = $db->query("select * from WXArticle  order by ArticleCreateTime desc  limit 0,5");
 
+
+//ow = $db->row("select a.*,b.varietyname CropCategoryName1,c.varietyname CropCategoryName2
+$cropname = $cropinfodata['cropinfo']['VarietyName'];
+$CropCategoryName1 = $cropinfodata['cropinfo']['CropCategoryName1'];
+$CropCategoryName2 = $cropinfodata['cropinfo']['CropCategoryName2'];
+
+$condition = '';
+if ($cropname == '') {
+    
+} else {
+    $condition = " ArticleLabel like '%$cropname%'";
+}
+if ($CropCategoryName1 == '') {
+    
+} else {
+    if (trim($condition) != '') {
+        $condition = $condition . "or ArticleLabel like '%$CropCategoryName1%'";
+    } else {
+        $condition = " ArticleLabel like '%$CropCategoryName1%'";
+    }
+}
+if ($CropCategoryName2 == '') {
+    
+} else {
+    if (trim($condition) != '') {
+        $condition = $condition . "or  ArticleLabel like '%$CropCategoryName2%'";
+    } else {
+        $condition = "  ArticleLabel like '%$CropCategoryName2%'";
+    }
+}
+$sql = "select ArticleId,ArticleTitle,
+       ArticleCreateTime,ArticleFlag,ArticleCover,ArticleLabel  from WXArticle
+where $condition
+           ORDER BY ArticleCreateTime desc;";
+$cropinfodata['articlelist'] = $db->query($sql);
+if (count($cropinfodata['articlelist']) == 0) {
+    $sql = "select ArticleId,ArticleTitle,
+        REPLACE(REPLACE(REPLACE(ArticleContent,CONCAT(CHAR(13),CHAR(10)) , ''),CHAR(13),''),CHAR(9),'')  ArticleContent,
+       ArticleCreateTime,ArticleFlag,ArticleCover,ArticleLabel  from WXArticle
+           ORDER BY ArticleCreateTime desc limit 0,10;";
+    $cropinfodata['articlelist'] = $db->query($sql);
+}
+
+$cropinfodata['qrcode'] = get_url("https://www.renrenseed.com/model/Action/getCropQRCode.php?CropId=$cropid");
+//企商
+$sql = "SELECT a.EnterpriseId,a.EnterpriseName,d.areaname EnterpriseProvince,e.areaname EnterpriseCity,f.areaname EnterpriseZone,a.EnterpriseAddressDetail,case when (EnterpriseUserAvatar=null or EnterpriseUserAvatar='') then '' else 'default_distirbutor.png' end img,
+ EnterpriseCommentLevel CropLevel,c.BrandName BrandName_1,c.BrandId BrandId_1,c.BrandImgMin BrandImgMin,b.CommodityOrderNoCompany,a.EnterpriseTelephone,b.CommodityVip EnterpriseLevel
+ FROM AppEnterprise a
+inner join (SELECT Owner,CommodityBrand,CommodityOrderNoCompany,CommodityVip FROM AppCommodity WHERE CommodityVariety=$cropid  AND OwnerClass=1 group by CommodityBrand,Owner,CommodityVip ) b on a.EnterpriseId=b.Owner
+left join AppBrand c on b.CommodityBrand=c.BrandId
+left join AppArea d on a.EnterpriseProvince=d.areaid
+left join AppArea e on a.EnterpriseCity=e.areaid
+left join AppArea f on a.EnterpriseZone=f.areaid
+where EnterpriseFlag=0 
+order by EnterpriseLevel desc, CommodityOrderNoCompany desc;";
+$result = $db->query($sql);
+//$array = array();
+$isshow = 0;
+$array = array();
+foreach ($result as $rows) {
+    if ($rows['EnterpriseLevel'] == 1) {
+        $isshow = 1;
+    }
+    $url = explode(';', $rows['EnterpriseTelephone']);
+    array_push($url, '取消');
+    $rows['EnterpriseTelephone'] = array_filter($url);
+    $id = $rows['EnterpriseId'];
+    $rows['avatar'] = "https://www.renrenseed.com/wxApi/getEnterpriseAvatar.php?id=$id";
+    $rows['qrcode'] = get_url("https://www.renrenseed.com/model/Action/getEnterpriseQRCode.php?CompanyId=$id");
+    $array[] = $rows;
+}
+$cropinfodata['company'] = $array;
 echo $twig->render('crop/cropinfo.xhtml', $cropinfodata);
+

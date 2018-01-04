@@ -8,12 +8,14 @@ require '../common.php';
 include '../wxAction.php';
 //$sql = "select  varietyid,varietyname,variety_icon,GET_FIRST_PINYIN_CHAR(varietyname) variety_py,arrvarietyname arrvarietyname from app_variety 
 //where varietyclassid !=0 and varietyclassid!=1 and variety_flag!=1 ORDER BY variety_py limit 0,200";
-$sql = "select  varietyid,varietyname name,variety_icon,variety_py,arrvarietyname arrvarietyname from app_variety 
+$sql = "select  varietyid,varietyname name,variety_icon,left(variety_py, 1) variety_py,arrvarietyname arrvarietyname from app_variety 
  where varietyclassid !=0 and varietyclassid!=1 and variety_flag!=1 ORDER BY variety_py";
 $result = $db->query($sql);
 $array = array();
 $i = 0;
+$array['热门类别'][] = '热门类别';
 foreach ($result as $rows) {
+
     $rows['key'] = $rows['variety_py'];
     if ($i == 0) {
         $array[$rows['variety_py']][] = $rows;
